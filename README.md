@@ -1,4 +1,4 @@
-# OmniAuth::Decidim
+# Decidim::NewsletterAgenda
 
 [![[CI] Lint](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/lint.yml/badge.svg)](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/test.yml/badge.svg)](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/test.yml)
@@ -24,6 +24,8 @@ bundle
 ```
 
 ## Usage
+
+This module simply adds a new template for the newsletter, which is focused on events.
 
 ### Configuration
 
