@@ -2,8 +2,8 @@
 
 module Decidim
   module NewsletterAgenda
-    VERSION = '1.0.0'
-    DECIDIM_VERSION = '0.26.4'
-    COMPAT_DECIDIM_VERSION = ['>= 0.26.0', '< 0.27'].freeze
+    VERSION = "1.0.0"
+    DECIDIM_VERSION = "0.26.4"
+    COMPAT_DECIDIM_VERSION = [">= 0.26.0", "< 0.27"].freeze
   end
 end
