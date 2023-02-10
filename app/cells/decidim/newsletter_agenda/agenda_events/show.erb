@@ -1,0 +1,103 @@
+<style>
+table.container {
+  background: <%= background_color %> !important;
+	width: 816px !important;
+  color: #ffffff !important;
+}
+table.container th, table.container td, table.container p, table.container a{
+  color: #ffffff !important;
+}
+table.container a{
+	text-decoration: underline;
+}
+table.container th{
+	padding-left: 0;
+	padding-right: 0;
+}
+td.introduction {
+  padding: 10%;
+}
+table.introduction, table.introduction td, table.introduction td p{
+	color: #ffffff !important;
+	padding: 20px 0;
+}
+td.agenda .top{
+	background: <%= background_color %> url(<%= background_image_top %>) no-repeat center 100%; !important;
+	color: #000000 !important;
+	height: 387px;
+}
+td.agenda .bottom{
+	background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%; !important;
+	color: #000000 !important;
+	height: 387px;
+}
+table.agenda td, table.agenda p{
+	background: #ffffff !important;
+	color: #000000 !important;
+}
+td.footer {
+}
+</style>
+
+<table class="main container">
+	<tr>
+		<td class="introduction">
+			<table class="introduction">
+				<tr>
+					<td style="font-size:30px;line-height:30px;">
+			      <%= intro_title %>
+			    </td>
+			  </tr>
+	      <% if has_main_image? %>
+				  <tr>
+				  	<td>
+			        <table class="row content image">
+			          <tr>
+			            <th class="small-12 first columns">
+			              <%= main_image %>
+			            </th>
+			            <th class="expander"></th>
+			          </tr>
+			        </table>
+				  	</td>
+				  </tr>
+	      <% end %>
+	      <tr>
+	      	<td>
+			      <%= intro_text %>
+			    </td>
+			  </tr>
+			</table>
+    </td>
+  </tr>
+	<tr>
+		<td class="agenda">
+			<table class="agenda">
+				<tr>
+					<td class="top">
+						<center>
+						top
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td class="middle">
+					todo...
+					</td>
+				</tr>
+				<tr>
+					<td class="bottom">
+						<center>
+						bottom
+						</center>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="footer">
+			todo...
+		</td>
+	</tr>
+</table>

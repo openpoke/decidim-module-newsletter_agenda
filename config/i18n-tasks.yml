@@ -6,7 +6,17 @@ locales: [en]
 data:
   external:
     - "<%= %x[bundle info decidim-core --path].chomp %>/config/locales/%{locale}.yml"
-
 ignore_unused:
 
 ignore_missing:
+  - decidim.newsletter_agenda.agenda_events_settings_form.*
+
+search:
+  relative_roots:
+    - app/controllers
+    - app/helpers
+    - app/mailers
+    - app/presenters
+    - app/services
+    - app/views
+    - app/cells

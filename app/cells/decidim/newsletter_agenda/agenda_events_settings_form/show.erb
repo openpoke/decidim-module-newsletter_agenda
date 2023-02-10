@@ -1,0 +1,42 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color", value: background_color %>
+<% end %>
+
+<fieldset class="fieldset">
+  <legend><%= t(".introduction") %></legend>
+  <% form.fields_for :settings, form.object.settings do |settings_fields| %>
+    <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
+    <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
+  <% end %>
+  <% form.fields_for :images, form.object.images do |images_fields| %>
+    <%= images_fields.upload :main_image, label: t(".main_image") %>
+  <% end %>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend><%= t(".body") %></legend>
+  todo...
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend><%= t(".footer") %></legend>
+  todo...
+</fieldset>
+
+<div class="row column">
+  <%= t(".interpolations_hint") %>
+</div>
+
+<style>
+  .fieldset {
+    padding:0;
+    border:none;
+  }
+  .fieldset legend{
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 1em 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+  }
+</style>
