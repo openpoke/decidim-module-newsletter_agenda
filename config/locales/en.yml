@@ -1,18 +1,27 @@
 ---
 en:
   decidim:
-    newsletter_templates:
-      agenda_events:
-        name: "Agenda events"
-        intro_title_preview: 'Dummy title for the newsletter.'
-        intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
     newsletter_agenda:
       agenda_events_settings_form:
-        background_color: "Background color"
-        introduction: Introduction
+        background_color: Background color
         body: Body
         footer: Footer
-        intro_title: "Introduction title"
-        main_image: "Introduction image"
+        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
+          subject and it will be replaced by the recipient''s name.'
         intro_text: Introduction text
-        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+        intro_title: Introduction title
+        introduction: Introduction
+        main_image: Introduction image
+    newsletter_templates:
+      agenda_events:
+        intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium
+          facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed
+          id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna,
+          sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit.
+          Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean
+          tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat,
+          cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas
+          enim. In eget magna sed enim efficitur elementum sit amet aliquam quam.
+          Donec fermentum metus eget urna luctus pulvinar.'
+        intro_title_preview: Dummy title for the newsletter.
+        name: Agenda events
