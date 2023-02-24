@@ -3,17 +3,42 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
+        add_box: Add box
         background_color: Background color
         body: Body
+        body_box_date_time_label: Body box date and time
+        body_box_description_label: Body box description
+        body_box_image: Body box image
+        body_box_link_text_label: Body box link text
+        body_box_link_url_label: Body box link URL
+        body_box_title_label: Body box title
+        body_final_text_label: Body final text
+        body_subtitle_label: Body subtitle
+        body_title_label: Body title
+        boxes_number_label: Number of boxes
+        boxes_number_title: Box %{number}
         footer: Footer
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
+        intro_link_text_label: Introduction link text
+        intro_link_url_label: Introduction link URL
         intro_text: Introduction text
         intro_title: Introduction title
         introduction: Introduction
         main_image: Introduction image
     newsletter_templates:
       agenda_events:
+        body_box_date_time_preview: 7 – 15 Novembre, 10:00
+        body_box_description_preview: 'En aquestes ornades reunim a diferent: apents
+          publics i del sector dels videojocs per tal que es consideri una activitat
+          protegida i regulada.'
+        body_box_link_text_preview: Read more
+        body_box_title_preview: Segones jornades en defensa dels drets digitals
+        body_final_text_preview: Però hi ha més
+        body_subtitle_preview: del 7 al 15 de novembre
+        body_title_preview: Que hi ha durant la setmana
+        intro_link_text_default: Read more
+        intro_link_text_preview: Read more
         intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium
           facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed
           id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna,

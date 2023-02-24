@@ -7,6 +7,8 @@
   <% form.fields_for :settings, form.object.settings do |settings_fields| %>
     <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
     <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
+    <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text_label") %>
+    <%= settings_fields.translated :text_field, :intro_link_url, label: t(".intro_link_url_label") %>
   <% end %>
   <% form.fields_for :images, form.object.images do |images_fields| %>
     <%= images_fields.upload :main_image, label: t(".main_image") %>
@@ -15,7 +17,29 @@
 
 <fieldset class="fieldset">
   <legend><%= t(".body") %></legend>
-  todo...
+  <% form.fields_for :settings, form.object.settings do |settings_fields| %>
+    <%= settings_fields.translated :text_field, :body_title, label: t(".body_title_label") %>
+    <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle_label") %>
+    <% boxes_number = form.object.settings["boxes_number"].to_i.nonzero? || 1 %>
+    <%= settings_fields.select :boxes_number, (1..4), {},
+                               {label: t(".body_subtitle_label"), "data-boxes-number": boxes_number, id: "box-number"} %>
+    <div id="box-container">
+      <% boxes_number.times.each_with_index do |_, item| %>
+        <div class="box" id="box1">
+          <legend class="box-title"><%= t(".boxes_number_title", number: (item + 1).ordinalize) %></legend>
+          <%= settings_fields.translated :text_field, "body_box_title_#{item + 1}", label: t(".body_box_title_label") %>
+          <%= settings_fields.translated :text_field, "body_box_date_time_#{item + 1}", label: t(".body_box_date_time_label") %>
+          <%= settings_fields.translated :text_field, "body_box_description_#{item + 1}", label: t(".body_box_description_label") %>
+          <%= settings_fields.translated :text_field, "body_box_link_text_#{item + 1}", label: t(".body_box_link_text_label") %>
+          <%= settings_fields.translated :text_field, "body_box_link_url_#{item + 1}", label: t(".body_box_link_url_label") %>
+          <% form.fields_for :images, form.object.images do |images_fields| %>
+            <%= images_fields.upload "body_box_image_#{item + 1}", label: t(".body_box_image") %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= settings_fields.translated :text_field, :body_final_text, label: t(".body_final_text_label") %>
+  <% end %>
 </fieldset>
 
 <fieldset class="fieldset">
@@ -27,12 +51,15 @@
   <%= t(".interpolations_hint") %>
 </div>
 
+<%= javascript_pack_tag "decidim_newsletter_agenda" %>
+
 <style>
   .fieldset {
-    padding:0;
-    border:none;
+    padding: 0;
+    border: none;
   }
-  .fieldset legend{
+
+  .fieldset legend {
     font-weight: bold;
     font-size: 1.2em;
     margin: 1em 0;

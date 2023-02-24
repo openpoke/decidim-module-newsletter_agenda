@@ -25,6 +25,14 @@ module Decidim
             }
           ]
 
+          (1..4).each do |i|
+            content_block.images << {
+              name: "body_box_image_#{i}",
+              uploader: "Decidim::NewsletterTemplateImageUploader",
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+            }
+          end
+
           content_block.settings do |settings|
             settings.attribute(
               :background_color,
@@ -42,6 +50,73 @@ module Decidim
               type: :text,
               translated: true,
               preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_text_preview") }
+            )
+            settings.attribute(
+              :intro_link_text,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_link_text_preview") }
+            )
+            settings.attribute(
+              :intro_link_url,
+              type: :text,
+              translated: true,
+              preview: -> { "https://decidim.org" }
+            )
+            settings.attribute(
+              :body_title,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_title_preview") }
+            )
+            settings.attribute(
+              :body_subtitle,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_subtitle_preview") }
+            )
+            settings.attribute(
+              :boxes_number,
+              type: :integer,
+              preview: -> { 4 }
+            )
+            (1..4).each do |i|
+              settings.attribute(
+                "body_box_title_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_box_title_preview") }
+              )
+              settings.attribute(
+                "body_box_date_time_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_box_date_time_preview") }
+              )
+              settings.attribute(
+                "body_box_description_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_box_description_preview") }
+              )
+              settings.attribute(
+                "body_box_link_text_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_box_link_text_preview") }
+              )
+              settings.attribute(
+                "body_box_link_url_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { "https://decidim.org" }
+              )
+            end
+            settings.attribute(
+              :body_final_text,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_final_text_preview") }
             )
           end
 

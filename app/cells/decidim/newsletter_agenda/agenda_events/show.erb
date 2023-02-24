@@ -1,103 +1,156 @@
 <style>
-table.container {
-  background: <%= background_color %> !important;
-	width: 816px !important;
-  color: #ffffff !important;
-}
-table.container th, table.container td, table.container p, table.container a{
-  color: #ffffff !important;
-}
-table.container a{
-	text-decoration: underline;
-}
-table.container th{
-	padding-left: 0;
-	padding-right: 0;
-}
-td.introduction {
-  padding: 10%;
-}
-table.introduction, table.introduction td, table.introduction td p{
-	color: #ffffff !important;
-	padding: 20px 0;
-}
-td.agenda .top{
-	background: <%= background_color %> url(<%= background_image_top %>) no-repeat center 100%; !important;
-	color: #000000 !important;
-	height: 387px;
-}
-td.agenda .bottom{
-	background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%; !important;
-	color: #000000 !important;
-	height: 387px;
-}
-table.agenda td, table.agenda p{
-	background: #ffffff !important;
-	color: #000000 !important;
-}
-td.footer {
-}
+  table.container {
+    background: <%= background_color %> !important;
+    width: 816px !important;
+    color: #ffffff !important;
+  }
+
+  table.container th, table.container td, table.container p, table.container a {
+    color: #ffffff !important;
+  }
+
+  table.container a {
+    text-decoration: underline;
+  }
+
+  table.container th {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  td.introduction {
+    padding: 10%;
+  }
+
+  table.introduction, table.introduction td, table.introduction td p {
+    color: #ffffff !important;
+    padding: 20px 0;
+  }
+
+  td.agenda .top {
+    background: <%= background_color %> url(<%= background_image_top %>) no-repeat center 100%;
+  !important;
+    color: #000000 !important;
+    height: 387px;
+  }
+
+  td.agenda .bottom {
+    background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%;
+  !important;
+    color: #000000 !important;
+    height: 387px;
+  }
+
+  table.agenda td, table.agenda p {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  td.footer {
+  }
+
+  .body-subtitle {
+    color: <%= background_color %>;
+    font-size: 36px;
+  }
 </style>
 
 <table class="main container">
-	<tr>
-		<td class="introduction">
-			<table class="introduction">
-				<tr>
-					<td style="font-size:30px;line-height:30px;">
-			      <%= intro_title %>
-			    </td>
-			  </tr>
-	      <% if has_main_image? %>
-				  <tr>
-				  	<td>
-			        <table class="row content image">
-			          <tr>
-			            <th class="small-12 first columns">
-			              <%= main_image %>
-			            </th>
-			            <th class="expander"></th>
-			          </tr>
-			        </table>
-				  	</td>
-				  </tr>
-	      <% end %>
-	      <tr>
-	      	<td>
-			      <%= intro_text %>
-			    </td>
-			  </tr>
-			</table>
+  <tr>
+    <td class="introduction">
+      <table class="introduction">
+        <tr>
+          <td style="font-size:50px;line-height:30px;text-align:center;">
+            <%= organization_logo %>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:30px;line-height:30px;">
+            <%= intro_title %>
+          </td>
+        </tr>
+        <% if has_main_image? %>
+          <tr>
+            <td>
+              <table class="row content image">
+                <tr>
+                  <th class="small-12 first columns">
+                    <%= main_image %>
+                  </th>
+                  <th class="expander"></th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>
+            <%= intro_text %>
+            <%= link_to intro_link_text, intro_link_url, target: :blank %>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
-	<tr>
-		<td class="agenda">
-			<table class="agenda">
-				<tr>
-					<td class="top">
-						<center>
-						top
-						</center>
-					</td>
-				</tr>
-				<tr>
-					<td class="middle">
-					todo...
-					</td>
-				</tr>
-				<tr>
-					<td class="bottom">
-						<center>
-						bottom
-						</center>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td class="footer">
-			todo...
-		</td>
-	</tr>
+  <tr>
+    <td class="agenda">
+      <table class="agenda">
+        <tr>
+          <td class="top">
+            <div style="text-align: center;margin: 60px 0 40px;">
+              <%= body_title %>
+            </div>
+            <div class="body-subtitle" style="text-align: center;">
+              <%= body_subtitle %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="middle">
+            <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <% (1..4).each_slice(2) do |boxes| %>
+                <tr>
+                  <% boxes.each do |i| %>
+                    <td style="padding: 10px;">
+                      <div class="box">
+                        <div class="box_image">
+                          <%= body_box_image(i) if has_box_image?(i) %>
+                        </div>
+                        <div class="box_date_time">
+                          <%= body_box_date_time(i) %>
+                        </div>
+                        <div class="box-title">
+                          <%= body_box_title(i) %>
+                        </div>
+                        <div class="box-text">
+                          <%= body_box_description(i) %>
+                        </div>
+                        <div class="box-link">
+                          <%= link_to body_box_link_text(i), body_box_link_url(i), target: :blank %>
+                        </div>
+                      </div>
+                    </td>
+                  <% end %>
+                </tr>
+              <% end %>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="bottom">
+            <center>
+              <%= body_final_text %>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="footer">
+      todo...
+    </td>
+  </tr>
 </table>
