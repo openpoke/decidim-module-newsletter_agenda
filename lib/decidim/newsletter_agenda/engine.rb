@@ -48,6 +48,11 @@ module Decidim
               preview: -> { Decidim::NewsletterAgenda.default_background_color || "#733BCE" }
             )
             settings.attribute(
+              :font_color_over_bg,
+              type: :text,
+              preview: -> { Decidim::NewsletterAgenda.default_font_color_over_bg || "#FFFFFF" }
+            )
+            settings.attribute(
               :intro_title,
               type: :text,
               translated: true,
@@ -156,6 +161,12 @@ module Decidim
                 type: :text,
                 translated: true,
                 preview: -> { "https://decidim.org" }
+              )
+              settings.attribute(
+                :footer_address_text,
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_address_text_preview") }
               )
             end
           end

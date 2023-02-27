@@ -17,6 +17,7 @@ en:
         body_title_label: Body title
         boxes_number_label: Number of boxes
         boxes_number_title: Box %{number}
+        font_color_over_bg: Font color over background
         footer: Footer
         footer_box_date_time_label: Footer box datetime
         footer_box_image: Footer box image

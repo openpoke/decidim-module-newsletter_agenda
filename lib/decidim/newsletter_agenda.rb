@@ -14,5 +14,9 @@ module Decidim
     config_accessor :default_background_color do
       nil
     end
+
+    config_accessor :default_font_color_over_bg do
+      "#FFFFFF"
+    end
   end
 end

@@ -56,7 +56,11 @@ module Decidim
       end
 
       def background_color
-        model.settings.background_color.presence || NewsletterAgenda.default_background_color || organization.colors["primary"] || "#733BCE"
+        model.settings.background_color.presence || NewsletterAgenda.default_background_color
+      end
+
+      def font_color_over_bg
+        model.settings.font_color_over_bg.presence || NewsletterAgenda.default_font_color_over_bg || "#FFFFFF"
       end
 
       def body_title
