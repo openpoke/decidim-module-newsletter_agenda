@@ -22,11 +22,13 @@
     <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle_label") %>
     <% boxes_number = form.object.settings["boxes_number"].to_i.nonzero? || 1 %>
     <%= settings_fields.select :boxes_number, (1..4), {},
-                               {label: t(".body_subtitle_label"), "data-boxes-number": boxes_number, id: "box-number"} %>
+                               { label: t(".body_subtitle_label"), "data-boxes-number": boxes_number, id: "box-number" } %>
     <div id="box-container">
       <% boxes_number.times.each_with_index do |_, item| %>
         <div class="box" id="box1">
-          <legend class="box-title"><%= t(".boxes_number_title", number: (item + 1).ordinalize) %></legend>
+          <div class="card-divider">
+            <h2 class="card-title"><%= t(".boxes_number_title", number: (item + 1).ordinalize) %>:</h2>
+          </div>
           <%= settings_fields.translated :text_field, "body_box_title_#{item + 1}", label: t(".body_box_title_label") %>
           <%= settings_fields.translated :text_field, "body_box_date_time_#{item + 1}", label: t(".body_box_date_time_label") %>
           <%= settings_fields.translated :text_field, "body_box_description_#{item + 1}", label: t(".body_box_description_label") %>
@@ -44,7 +46,21 @@
 
 <fieldset class="fieldset">
   <legend><%= t(".footer") %></legend>
-  todo...
+  <% form.fields_for :settings, form.object.settings do |settings_fields| %>
+    <%= settings_fields.translated :text_field, :footer_title, label: t(".body_title_label") %>
+    <% 3.times do |item| %>
+      <div class="card-divider">
+        <h2 class="card-title"><%= t(".boxes_number_title", number: (item + 1).ordinalize) %>:</h2>
+      </div>
+      <%= settings_fields.translated :text_field, "footer_box_date_time_#{item + 1}", label: t(".footer_box_date_time_label") %>
+      <%= settings_fields.translated :text_field, "footer_box_title_#{item + 1}", label: t(".footer_box_title_label") %>
+      <%= settings_fields.translated :text_field, "footer_box_link_text_#{item + 1}", label: t(".footer_box_link_text_label") %>
+      <%= settings_fields.translated :text_field, "footer_box_link_url_#{item + 1}", label: t(".footer_box_link_url_label") %>
+      <% form.fields_for :images, form.object.images do |images_fields| %>
+        <%= images_fields.upload "footer_box_image_#{item + 1}", label: t(".main_image") %>
+      <% end %>
+    <% end %>
+  <% end %>
 </fieldset>
 
 <div class="row column">

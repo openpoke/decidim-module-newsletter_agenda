@@ -26,11 +26,16 @@ module Decidim
           ]
 
           (1..4).each do |i|
-            content_block.images << {
-              name: "body_box_image_#{i}",
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-            }
+            content_block.images.push({
+                                        name: "body_box_image_#{i}",
+                                        uploader: "Decidim::NewsletterTemplateImageUploader",
+                                        preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+                                      })
+            content_block.images.push({
+                                        name: "footer_box_image_#{i}",
+                                        uploader: "Decidim::NewsletterTemplateImageUploader",
+                                        preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+                                      })
           end
 
           content_block.settings do |settings|
@@ -118,6 +123,38 @@ module Decidim
               translated: true,
               preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_final_text_preview") }
             )
+            settings.attribute(
+              :footer_title,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_title_preview") }
+            )
+            (1..4).each do |i|
+              settings.attribute(
+                "footer_box_date_time_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_title_preview") }
+              )
+              settings.attribute(
+                "footer_box_title_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_description_preview") }
+              )
+              settings.attribute(
+                "footer_box_link_text_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_link_text_preview") }
+              )
+              settings.attribute(
+                "footer_box_link_url_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { "https://decidim.org" }
+              )
+            end
           end
 
           content_block.default!

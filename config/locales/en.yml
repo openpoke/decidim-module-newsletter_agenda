@@ -18,6 +18,12 @@ en:
         boxes_number_label: Number of boxes
         boxes_number_title: Box %{number}
         footer: Footer
+        footer_box_date_time_label: Footer box datetime
+        footer_box_image: Footer box image
+        footer_box_link_text_label: Footer box link text
+        footer_box_link_url_label: Footer box link URL
+        footer_box_title_label: Footer box title
+        footer_title: Footer title
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
         intro_link_text_label: Introduction link text
@@ -37,6 +43,10 @@ en:
         body_final_text_preview: Però hi ha més
         body_subtitle_preview: del 7 al 15 de novembre
         body_title_preview: Que hi ha durant la setmana
+        footer_box_date_time_preview: 7 – 15 Novembre, 10:00
+        footer_box_link_text_preview: Read more
+        footer_box_title_preview: Segones jornades en defensa dels drets digitals
+        footer_title_preview: Footer title
         intro_link_text_default: Read more
         intro_link_text_preview: Read more
         intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium

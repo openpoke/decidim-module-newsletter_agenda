@@ -79,7 +79,6 @@ module Decidim
         parse_interpolations(uninterpolated("body_box_title_#{box_number}"), recipient_user, newsletter.id)
       end
 
-
       def body_box_date_time(box_number)
         parse_interpolations(uninterpolated("body_box_date_time_#{box_number}"), recipient_user, newsletter.id)
       end
@@ -101,11 +100,33 @@ module Decidim
       end
 
       def body_box_image_url(box_number)
-        newsletter.template.images_container.attached_uploader.send("body_box_image_#{box_number}").url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
+        newsletter.template.images_container.attached_uploader.send("body_box_image_#{box_number}")
+                  .url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
       end
 
       def has_box_image?(box_number)
         newsletter.template.images_container.send("body_box_image_#{box_number}").attached?
+      end
+
+      # Footer
+      def footer_title
+        parse_interpolations(uninterpolated(:footer_title), recipient_user, newsletter.id)
+      end
+
+      def footer_box_title(box_number)
+        parse_interpolations(uninterpolated("footer_box_title_#{box_number}"), recipient_user, newsletter.id)
+      end
+
+      def footer_box_date_time(box_number)
+        parse_interpolations(uninterpolated("footer_box_date_time_#{box_number}"), recipient_user, newsletter.id)
+      end
+
+      def footer_box_link_text(box_number)
+        parse_interpolations(uninterpolated("footer_box_link_text_#{box_number}"), recipient_user, newsletter.id)
+      end
+
+      def footer_box_link_url(box_number)
+        translated_attribute(model.settings["footer_box_link_url_#{box_number}"])
       end
     end
   end
