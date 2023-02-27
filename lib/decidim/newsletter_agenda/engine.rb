@@ -26,16 +26,19 @@ module Decidim
           ]
 
           (1..4).each do |i|
-            content_block.images.push({
-                                        name: "body_box_image_#{i}",
-                                        uploader: "Decidim::NewsletterTemplateImageUploader",
-                                        preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-                                      })
-            content_block.images.push({
-                                        name: "footer_box_image_#{i}",
-                                        uploader: "Decidim::NewsletterTemplateImageUploader",
-                                        preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-                                      })
+            content_block.images << {
+              name: :"body_box_image_#{i}",
+              uploader: "Decidim::NewsletterTemplateImageUploader",
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+            }
+          end
+
+          (1..3).each do |i|
+            content_block.images << {
+              name: :"footer_box_image_#{i}",
+              uploader: "Decidim::NewsletterTemplateImageUploader",
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+            }
           end
 
           content_block.settings do |settings|

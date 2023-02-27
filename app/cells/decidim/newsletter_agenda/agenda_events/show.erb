@@ -53,6 +53,13 @@
     color: <%= background_color %>;
     font-size: 36px;
   }
+
+  .body-box-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: <%= background_color %>;
+  }
 </style>
 
 <table class="main container">
@@ -111,23 +118,23 @@
               <tr>
                 <% (1..4).each_slice(2) do |boxes| %>
                 <tr>
-                  <% boxes.each do |i| %>
+                  <% boxes.each do |box_number| %>
                     <td style="padding: 10px;">
                       <div class="box">
                         <div class="box_image">
-                          <%= body_box_image(i) if has_box_image?(i) %>
+                          <%= body_box_image(box_number) if has_body_box_image?(box_number) %>
                         </div>
                         <div class="box_date_time">
-                          <%= body_box_date_time(i) %>
+                          <%= body_box_date_time(box_number) %>
                         </div>
-                        <div class="box-title">
-                          <%= body_box_title(i) %>
+                        <div class="body-box-title">
+                          <%= body_box_title(box_number) %>
                         </div>
                         <div class="box-text">
-                          <%= body_box_description(i) %>
+                          <%= body_box_description(box_number) %>
                         </div>
                         <div class="box-link">
-                          <%= link_to body_box_link_text(i), body_box_link_url(i), target: :blank %>
+                          <%= link_to body_box_link_text(box_number), body_box_link_url(box_number), target: :blank %>
                         </div>
                       </div>
                     </td>
@@ -150,7 +157,31 @@
   </tr>
   <tr>
     <td class="footer">
-      todo...
+      <table cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <% (1..3).each do |box_number| %>
+          <tr>
+
+            <td style="padding: 10px;">
+              <div class="box">
+                <div class="box_image">
+                  <%= footer_box_image(box_number) if has_footer_box_image?(box_number) %>
+                </div>
+                <div class="box_date_time">
+                  <%= footer_box_date_time(box_number) %>
+                </div>
+                <div class="body-box-title">
+                  <%= body_box_title(box_number) %>
+                </div>
+                <div class="box-link">
+                  <%= link_to body_box_link_text(box_number), body_box_link_url(box_number), target: :blank %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tr>
+      </table>
     </td>
   </tr>
 </table>

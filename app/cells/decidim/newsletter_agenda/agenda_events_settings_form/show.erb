@@ -35,7 +35,7 @@
           <%= settings_fields.translated :text_field, "body_box_link_text_#{item + 1}", label: t(".body_box_link_text_label") %>
           <%= settings_fields.translated :text_field, "body_box_link_url_#{item + 1}", label: t(".body_box_link_url_label") %>
           <% form.fields_for :images, form.object.images do |images_fields| %>
-            <%= images_fields.upload "body_box_image_#{item + 1}", label: t(".body_box_image") %>
+            <%= images_fields.upload :"body_box_image_#{item + 1}", label: t(".body_box_image") %>
           <% end %>
         </div>
       <% end %>
@@ -57,7 +57,7 @@
       <%= settings_fields.translated :text_field, "footer_box_link_text_#{item + 1}", label: t(".footer_box_link_text_label") %>
       <%= settings_fields.translated :text_field, "footer_box_link_url_#{item + 1}", label: t(".footer_box_link_url_label") %>
       <% form.fields_for :images, form.object.images do |images_fields| %>
-        <%= images_fields.upload "footer_box_image_#{item + 1}", label: t(".main_image") %>
+        <%= images_fields.upload :"footer_box_image_#{item + 1}", label: t(".main_image") %>
       <% end %>
     <% end %>
   <% end %>

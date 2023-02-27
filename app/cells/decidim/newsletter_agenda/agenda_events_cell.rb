@@ -96,21 +96,34 @@ module Decidim
       end
 
       def body_box_image(box_number)
-        image_tag body_box_image_url(box_number)
+        image_tag(body_box_image_url(box_number))
       end
 
       def body_box_image_url(box_number)
-        newsletter.template.images_container.attached_uploader.send("body_box_image_#{box_number}")
+        newsletter.template.images_container.attached_uploader(:"body_box_image_#{box_number}")
                   .url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
       end
 
-      def has_box_image?(box_number)
+      def has_body_box_image?(box_number)
         newsletter.template.images_container.send("body_box_image_#{box_number}").attached?
       end
 
       # Footer
       def footer_title
         parse_interpolations(uninterpolated(:footer_title), recipient_user, newsletter.id)
+      end
+
+      def footer_box_image(box_number)
+        image_tag(footer_box_image_url(box_number))
+      end
+
+      def footer_box_image_url(box_number)
+        newsletter.template.images_container.attached_uploader(:"footer_box_image_#{box_number}")
+                  .url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
+      end
+
+      def has_footer_box_image?(box_number)
+        newsletter.template.images_container.send("footer_box_image_#{box_number}").attached?
       end
 
       def footer_box_title(box_number)
