@@ -10,6 +10,14 @@ module Decidim
       def font_color_over_bg
         model.object.settings[:font_color_over_bg].presence || NewsletterAgenda.default_font_color_over_bg || "#FFFFFF"
       end
+
+      def footer_address_text
+        model.object.settings[:footer_address_text].presence || NewsletterAgenda.default_address_text || ""
+      end
+
+      def footer_image
+        model.object.settings[:footer_image].presence || current_organization.official_img_footer || ""
+      end
     end
   end
 end

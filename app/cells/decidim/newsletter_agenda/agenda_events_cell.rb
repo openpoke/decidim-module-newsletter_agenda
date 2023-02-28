@@ -5,6 +5,8 @@ require "cell/partial"
 module Decidim
   module NewsletterAgenda
     class AgendaEventsCell < NewsletterTemplates::BaseCell
+      include Decidim::LayoutHelper
+
       alias body show
 
       def show
@@ -12,7 +14,11 @@ module Decidim
       end
 
       def organization_logo
-        organization.name
+        image_tag(organization_logo_url)
+      end
+
+      def organization_logo_url
+        organization.logo.attached? ? Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [300, 80]), only_path: true) : nil
       end
 
       def intro_title
@@ -144,6 +150,52 @@ module Decidim
 
       def footer_box_link_url(box_number)
         translated_attribute(model.settings["footer_box_link_url_#{box_number}"])
+      end
+
+      def footer_image_logo
+        image_tag footer_image_logo_url
+      end
+
+      def footer_image_logo_url
+        newsletter.template.images_container.attached_uploader(:footer_image_logo).url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
+      end
+
+      def has_footer_image_logo?
+        newsletter.template.images_container.footer_image_logo.attached?
+      end
+
+      def footer_address_text
+        parse_interpolations(uninterpolated(:footer_address_text), recipient_user, newsletter.id)
+      end
+
+      def footer_social_links_title
+        parse_interpolations(uninterpolated(:footer_social_links_title), recipient_user, newsletter.id)
+      end
+
+      def social_links
+        links = []
+        find_handler_attributes.each do |k, v|
+          network = k.split("_").first
+          network_url = "https://#{network}.com/#{v}"
+          links << link_to(icon(network), network_url, target: "_blank", rel: "noopener", class: "footer-social__icon")
+        end
+        links
+      end
+
+      def footer_image
+        image_tag footer_image_url
+      end
+
+      def footer_image_url
+        if organization.official_img_footer.attached?
+          Rails.application.routes.url_helpers.rails_representation_path(organization.official_img_footer.variant(resize_to_fit: [300, 80]), only_path: true)
+        end
+      end
+
+      private
+
+      def find_handler_attributes
+        organization.attributes.select { |key, value| key.to_s.include?("handler") }
       end
     end
   end

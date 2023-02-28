@@ -19,11 +19,14 @@ en:
         boxes_number_title: Box %{number}
         font_color_over_bg: Font color over background
         footer: Footer
+        footer_address_label: Address organization
         footer_box_date_time_label: Footer box datetime
         footer_box_image: Footer box image
         footer_box_link_text_label: Footer box link text
         footer_box_link_url_label: Footer box link URL
         footer_box_title_label: Footer box title
+        footer_image_label: Footer image
+        footer_social_links_title_label: Social links title
         footer_title: Footer title
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
@@ -44,9 +47,16 @@ en:
         body_final_text_preview: Però hi ha més
         body_subtitle_preview: del 7 al 15 de novembre
         body_title_preview: Que hi ha durant la setmana
+        footer_address_text_preview: |-
+          <strong>Canödrom</strong> <br>
+          <strong>Ateneu d'Innovació Digital i Democràtica</strong>  <br>
+          C/Concepció Arenal 165 - 09027 Barcolana <br>
+          canodrom.barcelona <br>
+          hola@canodrom.com
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_link_text_preview: Read more
         footer_box_title_preview: Segones jornades en defensa dels drets digitals
+        footer_social_links_title_preview: Follow us on social networks
         footer_title_preview: Footer title
         intro_link_text_default: Read more
         intro_link_text_preview: Read more

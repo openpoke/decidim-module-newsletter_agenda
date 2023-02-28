@@ -15,8 +15,19 @@ module Decidim
       nil
     end
 
+    # The default font color over background for the newsletter agenda.
     config_accessor :default_font_color_over_bg do
       "#FFFFFF"
+    end
+
+    # The default address text for the newsletter agenda.
+    config_accessor :default_address_text do
+      <<~ADDRESS
+        Canödrom
+        Ateneu d'Innovació Digital i Democràtica
+        C/Concepció Arenal 165 - 09027 Barcolana canodrom.barcelona
+        hola@canodrom.com
+      ADDRESS
     end
   end
 end

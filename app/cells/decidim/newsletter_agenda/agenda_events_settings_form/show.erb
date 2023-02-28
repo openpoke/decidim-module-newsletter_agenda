@@ -61,6 +61,11 @@
         <%= images_fields.upload :"footer_box_image_#{item + 1}", label: t(".main_image") %>
       <% end %>
     <% end %>
+    <%= settings_fields.editor :footer_address_text, label: t(".footer_address_label"), value: footer_address_text %>
+    <%= settings_fields.text_field :footer_social_links_title, label: t(".footer_social_links_title_label") %>
+    <% form.fields_for :images, form.object.images do |images_fields| %>
+      <%= images_fields.upload :footer_image, label: t(".footer_image_label") %>
+    <% end %>
   <% end %>
 </fieldset>
 
