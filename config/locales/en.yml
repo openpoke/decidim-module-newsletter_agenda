@@ -19,7 +19,7 @@ en:
         boxes_number_title: Box %{number}
         font_color_over_bg: Font color over background
         footer: Footer
-        footer_address_label: Address organization
+        footer_address_label: Organization address
         footer_box_date_time_label: Footer box datetime
         footer_box_image: Footer box image
         footer_box_link_text_label: Footer box link text
