@@ -195,7 +195,7 @@ module Decidim
       private
 
       def find_handler_attributes
-        organization.attributes.select { |key, value| key.to_s.include?("handler") }
+        organization.attributes.select { |key| key.to_s.include?("handler") }
       end
     end
   end

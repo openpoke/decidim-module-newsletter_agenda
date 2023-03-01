@@ -1,7 +1,8 @@
 <style>
   table.container {
     background: <%= background_color %> !important;
-    width: 816px !important;
+    max-width: 816px !important;
+    width: 100%;
     color: #ffffff !important;
   }
 
@@ -39,8 +40,6 @@
   !important;
     color: #000000 !important;
     height: 387px;
-    position: relative;
-    z-index: 1;
   }
 
   .middle table {
@@ -102,10 +101,6 @@
 
   .footer-social {
     margin: 20px 0;
-    width: 45%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .footer-address {
@@ -118,18 +113,44 @@
 
   .footer-bottom {
     width: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
     margin: 10% 0;
   }
 
   .footer-social__wrap {
-    width: 45%;
+    text-align: right;
   }
 
-  td.footer-address strong {
-    font-weight: bold;
+  .footer-social {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @media only screen and (max-width: 600px) {
+    td {
+      display: block !important;
+    }
+
+    .footer-bottom {
+      display: block;
+      text-align: center;
+    }
+
+    .footer-social__wrap {
+      text-align: left;
+    }
+
+    .footer-address {
+      display: block;
+    }
+
+    .footer-social__wrap {
+      display: block;
+    }
+
+    .footer-social {
+      display: block;
+      text-align: center;
+    }
   }
 </style>
 
@@ -138,12 +159,12 @@
     <td class="introduction">
       <table class="introduction">
         <tr>
-          <td style="font-size:50px;line-height:30px;text-align:center;">
+          <td style="font-size:50px;line-height:30px;text-align:center;" colspan="2">
             <%= organization_logo %>
           </td>
         </tr>
         <tr>
-          <td style="font-size:30px;line-height:30px;">
+          <td style="font-size:30px;line-height:30px;" colspan="2">
             <%= intro_title %>
           </td>
         </tr>
@@ -217,10 +238,8 @@
           </td>
         </tr>
         <tr>
-          <td class="bottom">
-            <center>
-              <%= body_final_text %>
-            </center>
+          <td class="bottom" style="text-align: center">
+            <%= body_final_text %>
           </td>
         </tr>
       </table>
@@ -245,10 +264,10 @@
                   <%= footer_box_date_time(box_number) %>
                 </div>
                 <div class="footer-box-title">
-                  <%= body_box_title(box_number) %>
+                  <%= footer_box_title(box_number) %>
                 </div>
                 <div class="footer-box-link">
-                  <%= link_to body_box_link_text(box_number), body_box_link_url(box_number), target: :blank %>
+                  <%= link_to footer_box_link_text(box_number), footer_box_link_url(box_number), target: :blank %>
                 </div>
               </div>
             </td>
@@ -268,7 +287,7 @@
           </td>
         </tr>
       </table>
-      <table>
+      <table class="footer-logo", style="margin: 5% 0;">
         <tr>
           <td class="footer-bottom">
             <%= footer_image %>
