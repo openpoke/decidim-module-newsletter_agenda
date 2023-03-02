@@ -14,7 +14,7 @@ selectElement.addEventListener('change', function() {
     for (let i = 2; i <= numBoxes; i++) {
         const newBox = firstBox.cloneNode(true);
         newBox.id = 'box' + i;
-        newBox.querySelector('.box-title').textContent = 'Box #' + i;
+        newBox.querySelector('.body-box-title').textContent = 'Box #' + i;
 
         const fields = newBox.querySelectorAll('input[type="text"], input[type="file"], textarea');
         for (let j = 0; j < fields.length; j++) {
