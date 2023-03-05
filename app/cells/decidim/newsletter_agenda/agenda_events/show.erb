@@ -158,11 +158,13 @@
   <tr>
     <td class="introduction">
       <table class="introduction">
-        <tr>
-          <td style="font-size:50px;line-height:30px;text-align:center;" colspan="2">
-            <%= organization_logo %>
-          </td>
-        </tr>
+        <% if has_organization_logo? %>
+          <tr>
+            <td style="font-size:50px;line-height:30px;text-align:center;" colspan="2">
+              <%= organization_logo %>
+            </td>
+          </tr>
+        <% end %>
         <tr>
           <td style="font-size:30px;line-height:30px;" colspan="2">
             <%= intro_title %>
@@ -287,13 +289,15 @@
           </td>
         </tr>
       </table>
-      <table class="footer-logo", style="margin: 5% 0;">
-        <tr>
-          <td class="footer-bottom">
-            <%= footer_image %>
-          </td>
-        </tr>
-      </table>
+      <% if has_footer_image? %>
+        <table class="footer-logo" , style="margin: 5% 0;">
+          <tr>
+            <td class="footer-bottom">
+              <%= footer_image %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
     </td>
   </tr>
 </table>

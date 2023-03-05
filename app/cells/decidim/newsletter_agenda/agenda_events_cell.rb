@@ -18,7 +18,11 @@ module Decidim
       end
 
       def organization_logo_url
-        organization.logo.attached? ? Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [300, 80]), only_path: true) : nil
+        Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [300, 80]), only_path: true)
+      end
+
+      def has_organization_logo?
+        organization.logo.attached?
       end
 
       def intro_title
@@ -152,18 +156,6 @@ module Decidim
         translated_attribute(model.settings["footer_box_link_url_#{box_number}"])
       end
 
-      def footer_image_logo
-        image_tag footer_image_logo_url
-      end
-
-      def footer_image_logo_url
-        newsletter.template.images_container.attached_uploader(:footer_image_logo).url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
-      end
-
-      def has_footer_image_logo?
-        newsletter.template.images_container.footer_image_logo.attached?
-      end
-
       def footer_address_text
         parse_interpolations(uninterpolated(:footer_address_text), recipient_user, newsletter.id)
       end
@@ -190,6 +182,10 @@ module Decidim
         if organization.official_img_footer.attached?
           Rails.application.routes.url_helpers.rails_representation_path(organization.official_img_footer.variant(resize_to_fit: [300, 80]), only_path: true)
         end
+      end
+
+      def has_footer_image?
+        organization.official_img_footer.attached?
       end
 
       private
