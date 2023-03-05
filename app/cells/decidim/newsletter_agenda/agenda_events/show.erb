@@ -42,11 +42,6 @@
     height: 387px;
   }
 
-  .middle table {
-    position: relative;
-    top: -150px;
-  }
-
   table.agenda td, table.agenda p {
     background: #ffffff !important;
     color: #000000 !important;
@@ -197,7 +192,7 @@
     <td class="agenda">
       <table class="agenda">
         <tr>
-          <td class="top">
+          <td class="top" style="vertical-align: middle;">
             <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;">
               <%= body_title %>
             </div>
@@ -240,7 +235,7 @@
           </td>
         </tr>
         <tr>
-          <td class="bottom" style="text-align: center">
+          <td class="bottom" style="text-align: center;vertical-align: middle;">
             <%= body_final_text %>
           </td>
         </tr>
