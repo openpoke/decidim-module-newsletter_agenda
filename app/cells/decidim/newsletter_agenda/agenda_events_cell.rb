@@ -54,6 +54,7 @@ module Decidim
       end
 
       def main_image_url
+        # byebug
         newsletter.template.images_container.attached_uploader(:main_image).url(Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
       end
 

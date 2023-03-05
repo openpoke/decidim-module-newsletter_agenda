@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Agenda events settings", type: :system do
-  let(:organization_logo) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-  let(:footer_logo) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+  let(:organization_logo) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
+  let(:footer_logo) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
   let(:organization) { create(:organization, logo: organization_logo, official_img_footer: footer_logo, colors: { "primary" => "#ef604d" }) }
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:newsletter) { create :newsletter, :sent, total_recipients: 1 }
@@ -14,8 +14,7 @@ describe "Agenda events settings", type: :system do
            manifest_name: :agenda_events,
            scope_name: :newsletter_template,
            scoped_resource_id: newsletter.id,
-           settings: settings,
-           images: images
+           settings: settings
   end
 
   let(:settings) do
@@ -28,13 +27,8 @@ describe "Agenda events settings", type: :system do
     }
   end
 
-  let(:images) do
-    {
-      footer_image: Decidim::Dev.asset("city.jpeg")
-    }
-  end
-
   before do
+    Rails.application.config.action_mailer.default_url_options = { port: Capybara.server_port }
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
@@ -70,8 +64,6 @@ describe "Agenda events settings", type: :system do
           scoped_resource_id: newsletter.id,
           manifest_name: "agenda_events",
           settings: {
-            body: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-            introduction: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
             intro_title: Decidim::Faker::Localized.word,
             intro_text: Decidim::Faker::Localized.word,
             body_box_link: I18n.available_locales.index_with { |_locale| Faker::Internet.url }
@@ -81,7 +73,7 @@ describe "Agenda events settings", type: :system do
       end
 
       before do
-        fill_in :newsletter_subject_en, with: "subject"
+        fill_in :newsletter_subject_en, with: "Subject"
         find('input[name="newsletter[settings][intro_title_en]"]').fill_in with: "Intro title"
         page.execute_script("document.querySelector('input[name=\"newsletter[settings][intro_text_en]\"]').value = 'Intro text';")
         find('input[name="newsletter[settings][intro_link_text_en]"]').fill_in with: "Intro link text"
@@ -103,7 +95,10 @@ describe "Agenda events settings", type: :system do
           find("input[name='newsletter[settings][footer_box_link_text_#{i + 1}_en]']").fill_in with: "Footer box description #{i + 1}"
           find("input[name='newsletter[settings][footer_box_link_url_#{i + 1}_en]']").fill_in with: "http://www.example.org/footer"
           page.execute_script("document.querySelector('input[name=\"newsletter[settings][footer_address_text]\"]').value = 'Barcelona, Spain';")
+          attach_file("newsletter[images][footer_box_image_#{i + 1}]", Decidim::Dev.asset("city.jpeg"))
         end
+
+        attach_file("newsletter[images][main_image]", Decidim::Dev.asset("city2.jpeg"))
 
         click_button "Save"
       end
@@ -123,6 +118,7 @@ describe "Agenda events settings", type: :system do
           expect(page).to have_css("a[href='http://www.example.org']")
           expect(page).to have_content(translated("Final text"))
           expect(page).to have_content(translated("Footer title"))
+          expect(page).to have_content("Barcelona, Spain")
 
           (1..3).each do |i|
             expect(page).to have_content(5.days.from_now.strftime("%d/%m/%Y"), count: 3)
@@ -131,7 +127,9 @@ describe "Agenda events settings", type: :system do
             expect(page).to have_css("a[href='http://www.example.org/footer']", count: 3)
           end
 
-          expect(page).to have_content("Barcelona, Spain")
+          expect(page).to have_css("img[src*='city.jpeg']", count: 3)
+          expect(page).to have_css("img[src*='city2.jpeg']", count: 1)
+          expect(page).to have_css("img[src*='city3.jpeg']", count: 2)
         end
       end
     end

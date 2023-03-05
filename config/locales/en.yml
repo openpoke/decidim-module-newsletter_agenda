@@ -22,6 +22,7 @@ en:
         footer_address_label: Organization address
         footer_box_date_time_label: Footer box datetime
         footer_box_image: Footer box image
+        footer_box_image_label: Footer box image
         footer_box_link_text_label: Footer box link text
         footer_box_link_url_label: Footer box link URL
         footer_box_title_label: Footer box title
