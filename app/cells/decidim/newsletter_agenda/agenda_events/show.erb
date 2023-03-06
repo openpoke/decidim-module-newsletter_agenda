@@ -125,6 +125,11 @@
       display: block !important;
     }
 
+    .top, .bottom {
+      display: table-cell !important;
+      vertical-align: middle !important;
+    }
+
     .footer-bottom {
       display: block;
       text-align: center;
@@ -192,7 +197,7 @@
     <td class="agenda">
       <table class="agenda">
         <tr>
-          <td class="top" style="vertical-align: middle;">
+          <td class="top" style="vertical-align: middle;" colspan="2">
             <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;">
               <%= body_title %>
             </div>
@@ -234,7 +239,7 @@
             </table>
           </td>
         </tr>
-        <tr>
+        <tr style="text-align: center;vertical-align: middle;">
           <td class="bottom" style="text-align: center;vertical-align: middle;">
             <%= body_final_text %>
           </td>
