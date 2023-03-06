@@ -3,12 +3,12 @@ ca:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
-        add_box: Add box
-        background_color: Background color
-        body: Body
-        body_box_date_time_label: Body box date and time
-        body_box_description_label: Body box description
-        body_box_image: Body box image
+        add_box: Afegeix una caixa
+        background_color: Color de fons
+        body: Cos
+        body_box_date_time_label: Data i hora (format text)
+        body_box_description_label: Descripció
+        body_box_image: Imatge
         body_box_link_text_label: Body box link text
         body_box_link_url_label: Body box link URL
         body_box_title_label: Body box title
@@ -18,8 +18,8 @@ ca:
         boxes_number_label: Number of boxes
         boxes_number_title: Box %{number}
         font_color_over_bg: Font color over background
-        footer: Footer
-        footer_address_label: Organization address
+        footer: Peu de pàgina
+        footer_address_label: Adreça de l'organització
         footer_box_date_time_label: Footer box datetime
         footer_box_image: Footer box image
         footer_box_image_label: Footer box image
@@ -53,12 +53,12 @@ ca:
           hola@canodrom.com
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_description_preview: Segones jornades en defensa dels drets digitals
-        footer_box_link_text_preview: Read more
+        footer_box_link_text_preview: Llegiu-ne més
         footer_box_title_preview: Segones jornades en defensa dels drets digitals
-        footer_social_links_title_preview: Follow us on social networks
-        footer_title_preview: Footer title
-        intro_link_text_default: Read more
-        intro_link_text_preview: Read more
+        footer_social_links_title_preview: Segueix-nos a les xarxes socials
+        footer_title_preview: Títol de peu de pàgina
+        intro_link_text_default: Llegiu-ne més
+        intro_link_text_preview: Llegiu-ne més
         intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         intro_title_preview: Dummy title for the newsletter.
         name: Agenda events
