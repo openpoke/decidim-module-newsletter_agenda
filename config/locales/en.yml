@@ -1,5 +1,25 @@
 ---
 en:
+  date_range:
+    default:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day}
+        %{until_month} %{until_year}"
+      month: "%B"
+      same_days: "%{day} %{month}"
+      same_hours: "%{day} %{month}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
+    with_time:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day}
+        %{until_month} %{until_year}"
+      hour: "%I%P"
+      month: "%B"
+      same_days: "%{day} %{month}, %{from_hour} - %{until_hour}"
+      same_hours: "%{day} %{month}, %{hour}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
