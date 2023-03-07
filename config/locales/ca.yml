@@ -1,5 +1,23 @@
 ---
 ca:
+  date_range:
+    default:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
+      month: "%B"
+      same_days: "%{day} %{month}"
+      same_hours: "%{day} %{month}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
+    with_time:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
+      hour: "%I%P"
+      month: "%B"
+      same_days: "%{day} %{month}, %{from_hour} - %{until_hour}"
+      same_hours: "%{day} %{month}, %{hour}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
@@ -9,44 +27,44 @@ ca:
         body_box_date_time_label: Data i hora (format text)
         body_box_description_label: Descripció
         body_box_image: Imatge
-        body_box_link_text_label: Body box link text (hidden unless an URL is provided)
-        body_box_link_url_label: Body box link URL
-        body_box_title_label: Body box title
-        body_final_text_label: Body final text
-        body_subtitle_label: Body subtitle
-        body_title_label: Body title
-        boxes_number_title: Box %{number}
-        font_color_over_bg: Font color over background
+        body_box_link_text_label: Text de l'enllaç en el cos de la caixa (amagat tret que es proporcioni un URL)
+        body_box_link_url_label: Enllaç del cos de la caixa
+        body_box_title_label: Títol del cos de la caixa
+        body_final_text_label: Text final del cos
+        body_subtitle_label: Subtítol del cos
+        body_title_label: Títol del cos
+        boxes_number_title: Caixa %{number}
+        font_color_over_bg: Color de la lletra sobre el fons
         footer: Peu de pàgina
         footer_address_label: Adreça de l'organització
-        footer_box_date_time_label: Footer box datetime
-        footer_box_image: Footer box image
-        footer_box_image_label: Footer box image
-        footer_box_link_text_label: Footer box link text (hidden unless an URL is provided)
-        footer_box_link_url_label: Footer box link URL
-        footer_box_title_label: Footer box title
-        footer_image_label: Footer image
-        footer_social_links_title_label: Social links title
-        footer_title: Footer title
-        footer_title_label: Footer title
-        interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
-        intro_text: Introduction text
-        intro_title: Introduction title
-        introduction: Introduction
-        main_image: Introduction image
+        footer_box_date_time_label: Data i hora de la caixa de peu de pàgina
+        footer_box_image: Imatge de la caixa de peu de pàgina
+        footer_box_image_label: Imatge de la caixa de peu de pàgina
+        footer_box_link_text_label: Text de l'enllaç en la caixa de peu de pàgina (amagat tret que es proporcioni un URL)
+        footer_box_link_url_label: Enllaç en la caixa de peu de pàgina
+        footer_box_title_label: Títol de la caixa de peu de pàgina
+        footer_image_label: Imatge del peu de pàgina
+        footer_social_links_title_label: Títol de les xarxes socials
+        footer_title: Títol del peu de pàgina
+        footer_title_label: Títol del peu de pàgina
+        interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
+        intro_text: Text d'introducció
+        intro_title: Títol d'introducció
+        introduction: Introducció
+        main_image: Imatge d'introducció
     newsletter_templates:
       agenda_events:
-        body_box_date_time_preview: November, 7 - 15, 10:00
-        body_box_description_preview: This is an event description for this agenda.
-        body_box_link_text_preview: Read more
-        body_box_title_preview: This is an event title for this agenda
-        body_final_text_preview: But there's more
-        body_title_preview: What is happening during the week
+        body_box_date_time_preview: Novembre, 7 - 15, 10:00
+        body_box_description_preview: Aquesta és una descripció de l'esdeveniment per a aquesta agenda.
+        body_box_link_text_preview: Llegiu-ne més
+        body_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
+        body_final_text_preview: I encara hi ha més
+        body_title_preview: Què està passant durant la setmana?
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_link_text_preview: Llegiu-ne més
-        footer_box_title_preview: This is a footer title for this agenda
+        footer_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
         footer_social_links_title_preview: Segueix-nos a les xarxes socials
-        footer_title_preview: Whether you want to see what you missed or you want to remember it
-        intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar. <a href="#">Read more</a>'
-        intro_title_preview: Dummy title for the newsletter.
-        name: Agenda events
+        footer_title_preview: Tant si voleu veure el que us heu perdut com si voleu recordar-ho
+        intro_text_preview: 'Text fictici per al cos: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilitasis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut torttor sit amet, imperdiet dapibus arcu. Suspendesse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar. <a href="#">Llegir més</a>'
+        intro_title_preview: Text fictici pel títol del butlletí.
+        name: Esdeveniments de l'agenda
