@@ -9,7 +9,8 @@ checksums = [
   {
     package: "decidim-admin",
     files: {
-      "/app/controllers/decidim/admin/newsletters_controller.rb" => "cadf58205b79ea4b45b032014705af13"
+      "/app/controllers/decidim/admin/newsletters_controller.rb" => "cadf58205b79ea4b45b032014705af13",
+      "/app/controllers/decidim/admin/newsletter_templates_controller.rb" => "fc3eb1131f62719a822823cd2cab3f5d"
     }
   }
 ]

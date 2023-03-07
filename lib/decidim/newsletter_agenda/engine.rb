@@ -11,7 +11,8 @@ module Decidim
       # The newsletter has some bugs when previewing and locales
       initializer "decidim_reporting_proposals.overrides", after: "decidim.action_controller" do
         config.to_prepare do
-          Decidim::Admin::NewslettersController.include(Decidim::NewsletterAgenda::Admin::NewslettersControllerFixes)
+          Decidim::Admin::NewslettersController.include(Decidim::NewsletterAgenda::Admin::FixNewsletterPreviewLocales)
+          Decidim::Admin::NewsletterTemplatesController.include(Decidim::NewsletterAgenda::Admin::FixNewsletterPreviewLocales)
         end
       end
 
