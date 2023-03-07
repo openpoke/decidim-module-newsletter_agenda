@@ -23,33 +23,29 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
-        add_box: Add box
         background_color: Background color
         body: Body
-        body_box_date_time_label: Body box date and time
-        body_box_description_label: Body box description
-        body_box_image: Body box image
-        body_box_link_text_label: Body box link text (hidden unless an URL is provided)
-        body_box_link_url_label: Body box link URL
-        body_box_title_label: Body box title
-        body_final_text_label: Body final text
-        body_subtitle_label: Body subtitle
-        body_title_label: Body title
-        boxes_number_title: Box %{number}
+        body_box_date_time: Body event date/time
+        body_box_description: Body event description
+        body_box_image: Body event image
+        body_box_link_text: Body event link text (hidden unless an URL is provided)
+        body_box_link_url: Body event link URL
+        body_box_title: Body event title
+        body_final_text: Body final text
+        body_subtitle: Body subtitle
+        body_title: Body title
+        boxes_number_title: Event %{number}
         font_color_over_bg: Font color over background
         footer: Footer
-        footer_address_label: Organization address
-        footer_box_date_time_label: Footer box datetime
-        footer_box_image: Footer box image
-        footer_box_image_label: Footer box image
-        footer_box_link_text_label: Footer box link text (hidden unless an URL is
-          provided)
-        footer_box_link_url_label: Footer box link URL
-        footer_box_title_label: Footer box title
-        footer_image_label: Footer image
-        footer_social_links_title_label: Social links title
+        footer_address: Organization address
+        footer_box_date_time: Footer event date/time
+        footer_box_image: Footer event image
+        footer_box_link_text: Footer event link text (hidden unless an URL is provided)
+        footer_box_link_url: Footer event link URL
+        footer_box_title: Footer event title
+        footer_image: Footer image
+        footer_social_links_title: Social links title
         footer_title: Footer title
-        footer_title_label: Footer title
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
         intro_text: Introduction text
