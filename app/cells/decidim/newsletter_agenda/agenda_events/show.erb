@@ -3,10 +3,17 @@
     background: <%= background_color %> !important;
     max-width: 816px !important;
     width: 100%;
-    color: #ffffff !important;
   }
 
-  table.container th, table.container td, table.container p, table.container .intro-link, .footer-box-link a {
+  table.container,
+  table.container th,
+  table.container td,
+  table.container p,
+  table.container .intro-link,
+  table.introduction td a,
+  .footer-bottom a,
+  .footer-box-link a,
+  .footnote a {
     color: <%= font_color_over_bg %> !important;
   }
 
@@ -20,11 +27,10 @@
   }
 
   td.introduction, .middle, .footer {
-    padding: 10% 10% 0 10%;
+    padding: 30px 10% 0 10%;
   }
 
   table.introduction, table.introduction td, table.introduction td p {
-    color: #ffffff !important;
     padding: 20px 0;
   }
 
@@ -55,10 +61,6 @@
     font-size: 36px;
   }
 
-  .box {
-    margin-bottom: 30px;
-  }
-
   .body-box-title {
     font-size: 24px;
     font-weight: bold;
@@ -70,7 +72,7 @@
     margin-bottom: 20px;
   }
 
-  .box-link {
+  .box-link, .box-link a {
     color: <%= background_color %> !important;
     margin-top: 20px;
   }
@@ -108,7 +110,7 @@
 
   .footer-bottom {
     width: 100%;
-    margin: 10% 0;
+    margin: 50px 0 20px 0;
   }
 
   .footer-social__wrap {
@@ -118,6 +120,11 @@
   .footer-social {
     display: inline-block;
     vertical-align: middle;
+  }
+
+  .footnote center {
+    width: 90%;
+    margin: 0 auto;
   }
 
   @media only screen and (max-width: 600px) {
@@ -160,23 +167,23 @@
       <table class="introduction">
         <% if has_organization_logo? %>
           <tr>
-            <td style="font-size:50px;line-height:30px;text-align:center;" colspan="2">
-              <%= organization_logo %>
+            <td style="text-align:center;padding-bottom: 50px;" colspan="2">
+              <%= image_tag organization_logo_url %>
             </td>
           </tr>
         <% end %>
         <tr>
           <td style="font-size:30px;line-height:30px;" colspan="2">
-            <%= intro_title %>
+            <%= translated_text_for :intro_title %>
           </td>
         </tr>
-        <% if has_main_image? %>
+        <% if has_image?(:main_image) %>
           <tr>
             <td>
               <table class="row content image">
                 <tr>
                   <th class="small-12 first columns">
-                    <%= main_image %>
+                    <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]) %>
                   </th>
                   <th class="expander"></th>
                 </tr>
@@ -186,8 +193,7 @@
         <% end %>
         <tr>
           <td>
-            <%= intro_text %>
-            <%= link_to intro_link_text, intro_link_url, target: :blank, class: "intro-link" %>
+            <%= translated_text_for :intro_text %>
           </td>
         </tr>
       </table>
@@ -199,49 +205,46 @@
         <tr>
           <td class="top" style="vertical-align: middle;" colspan="2">
             <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;">
-              <%= body_title %>
+              <%= translated_text_for :body_title %>
             </div>
             <div class="body-subtitle" style="text-align: center;">
-              <%= body_subtitle %>
+              <%= translated_text_for :body_subtitle %>
             </div>
           </td>
         </tr>
         <tr>
           <td class="middle">
             <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <% (1..4).each_slice(2) do |boxes| %>
               <tr>
-                <% (1..4).each_slice(2) do |boxes| %>
-                <tr>
-                  <% boxes.each do |box_number| %>
-                    <td style="padding: 10px;">
-                      <div class="box">
-                        <div class="box-image">
-                          <%= body_box_image(box_number) if has_body_box_image?(box_number) %>
-                        </div>
-                        <div class="box_date_time">
-                          <%= body_box_date_time(box_number) %>
-                        </div>
-                        <div class="body-box-title">
-                          <%= body_box_title(box_number) %>
-                        </div>
-                        <div class="box-text">
-                          <%= body_box_description(box_number) %>
-                        </div>
-                        <div class="box-link">
-                          <%= link_to body_box_link_text(box_number), body_box_link_url(box_number), target: :blank, class: "box-link" %>
-                        </div>
-                      </div>
-                    </td>
-                  <% end %>
-                </tr>
-              <% end %>
+                <% boxes.each do |num| %>
+                  <td style="padding: 10px;margin-bottom: 30px;" width="50%">
+                    <div class="box-image">
+                      <%= image_tag(image_url("body_box_image_#{num}")) if has_image?("body_box_image_#{num}") %>
+                    </div>
+                    <div class="box_date_time">
+                      <%= translated_text_for "body_box_date_time_#{num}" %>
+                    </div>
+                    <div class="body-box-title">
+                      <%= translated_text_for "body_box_title_#{num}" %>
+                    </div>
+                    <div class="box-text">
+                      <%= translated_text_for "body_box_description_#{num}" %>
+                    </div>
+                    <div class="box-link">
+                      <% link = link_for("body_box_link_url_#{num}") %>
+                      <%= link_to translated_text_for("body_box_link_text_#{num}"), link, target: :blank if link %>
+                    </div>
+                  </td>
+                <% end %>
               </tr>
+              <% end %>
             </table>
           </td>
         </tr>
         <tr style="text-align: center;vertical-align: middle;">
           <td class="bottom" style="text-align: center;vertical-align: middle;">
-            <%= body_final_text %>
+            <%= translated_text_for :body_final_text %>
           </td>
         </tr>
       </table>
@@ -251,49 +254,52 @@
     <td class="footer">
       <table>
         <tr>
-          <h3 class="footer-title"><%= footer_title %></h3>
+          <h3 class="footer-title"><%= translated_text_for :footer_title %></h3>
         </tr>
       </table>
       <table cellpadding="0" cellspacing="0" border="0" align="center">
         <tr>
-          <% (1..3).each do |box_number| %>
-            <td style="padding: 10px;">
-              <div class="box">
-                <div class="box-image">
-                  <%= footer_box_image(box_number) if has_footer_box_image?(box_number) %>
-                </div>
-                <div class="footer-box-date-time">
-                  <%= footer_box_date_time(box_number) %>
-                </div>
-                <div class="footer-box-title">
-                  <%= footer_box_title(box_number) %>
-                </div>
-                <div class="footer-box-link">
-                  <%= link_to footer_box_link_text(box_number), footer_box_link_url(box_number), target: :blank %>
-                </div>
+          <% (1..3).each do |num| %>
+            <td style="padding: 10px;margin-bottom: 30px;" width="33%">
+              <div class="box-image">
+                <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132])) if has_image?("footer_box_image_#{num}") %>
+              </div>
+              <div class="footer-box-date-time">
+                <%= translated_text_for "footer_box_date_time_#{num}" %>
+              </div>
+              <div class="footer-box-title">
+                <%= translated_text_for "footer_box_title_#{num}" %>
+              </div>
+              <div class="footer-box-link">
+                <% link = link_for("footer_box_link_url_#{num}") %>
+                <%= link_to(translated_text_for("footer_box_link_text_#{num}"), link, target: :blank) if link %>
               </div>
             </td>
           <% end %>
         </tr>
       </table>
-      <table>
-        <tr class="footer-bottom">
+      <table class="footer-bottom">
+        <tr>
           <td class="footer-address">
-            <%= footer_address_text.html_safe %>
+            <%= translated_text_for :footer_address_text %>
           </td>
           <td class="footer-social__wrap">
-            <%= footer_social_links_title %>
+            <%= translated_text_for :footer_social_links_title %>
             <div class="footer-social">
               <%= social_links.join.html_safe %>
             </div>
           </td>
         </tr>
       </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <% if has_footer_image? %>
-        <table class="footer-logo" , style="margin: 5% 0;">
+        <table class="footer-logo" style="margin: 5% 0;">
           <tr>
             <td class="footer-bottom">
-              <%= footer_image %>
+              <%= image_tag footer_image_url %>
             </td>
           </tr>
         </table>

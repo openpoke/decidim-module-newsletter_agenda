@@ -23,6 +23,8 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "date_range_formatter"
+  spec.add_dependency "decidim-admin", Decidim::NewsletterAgenda::COMPAT_DECIDIM_VERSION
   spec.add_dependency "decidim-core", Decidim::NewsletterAgenda::COMPAT_DECIDIM_VERSION
 
   spec.add_development_dependency "decidim-dev", Decidim::NewsletterAgenda::COMPAT_DECIDIM_VERSION

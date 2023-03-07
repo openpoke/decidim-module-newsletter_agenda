@@ -1,10 +1,19 @@
 # frozen_string_literal: true
 
+require "date_range_formatter"
+
 module Decidim
   module NewsletterAgenda
     # This is the engine that runs on the public interface of decidim-newsletter_agenda.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::NewsletterAgenda
+
+      # The newsletter has some bugs when previewing and locales
+      initializer "decidim_reporting_proposals.overrides", after: "decidim.action_controller" do
+        config.to_prepare do
+          Decidim::Admin::NewslettersController.include(Decidim::NewsletterAgenda::Admin::NewslettersControllerFixes)
+        end
+      end
 
       initializer "decidim-newsletter_agenda.newsletter_templates" do
         Decidim.content_blocks.register(:newsletter_template, :agenda_events) do |content_block|
@@ -15,13 +24,7 @@ module Decidim
           content_block.images = [
             {
               name: :main_image,
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-            },
-            {
-              name: :footer_image,
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/decidim-logo.svg") }
+              uploader: "Decidim::NewsletterTemplateImageUploader"
             }
           ]
 
@@ -65,18 +68,6 @@ module Decidim
               preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_text_preview") }
             )
             settings.attribute(
-              :intro_link_text,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_link_text_preview") }
-            )
-            settings.attribute(
-              :intro_link_url,
-              type: :text,
-              translated: true,
-              preview: -> { "https://decidim.org" }
-            )
-            settings.attribute(
               :body_title,
               type: :text,
               translated: true,
@@ -86,7 +77,7 @@ module Decidim
               :body_subtitle,
               type: :text,
               translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_subtitle_preview") }
+              preview: -> { DateRangeFormatter.format(Decidim::NewsletterAgenda.next_first_day, Decidim::NewsletterAgenda.next_last_day) }
             )
             settings.attribute(
               :boxes_number,
@@ -104,7 +95,7 @@ module Decidim
                 "body_box_date_time_#{i}",
                 type: :text,
                 translated: true,
-                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.body_box_date_time_preview") }
+                preview: -> { DateRangeFormatter.format(Decidim::NewsletterAgenda.next_first_day - 14 + i, Decidim::NewsletterAgenda.next_last_day - 15 + i) }
               )
               settings.attribute(
                 "body_box_description_#{i}",
@@ -137,18 +128,18 @@ module Decidim
               translated: true,
               preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_title_preview") }
             )
-            (1..4).each do |i|
+            (1..3).each do |i|
               settings.attribute(
                 "footer_box_date_time_#{i}",
                 type: :text,
                 translated: true,
-                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_title_preview") }
+                preview: -> { DateRangeFormatter.format(Decidim::NewsletterAgenda.next_first_day - 14 + i, Decidim::NewsletterAgenda.next_last_day - 15 + i) }
               )
               settings.attribute(
                 "footer_box_title_#{i}",
                 type: :text,
                 translated: true,
-                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_description_preview") }
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_title_preview") }
               )
               settings.attribute(
                 "footer_box_link_text_#{i}",
@@ -165,8 +156,8 @@ module Decidim
               settings.attribute(
                 :footer_address_text,
                 type: :text,
-                translated: true,
-                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_address_text_preview") }
+                translated: false,
+                preview: -> { NewsletterAgenda.default_address_text }
               )
               settings.attribute(
                 :footer_social_links_title,

@@ -3,8 +3,7 @@
 [![[CI] Lint](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/lint.yml/badge.svg)](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/test.yml/badge.svg)](https://github.com/openpoke/decidim-module-newsletter_agenda/actions/workflows/test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7d9a138a045b30851a33/maintainability)](https://codeclimate.com/github/openpoke/decidim-module-newsletter_agenda/maintainability)
-[![codecov](https://codecov.io/gh/openpoke/decidim-module-newsletter_agenda/branch/main/graph/badge.svg?token=V3KR51DGFN)](https://codecov.io/gh/openpoke/decidim-module-newsletter_agenda)
-[![Gem Version](https://badge.fury.io/rb/decidim-newsletter_agenda.svg)](https://badge.fury.io/rb/decidim-newsletter_agenda)
+[![codecov](https://codecov.io/gh/openpoke/decidim-module-newsletter_agenda/branch/main/graph/badge.svg?token=OZ4AKZGKTC)](https://codecov.io/gh/openpoke/decidim-module-newsletter_agenda)
 
 A template for the Decidim Newsletter focused on an agenda
 
@@ -29,13 +28,38 @@ This module simply adds a new template for the newsletter, which is focused on e
 
 ### Configuration
 
+This module has been developed to be the main newsletter of the [Canòdrom, Ateneu d'Innovació Digital i Democràtica](https://comunitat.canodrom.barcelona). If you wish to use it, you should configure some defaults for your own organizations.
+
+Create an initializer (for instance `config/initializers/newsletter_agenda.rb`) and configure the following:
+
+loca
 ```ruby
 # config/initializers/newsletter_agenda.rb
 
 Decidim::NewsletterAgenda.configure do |config|
-...TODO...
+    # The default background color for the newsletter agenda.
+    # leave it empty (nil) to use the configured organization's main color.
+    # this color can be overriden in the newsletter template builder.
+    # hex color code with #, e.g. "#733BCE"
+    config.default_background_color = "#733BCE"
+
+    # The default font color over background for the newsletter agenda.
+    config.default_font_color_over_bg = "#FFFFFF"
+
+    # The default address text for the newsletter agenda.
+    config.default_address_text = <<~ADDRESS
+      <b>Canòdrom</b><br>
+      <b>Ateneu d'Innovació Digital i Democràtica</b><br>
+      C/Concepció Arenal 165 - 09027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
+      <a href="mailto:hola@canodrom">hola@canodrom.com</a>
+    ADDRESS
 end
 ```
+
+## Screenshots
+
+![Newsletter Agenda Template](features/newsletter.png)
+![Newsletter Admin](features/admin.png)
 
 ## Contributing
 
@@ -134,7 +158,7 @@ the code coverage report.
 If you would like to see this module in your own language, you can help with its
 translation at Crowdin:
 
-https://crowdin.com/project/decidim-module-newsletter_agenda
+https://crowdin.com/project/decidim-newsletter-agenda
 
 ## License
 

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe "Agenda events settings", type: :system do
-  let(:organization_logo) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
-  let(:footer_logo) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
-  let(:organization) { create(:organization, logo: organization_logo, official_img_footer: footer_logo, colors: { "primary" => "#ef604d" }) }
+  let(:organization_logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+  let(:footer_logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+  let(:organization) { create(:organization, logo: organization_logo, official_img_footer: footer_logo, twitter_handler: "twitter", facebook_handler: "") }
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:newsletter) { create :newsletter, :sent, total_recipients: 1 }
   let!(:content_block) do
@@ -31,12 +31,22 @@ describe "Agenda events settings", type: :system do
     Rails.application.config.action_mailer.default_url_options = { port: Capybara.server_port }
     switch_to_host(organization.host)
     login_as admin, scope: :user
-    visit decidim_admin.root_path
-    click_link "Newsletters"
+  end
+
+  describe "raw template" do
+    it "shows the preview template" do
+      visit decidim_admin.preview_newsletter_template_path(id: :agenda_events)
+
+      expect(page).to have_content("This is an event title for this agenda")
+      expect(page).to have_content("What is happening during the week")
+      expect(page).to have_content("Dummy text for body:")
+    end
   end
 
   describe "new newsletter" do
     before do
+      visit decidim_admin.root_path
+      click_link "Newsletters"
       page.all(:link, "New newsletter").first.click
       page.all(:link, "Use this template").last.click
     end
@@ -44,12 +54,31 @@ describe "Agenda events settings", type: :system do
     context "when automatic customizable settings" do
       it "renders the correct the settings form" do
         expect(page).to have_content("Background color")
-        expect(page).to have_field("newsletter[settings][background_color]", with: "#ef604d")
+        expect(page).to have_field("newsletter[settings][background_color]", with: "#733bce")
         expect(page).to have_content("Font color over background")
         expect(page).to have_field("newsletter[settings][font_color_over_bg]", with: "#ffffff")
+
+        click_link "Body"
+        expect(page).to have_content("BOX 1:")
+        expect(page).to have_content("BOX 2:")
+        expect(page).to have_content("BOX 3:")
+        expect(page).to have_content("BOX 4:")
+
+        click_link "Box 1:"
+        expect(page).to have_content("Body box title")
+
+        click_link "Footer"
+        expect(page).to have_content("BOX 1:")
+        expect(page).to have_content("BOX 2:")
+        expect(page).to have_content("BOX 3:")
+
+        click_link "Box 1:"
+        expect(page).to have_content("Footer box title")
+
         expect(page).to have_content("Organization address")
-        expect(page.text.strip).to have_content(content_block.settings.footer_address_text.gsub(/\n/, " ").strip)
-        expect(page).to have_content("Footer image")
+        expect(page).to have_content("Social links title")
+        address = ActionController::Base.helpers.strip_tags(content_block.settings.footer_address_text)
+        expect(page.text.gsub(/[\n ]+/, " ")).to have_content(address.gsub(/[\n ]+/, " ").strip)
       end
     end
 
@@ -76,29 +105,37 @@ describe "Agenda events settings", type: :system do
         fill_in :newsletter_subject_en, with: "Subject"
         find('input[name="newsletter[settings][intro_title_en]"]').fill_in with: "Intro title"
         page.execute_script("document.querySelector('input[name=\"newsletter[settings][intro_text_en]\"]').value = 'Intro text';")
-        find('input[name="newsletter[settings][intro_link_text_en]"]').fill_in with: "Intro link text"
-        find('input[name="newsletter[settings][intro_link_url_en]"]').fill_in with: "http://www.example.org"
+        attach_file("newsletter[images][main_image]", Decidim::Dev.asset("city.jpeg"))
+
+        click_link "Body"
         find('input[name="newsletter[settings][body_title_en]"]').fill_in with: "Body title"
         find('input[name="newsletter[settings][body_subtitle_en]"]').fill_in with: "Body subtitle"
-        find('select[name="newsletter[settings][boxes_number]"]').select("4")
-        find("input[name='newsletter[settings][body_box_title_1_en]']").fill_in with: "Box title"
-        find("input[name='newsletter[settings][body_box_date_time_1_en]']").fill_in with: 10.days.from_now.strftime("%d/%m/%Y")
-        find("input[name='newsletter[settings][body_box_description_1_en]']").fill_in with: "Box description"
-        find("input[name='newsletter[settings][body_box_link_text_1_en]']").fill_in with: "Box link text"
-        find("input[name='newsletter[settings][body_box_link_url_1_en]']").fill_in with: "http://www.example.org"
-        find("input[name='newsletter[settings][body_final_text_en]']").fill_in with: "Final text"
-        find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
 
-        3.times do |i|
-          find("input[name='newsletter[settings][footer_box_date_time_#{i + 1}_en]']").fill_in with: 5.days.from_now.strftime("%d/%m/%Y")
-          find("input[name='newsletter[settings][footer_box_title_#{i + 1}_en]']").fill_in with: "Footer box title #{i + 1}"
-          find("input[name='newsletter[settings][footer_box_link_text_#{i + 1}_en]']").fill_in with: "Footer box description #{i + 1}"
-          find("input[name='newsletter[settings][footer_box_link_url_#{i + 1}_en]']").fill_in with: "http://www.example.org/footer"
-          page.execute_script("document.querySelector('input[name=\"newsletter[settings][footer_address_text]\"]').value = 'Barcelona, Spain';")
-          attach_file("newsletter[images][footer_box_image_#{i + 1}]", Decidim::Dev.asset("city.jpeg"))
+        (1..4).each do |i|
+          click_link "Box #{i}:"
+          find("input[name='newsletter[settings][body_box_title_#{i}_en]']").fill_in with: "Box title #{i}"
+          find("input[name='newsletter[settings][body_box_date_time_#{i}_en]']").fill_in with: i.days.from_now.strftime("%d/%m/%Y")
+          find("input[name='newsletter[settings][body_box_description_#{i}_en]']").fill_in with: "Box description #{i}"
+          find("input[name='newsletter[settings][body_box_link_text_#{i}_en]']").fill_in with: "Box link text #{i}"
+          find("input[name='newsletter[settings][body_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org"
+          attach_file("newsletter[images][body_box_image_#{i}]", Decidim::Dev.asset("city2.jpeg"))
         end
 
-        attach_file("newsletter[images][main_image]", Decidim::Dev.asset("city2.jpeg"))
+        find("input[name='newsletter[settings][body_final_text_en]']").fill_in with: "Final text"
+
+        click_link "Footer"
+        find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
+
+        (1..3).each do |i|
+          click_link "Box #{i}:"
+          find("input[name='newsletter[settings][footer_box_date_time_#{i}_en]']").fill_in with: 5.days.from_now.strftime("%d/%m/%Y")
+          find("input[name='newsletter[settings][footer_box_title_#{i}_en]']").fill_in with: "Footer box title #{i}"
+          find("input[name='newsletter[settings][footer_box_link_text_#{i}_en]']").fill_in with: "Footer box link #{i}"
+          find("input[name='newsletter[settings][footer_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org/footer"
+          attach_file("newsletter[images][footer_box_image_#{i}]", Decidim::Dev.asset("city3.jpeg"))
+        end
+
+        page.execute_script("document.querySelector('input[name=\"newsletter[settings][footer_address_text]\"]').value = 'Barcelona, Spain';")
 
         click_button "Save"
       end
@@ -107,29 +144,38 @@ describe "Agenda events settings", type: :system do
         within_frame do
           expect(page).to have_content(translated("Intro title"))
           expect(page).to have_content(translated("Intro text"))
-          expect(page).to have_content("Intro link text")
-          expect(page).to have_css("a[href='http://www.example.org']")
           expect(page).to have_content(translated("Body title"))
           expect(page).to have_content(translated("Body subtitle"))
-          expect(page).to have_content("Box title")
-          expect(page).to have_content(10.days.from_now.strftime("%d/%m/%Y"))
-          expect(page).to have_content("Box description")
-          expect(page).to have_content("Box link text")
-          expect(page).to have_css("a[href='http://www.example.org']")
+          (1..4).each do |i|
+            expect(page).to have_content("Box title #{i}")
+            expect(page).to have_content(i.days.from_now.strftime("%d/%m/%Y"))
+            expect(page).to have_content("Box description #{i}")
+            expect(page).to have_content("Box link text #{i}")
+          end
+          expect(page).to have_css("a[href='http://www.example.org']", count: 4)
           expect(page).to have_content(translated("Final text"))
-          expect(page).to have_content(translated("Footer title"))
-          expect(page).to have_content("Barcelona, Spain")
 
           (1..3).each do |i|
             expect(page).to have_content(5.days.from_now.strftime("%d/%m/%Y"), count: 3)
             expect(page).to have_content("Footer box title #{i}")
-            expect(page).to have_content("Footer box description #{i}")
-            expect(page).to have_css("a[href='http://www.example.org/footer']", count: 3)
+            expect(page).to have_content("Footer box link #{i}")
           end
+          expect(page).to have_css("a[href='http://www.example.org/footer']", count: 3)
 
-          expect(page).to have_css("img[src*='city.jpeg']", count: 3)
-          expect(page).to have_css("img[src*='city2.jpeg']", count: 1)
-          expect(page).to have_css("img[src*='city3.jpeg']", count: 2)
+          expect(page).to have_css("img[src*='avatar.jpg']", count: 2)
+          expect(page).to have_css("img[src*='city.jpeg']", count: 1)
+          expect(page).to have_css("img[src*='city2.jpeg']", count: 4)
+          expect(page).to have_css("img[src*='city3.jpeg']", count: 3)
+
+          expect(page).to have_content(translated("Footer title"))
+          expect(page).to have_content("Barcelona, Spain")
+
+          expect(page).to have_content(translated("twitter"))
+          expect(page).not_to have_content(translated("facebook"))
+
+          # no links or images without host
+          expect(page.body).not_to include("src=\"/")
+          expect(page.body).not_to include("href=\"/")
         end
       end
     end

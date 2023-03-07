@@ -12,7 +12,7 @@ module Decidim
     # this color can be overriden in the newsletter template builder.
     # hex color code with #, e.g. "#733BCE"
     config_accessor :default_background_color do
-      nil
+      "#733BCE"
     end
 
     # The default font color over background for the newsletter agenda.
@@ -23,11 +23,23 @@ module Decidim
     # The default address text for the newsletter agenda.
     config_accessor :default_address_text do
       <<~ADDRESS
-        Canödrom
-        Ateneu d'Innovació Digital i Democràtica
-        C/Concepció Arenal 165 - 09027 Barcolana canodrom.barcelona
-        hola@canodrom.com
+        <b>Canòdrom</b><br>
+        <b>Ateneu d'Innovació Digital i Democràtica</b><br>
+        C/Concepció Arenal 165 - 09027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
+        <a href="mailto:hola@canodrom">hola@canodrom.com</a>
       ADDRESS
+    end
+
+    # To define the default first day for the agenda ranges.
+    # This is the next monday:
+    def self.next_first_day
+      Date.current - Date.current.wday + 8
+    end
+
+    # To define the default last day for the agenda ranges.
+    # This is the next sunday after the next monday:
+    def self.next_last_day
+      Date.current - Date.current.wday + 14
     end
   end
 end
