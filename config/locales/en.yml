@@ -23,6 +23,9 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
+        tab_body_description: The body of the newsletter can contain up to 4 events. The purpose of the format is for events (all types of sessions) and/or news (you can be imaginative and think of other ways to use it) in agenda format. It is not necessary to fill in all 4 events, if you do less it also appears in a good format.
+        tab_footer_description: "The newsletter footer can contain up to 3 events. The purpose of the format is for 
+        events (all types of sessions) and/or news (you can be imaginative and think of other ways to use it) in agenda format. For example, for events that have already happened or that are pre-announced by the next newsletter. It is not necessary to fill in all 3 events, if you do less it also appears in a good format."
         background_color: Background color
         body: Body
         body_box_date_time: Body event date/time
