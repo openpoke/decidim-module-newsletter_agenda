@@ -53,10 +53,10 @@ ca:
       agenda_events:
         body_box_date_time_preview: Novembre, 7 - 15, 10:00
         body_box_description_preview: Aquesta és una descripció de l'esdeveniment per a aquesta agenda.
-        body_box_link_text_preview: Llegiu-ne més
+        body_box_link_text_preview: Sabeu-ne més
         body_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
-        body_final_text_preview: I encara hi ha més
-        body_title_preview: Què està passant durant la setmana?
+        body_final_text_preview: Però hi ha més
+        body_title_preview: Que hi ha durant la setmana
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_link_text_preview: Llegiu-ne més
         footer_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
