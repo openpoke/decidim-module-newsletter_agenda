@@ -1,11 +1,51 @@
 ---
 en:
+  date_range:
+    default:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day}
+        %{until_month} %{until_year}"
+      month: "%B"
+      same_days: "%{day} %{month}"
+      same_hours: "%{day} %{month}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
+    with_time:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day}
+        %{until_month} %{until_year}"
+      hour: "%I%P"
+      month: "%B"
+      same_days: "%{day} %{month}, %{from_hour} - %{until_hour}"
+      same_hours: "%{day} %{month}, %{hour}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
         background_color: Background color
         body: Body
+        body_box_date_time: Body event date/time
+        body_box_description: Body event description
+        body_box_image: Body event image
+        body_box_link_text: Body event link text (hidden unless an URL is provided)
+        body_box_link_url: Body event link URL
+        body_box_title: Body event title
+        body_final_text: Body final text
+        body_subtitle: Body subtitle
+        body_title: Body title
+        boxes_number_title: Event %{number}
+        font_color_over_bg: Font color over background
         footer: Footer
+        footer_address: Organization address
+        footer_box_date_time: Footer event date/time
+        footer_box_image: Footer event image
+        footer_box_link_text: Footer event link text (hidden unless an URL is provided)
+        footer_box_link_url: Footer event link URL
+        footer_box_title: Footer event title
+        footer_image: Footer image
+        footer_social_links_title: Social links title
+        footer_title: Footer title
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
         intro_text: Introduction text
@@ -14,6 +54,18 @@ en:
         main_image: Introduction image
     newsletter_templates:
       agenda_events:
+        body_box_date_time_preview: November, 7 - 15, 10:00
+        body_box_description_preview: This is an event description for this agenda.
+        body_box_link_text_preview: Read more
+        body_box_title_preview: This is an event title for this agenda
+        body_final_text_preview: But there's more
+        body_title_preview: What is happening during the week
+        footer_box_date_time_preview: 7 – 15 Novembre, 10:00
+        footer_box_link_text_preview: Read more
+        footer_box_title_preview: This is a footer title for this agenda
+        footer_social_links_title_preview: Follow us on social networks
+        footer_title_preview: Whether you want to see what you missed or you want
+          to remember it
         intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium
           facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed
           id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna,
@@ -22,6 +74,6 @@ en:
           tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat,
           cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas
           enim. In eget magna sed enim efficitur elementum sit amet aliquam quam.
-          Donec fermentum metus eget urna luctus pulvinar.'
+          Donec fermentum metus eget urna luctus pulvinar. <a href="#">Read more</a>'
         intro_title_preview: Dummy title for the newsletter.
         name: Agenda events

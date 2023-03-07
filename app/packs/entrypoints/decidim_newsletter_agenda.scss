@@ -1,0 +1,38 @@
+.accordion {
+  .accordion-title,
+  .accordion-item:first-child > :first-child,
+  .accordion-item:last-child:not(.is-active) > .accordion-title {
+    background: #fafafa;
+    position: relative;
+    display: block;
+    padding: 1.25rem 1rem;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #1779ba;
+
+    &:hover {
+      background: #eee;
+    }
+  }
+
+  .accordion-item:last-child:not(.is-active) > .accordion-title {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+.fieldset {
+  padding: 0;
+  border: none;
+}
+
+.fieldset legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1em 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
