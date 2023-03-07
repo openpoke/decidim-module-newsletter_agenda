@@ -176,6 +176,7 @@ describe "Agenda events settings", type: :system do
           # no links or images without host
           expect(page.body).not_to include("src=\"/")
           expect(page.body).not_to include("href=\"/")
+          expect(page.body).not_to include("url(/")
         end
       end
     end

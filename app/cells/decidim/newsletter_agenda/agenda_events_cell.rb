@@ -79,11 +79,11 @@ module Decidim
       end
 
       def background_image_top
-        asset_pack_url("media/images/background_top.gif") # , Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
+        asset_pack_url("media/images/background_top.gif", host_options)
       end
 
       def background_image_bottom
-        asset_pack_url("media/images/background_bottom.gif") # , Rails.configuration.action_mailer.default_url_options.merge(host: organization.host))
+        asset_pack_url("media/images/background_bottom.gif", host_options)
       end
 
       def background_color
