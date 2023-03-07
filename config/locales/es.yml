@@ -21,32 +21,29 @@ es:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
-        add_box: Añadir evento
         background_color: Color de fondo
         body: Cuerpo
-        body_box_date_time_label: Fecha y hora del evento
-        body_box_description_label: Descripción del evento
-        body_box_image: Imagen del evento
-        body_box_link_text_label: Texto del enlace del evento (oculto a menos que se proporcione una URL)
-        body_box_link_url_label: Enlace del evento (URL)
-        body_box_title_label: Título del evento
-        body_final_text_label: Texto final del evento
-        body_subtitle_label: Subtítulo del cuerpo
-        body_title_label: Título del cuerpo
-        boxes_number_title: Evento %{number}
+        body_box_date_time: Body event date/time
+        body_box_description: Body event description
+        body_box_image: Body event image
+        body_box_link_text: Body event link text (hidden unless an URL is provided)
+        body_box_link_url: Body event link URL
+        body_box_title: Body event title
+        body_final_text: Body final text
+        body_subtitle: Body subtitle
+        body_title: Body title
+        boxes_number_title: Event %{number}
         font_color_over_bg: Color de fuente sobre el fondo
         footer: Pie de página
-        footer_address_label: Dirección de la organización
-        footer_box_date_time_label: Fecha del pie de página
-        footer_box_image: Imagen del pie de página
-        footer_box_image_label: Imagen del pie de página
-        footer_box_link_text_label: Texto del enlace del pie de página (oculto a menos que se proporcione una URL)
-        footer_box_link_url_label: Enlace del pie de página (URL)
-        footer_box_title_label: Título del pie de página
-        footer_image_label: Imagen del pie de página
-        footer_social_links_title_label: Título de las redes sociales
+        footer_address: Organization address
+        footer_box_date_time: Footer event date/time
+        footer_box_image: Footer event image
+        footer_box_link_text: Footer event link text (hidden unless an URL is provided)
+        footer_box_link_url: Footer event link URL
+        footer_box_title: Footer event title
+        footer_image: Footer image
+        footer_social_links_title: Social links title
         footer_title: Título del pie de página
-        footer_title_label: Título del pie de página
         interpolations_hint: 'Sugerencia: Puedes introducir el elemento «%{name}» en cualquier lugar del cuerpo o del asunto y se sustituirá por el nombre del destinatario.'
         intro_text: Texto de introducción
         intro_title: Título de introducción
