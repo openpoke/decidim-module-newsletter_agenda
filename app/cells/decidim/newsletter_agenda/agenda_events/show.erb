@@ -1,103 +1,309 @@
 <style>
-table.container {
-  background: <%= background_color %> !important;
-	width: 816px !important;
-  color: #ffffff !important;
-}
-table.container th, table.container td, table.container p, table.container a{
-  color: #ffffff !important;
-}
-table.container a{
-	text-decoration: underline;
-}
-table.container th{
-	padding-left: 0;
-	padding-right: 0;
-}
-td.introduction {
-  padding: 10%;
-}
-table.introduction, table.introduction td, table.introduction td p{
-	color: #ffffff !important;
-	padding: 20px 0;
-}
-td.agenda .top{
-	background: <%= background_color %> url(<%= background_image_top %>) no-repeat center 100%; !important;
-	color: #000000 !important;
-	height: 387px;
-}
-td.agenda .bottom{
-	background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%; !important;
-	color: #000000 !important;
-	height: 387px;
-}
-table.agenda td, table.agenda p{
-	background: #ffffff !important;
-	color: #000000 !important;
-}
-td.footer {
-}
+  table.container {
+    background: <%= background_color %> !important;
+    max-width: 816px !important;
+    width: 100%;
+  }
+
+  table.container,
+  table.container th,
+  table.container td,
+  table.container p,
+  table.container .intro-link,
+  table.introduction td a,
+  .footer-bottom a,
+  .footer-box-link a,
+  .footnote a {
+    color: <%= font_color_over_bg %> !important;
+  }
+
+  table.container a {
+    text-decoration: underline;
+  }
+
+  table.container th {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  td.introduction, .middle, .footer {
+    padding: 30px 10% 0 10%;
+  }
+
+  table.introduction, table.introduction td, table.introduction td p {
+    padding: 20px 0;
+  }
+
+  td.agenda .top {
+    background: <%= background_color %> url(<%= background_image_top %>) no-repeat center 100%;
+  !important;
+    color: #000000 !important;
+    height: 387px;
+  }
+
+  td.agenda .bottom {
+    background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%;
+  !important;
+    color: #000000 !important;
+    height: 387px;
+  }
+
+  table.agenda td, table.agenda p {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  td.footer {
+  }
+
+  .body-subtitle {
+    color: <%= background_color %>;
+    font-size: 36px;
+  }
+
+  .body-box-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: <%= background_color %>;
+  }
+
+  .box-image {
+    margin-bottom: 20px;
+  }
+
+  .box-link, .box-link a {
+    color: <%= background_color %> !important;
+    margin-top: 20px;
+  }
+
+  .footer-title {
+    margin: 5% auto;
+    min-width: 70%;
+    text-align: center;
+  }
+
+  .footer-box-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .footer-social__icon .icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    fill: <%= font_color_over_bg %>;
+  }
+
+  .footer-social {
+    margin: 20px 0;
+  }
+
+  .footer-address {
+    width: 50%;
+  }
+
+  .footer-address p {
+    font-size: 90%;
+  }
+
+  .footer-bottom {
+    width: 100%;
+    margin: 50px 0 20px 0;
+  }
+
+  .footer-social__wrap {
+    text-align: right;
+  }
+
+  .footer-social {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .footnote center {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    td {
+      display: block !important;
+    }
+
+    .top, .bottom {
+      display: table-cell !important;
+      vertical-align: middle !important;
+    }
+
+    .footer-bottom {
+      display: block;
+      text-align: center;
+    }
+
+    .footer-social__wrap {
+      text-align: left;
+    }
+
+    .footer-address {
+      display: block;
+    }
+
+    .footer-social__wrap {
+      display: block;
+    }
+
+    .footer-social {
+      display: block;
+      text-align: center;
+    }
+  }
 </style>
 
 <table class="main container">
-	<tr>
-		<td class="introduction">
-			<table class="introduction">
-				<tr>
-					<td style="font-size:30px;line-height:30px;">
-			      <%= intro_title %>
-			    </td>
-			  </tr>
-	      <% if has_main_image? %>
-				  <tr>
-				  	<td>
-			        <table class="row content image">
-			          <tr>
-			            <th class="small-12 first columns">
-			              <%= main_image %>
-			            </th>
-			            <th class="expander"></th>
-			          </tr>
-			        </table>
-				  	</td>
-				  </tr>
-	      <% end %>
-	      <tr>
-	      	<td>
-			      <%= intro_text %>
-			    </td>
-			  </tr>
-			</table>
+  <tr>
+    <td class="introduction">
+      <table class="introduction">
+        <% if has_organization_logo? %>
+          <tr>
+            <td style="text-align:center;padding-bottom: 50px;" colspan="2">
+              <%= image_tag organization_logo_url %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td style="font-size:30px;line-height:30px;" colspan="2">
+            <%= translated_text_for :intro_title %>
+          </td>
+        </tr>
+        <% if has_image?(:main_image) %>
+          <tr>
+            <td>
+              <table class="row content image">
+                <tr>
+                  <th class="small-12 first columns">
+                    <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]) %>
+                  </th>
+                  <th class="expander"></th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>
+            <%= translated_text_for :intro_text %>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
-	<tr>
-		<td class="agenda">
-			<table class="agenda">
-				<tr>
-					<td class="top">
-						<center>
-						top
-						</center>
-					</td>
-				</tr>
-				<tr>
-					<td class="middle">
-					todo...
-					</td>
-				</tr>
-				<tr>
-					<td class="bottom">
-						<center>
-						bottom
-						</center>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td class="footer">
-			todo...
-		</td>
-	</tr>
+  <tr>
+    <td class="agenda">
+      <table class="agenda">
+        <tr>
+          <td class="top" style="vertical-align: middle;" colspan="2">
+            <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;">
+              <%= translated_text_for :body_title %>
+            </div>
+            <div class="body-subtitle" style="text-align: center;">
+              <%= translated_text_for :body_subtitle %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="middle">
+            <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <% (1..4).each_slice(2) do |boxes| %>
+              <tr>
+                <% boxes.each do |num| %>
+                  <td style="padding: 10px;margin-bottom: 30px;" width="50%">
+                    <div class="box-image">
+                      <%= image_tag(image_url("body_box_image_#{num}")) if has_image?("body_box_image_#{num}") %>
+                    </div>
+                    <div class="box_date_time">
+                      <%= translated_text_for "body_box_date_time_#{num}" %>
+                    </div>
+                    <div class="body-box-title">
+                      <%= translated_text_for "body_box_title_#{num}" %>
+                    </div>
+                    <div class="box-text">
+                      <%= translated_text_for "body_box_description_#{num}" %>
+                    </div>
+                    <div class="box-link">
+                      <% link = link_for("body_box_link_url_#{num}") %>
+                      <%= link_to translated_text_for("body_box_link_text_#{num}"), link, target: :blank if link %>
+                    </div>
+                  </td>
+                <% end %>
+              </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr style="text-align: center;vertical-align: middle;">
+          <td class="bottom" style="text-align: center;vertical-align: middle;">
+            <%= translated_text_for :body_final_text %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="footer">
+      <table>
+        <tr>
+          <h3 class="footer-title"><%= translated_text_for :footer_title %></h3>
+        </tr>
+      </table>
+      <table cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <% (1..3).each do |num| %>
+            <td style="padding: 10px;margin-bottom: 30px;" width="33%">
+              <div class="box-image">
+                <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132])) if has_image?("footer_box_image_#{num}") %>
+              </div>
+              <div class="footer-box-date-time">
+                <%= translated_text_for "footer_box_date_time_#{num}" %>
+              </div>
+              <div class="footer-box-title">
+                <%= translated_text_for "footer_box_title_#{num}" %>
+              </div>
+              <div class="footer-box-link">
+                <% link = link_for("footer_box_link_url_#{num}") %>
+                <%= link_to(translated_text_for("footer_box_link_text_#{num}"), link, target: :blank) if link %>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      </table>
+      <table class="footer-bottom">
+        <tr>
+          <td class="footer-address">
+            <%= translated_text_for :footer_address_text %>
+          </td>
+          <td class="footer-social__wrap">
+            <%= translated_text_for :footer_social_links_title %>
+            <div class="footer-social">
+              <%= social_links.join.html_safe %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <% if has_footer_image? %>
+        <table class="footer-logo" style="margin: 5% 0;">
+          <tr>
+            <td class="footer-bottom">
+              <%= image_tag footer_image_url %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </td>
+  </tr>
 </table>

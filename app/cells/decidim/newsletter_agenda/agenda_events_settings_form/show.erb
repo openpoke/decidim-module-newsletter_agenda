@@ -1,42 +1,84 @@
-<% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color", value: background_color %>
+<% form.fields_for :settings, settings do |settings_fields| %>
+  <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color" %>
+  <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
 <% end %>
 
-<fieldset class="fieldset">
-  <legend><%= t(".introduction") %></legend>
-  <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-    <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
-    <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
-  <% end %>
-  <% form.fields_for :images, form.object.images do |images_fields| %>
-    <%= images_fields.upload :main_image, label: t(".main_image") %>
-  <% end %>
-</fieldset>
+<ul class="tabs" data-tabs id="newsletter-tabs">
+  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><%= t(".introduction") %></a></li>
+  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2"><%= t(".body") %></a></li>
+  <li class="tabs-title"><a data-tabs-target="panel3" href="#panel3"><%= t(".footer") %></a></li>
+</ul>
 
-<fieldset class="fieldset">
-  <legend><%= t(".body") %></legend>
-  todo...
-</fieldset>
+<div class="tabs-content" data-tabs-content="newsletter-tabs">
+  <div class="tabs-panel is-active" id="panel1">
+    <fieldset class="fieldset">
+      <% form.fields_for :settings, settings do |settings_fields| %>
+        <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
+        <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
+      <% end %>
+      <% form.fields_for :images, form.object.images do |images_fields| %>
+        <%= images_fields.upload :main_image, label: t(".main_image") %>
+      <% end %>
+    </fieldset>
+  </div>
 
-<fieldset class="fieldset">
-  <legend><%= t(".footer") %></legend>
-  todo...
-</fieldset>
+  <div class="tabs-panel" id="panel2">
+    <fieldset class="fieldset">
+      <% form.fields_for :settings, settings do |settings_fields| %>
+        <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") %>
+        <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") %>
+        <ul id="box-container" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <% (1..4).each do |num| %>
+            <li class="box accordion-item" id="box<%= num %>" data-accordion-item>
+              <a href="#" class="accordion-title body-box-title"><%= t(".boxes_number_title", number: num) %>:</a>
+              <div class="accordion-content" data-tab-content>
+                <%= settings_fields.translated :text_field, "body_box_title_#{num}", label: t(".body_box_title") %>
+                <%= settings_fields.translated :text_field, "body_box_date_time_#{num}", label: t(".body_box_date_time") %>
+                <%= settings_fields.translated :text_field, "body_box_description_#{num}", label: t(".body_box_description") %>
+                <%= settings_fields.translated :text_field, "body_box_link_text_#{num}", label: t(".body_box_link_text") %>
+                <%= settings_fields.translated :text_field, "body_box_link_url_#{num}", label: t(".body_box_link_url") %>
+                <% form.fields_for :images, form.object.images do |images_fields| %>
+                  <%= images_fields.upload :"body_box_image_#{num}", label: t(".body_box_image") %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        <%= settings_fields.translated :text_field, :body_final_text, label: t(".body_final_text") %>
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="tabs-panel" id="panel3">
+    <fieldset class="fieldset">
+      <% form.fields_for :settings, settings do |settings_fields| %>
+        <%= settings_fields.translated :text_field, :footer_title, label: t(".footer_title") %>
+
+        <ul id="footer-container" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <% (1..3).each do |num| %>
+            <li class="box accordion-item" id="box<%= num %>" data-accordion-item>
+              <a href="#" class="accordion-title body-box-title"><%= t(".boxes_number_title", number: num) %>:</a>
+              <div class="accordion-content" data-tab-content>
+                <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
+                <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
+                <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
+                <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
+                <% form.fields_for :images, form.object.images do |images_fields| %>
+                  <%= images_fields.upload :"footer_box_image_#{num}", label: t(".footer_box_image") %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        <%= settings_fields.editor :footer_address_text, label: t(".footer_address") %>
+        <%= settings_fields.translated :text_field, :footer_social_links_title, label: t(".footer_social_links_title") %>
+      <% end %>
+    </fieldset>
+  </div>
+</div>
 
 <div class="row column">
   <%= t(".interpolations_hint") %>
 </div>
 
-<style>
-  .fieldset {
-    padding:0;
-    border:none;
-  }
-  .fieldset legend{
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 1em 0;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-  }
-</style>
+<%= stylesheet_pack_tag "decidim_newsletter_agenda" %>

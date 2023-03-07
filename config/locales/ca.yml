@@ -1,0 +1,18 @@
+---
+ca:
+  decidim:
+    newsletter_templates:
+      agenda_events:
+        body_box_date_time_preview: 7 - 15 Novembre, 10:00
+        body_box_description_preview: 'En aquestes jornades reunim a diferent: apents
+          publics i del sector dels videojocs per tal que es consideri una activitat
+          protegida i regulada.'
+        body_box_link_text_preview: Sabeu-ne més
+        body_box_title_preview: Segones jornades en defensa dels drets digitals
+        body_final_text_preview: Però hi ha més
+        body_subtitle_preview: del 7 al 15 de novembre
+        body_title_preview: Que hi ha durant la setmana
+        footer_box_date_time_preview: 7 - 15 Novembre, 10:00
+        footer_box_title_preview: Segones jornades en defensa dels drets digitals
+        footer_social_links_title_preview: Segueix-nos a les xarxes socials
+        footer_title_preview: Tant si vols veure el que t'has perdut com si vols recordar-ho
