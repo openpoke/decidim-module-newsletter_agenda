@@ -59,21 +59,21 @@ describe "Agenda events settings", type: :system do
         expect(page).to have_field("newsletter[settings][font_color_over_bg]", with: "#ffffff")
 
         click_link "Body"
-        expect(page).to have_content("BOX 1:")
-        expect(page).to have_content("BOX 2:")
-        expect(page).to have_content("BOX 3:")
-        expect(page).to have_content("BOX 4:")
+        expect(page).to have_content("EVENT 1:")
+        expect(page).to have_content("EVENT 2:")
+        expect(page).to have_content("EVENT 3:")
+        expect(page).to have_content("EVENT 4:")
 
-        click_link "Box 1:"
-        expect(page).to have_content("Body box title")
+        click_link "Event 1:"
+        expect(page).to have_content("Body event title")
 
         click_link "Footer"
-        expect(page).to have_content("BOX 1:")
-        expect(page).to have_content("BOX 2:")
-        expect(page).to have_content("BOX 3:")
+        expect(page).to have_content("EVENT 1:")
+        expect(page).to have_content("EVENT 2:")
+        expect(page).to have_content("EVENT 3:")
 
-        click_link "Box 1:"
-        expect(page).to have_content("Footer box title")
+        click_link "Event 1:"
+        expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
         expect(page).to have_content("Social links title")
@@ -112,11 +112,11 @@ describe "Agenda events settings", type: :system do
         find('input[name="newsletter[settings][body_subtitle_en]"]').fill_in with: "Body subtitle"
 
         (1..4).each do |i|
-          click_link "Box #{i}:"
-          find("input[name='newsletter[settings][body_box_title_#{i}_en]']").fill_in with: "Box title #{i}"
+          click_link "Event #{i}:"
+          find("input[name='newsletter[settings][body_box_title_#{i}_en]']").fill_in with: "Event title #{i}"
           find("input[name='newsletter[settings][body_box_date_time_#{i}_en]']").fill_in with: i.days.from_now.strftime("%d/%m/%Y")
-          find("input[name='newsletter[settings][body_box_description_#{i}_en]']").fill_in with: "Box description #{i}"
-          find("input[name='newsletter[settings][body_box_link_text_#{i}_en]']").fill_in with: "Box link text #{i}"
+          find("input[name='newsletter[settings][body_box_description_#{i}_en]']").fill_in with: "Event description #{i}"
+          find("input[name='newsletter[settings][body_box_link_text_#{i}_en]']").fill_in with: "Event link text #{i}"
           find("input[name='newsletter[settings][body_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org"
           attach_file("newsletter[images][body_box_image_#{i}]", Decidim::Dev.asset("city2.jpeg"))
         end
@@ -127,10 +127,10 @@ describe "Agenda events settings", type: :system do
         find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
 
         (1..3).each do |i|
-          click_link "Box #{i}:"
+          click_link "Event #{i}:"
           find("input[name='newsletter[settings][footer_box_date_time_#{i}_en]']").fill_in with: 5.days.from_now.strftime("%d/%m/%Y")
-          find("input[name='newsletter[settings][footer_box_title_#{i}_en]']").fill_in with: "Footer box title #{i}"
-          find("input[name='newsletter[settings][footer_box_link_text_#{i}_en]']").fill_in with: "Footer box link #{i}"
+          find("input[name='newsletter[settings][footer_box_title_#{i}_en]']").fill_in with: "Footer event title #{i}"
+          find("input[name='newsletter[settings][footer_box_link_text_#{i}_en]']").fill_in with: "Footer event link #{i}"
           find("input[name='newsletter[settings][footer_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org/footer"
           attach_file("newsletter[images][footer_box_image_#{i}]", Decidim::Dev.asset("city3.jpeg"))
         end
@@ -147,18 +147,18 @@ describe "Agenda events settings", type: :system do
           expect(page).to have_content(translated("Body title"))
           expect(page).to have_content(translated("Body subtitle"))
           (1..4).each do |i|
-            expect(page).to have_content("Box title #{i}")
+            expect(page).to have_content("Event title #{i}")
             expect(page).to have_content(i.days.from_now.strftime("%d/%m/%Y"))
-            expect(page).to have_content("Box description #{i}")
-            expect(page).to have_content("Box link text #{i}")
+            expect(page).to have_content("Event description #{i}")
+            expect(page).to have_content("Event link text #{i}")
           end
           expect(page).to have_css("a[href='http://www.example.org']", count: 4)
           expect(page).to have_content(translated("Final text"))
 
           (1..3).each do |i|
             expect(page).to have_content(5.days.from_now.strftime("%d/%m/%Y"), count: 3)
-            expect(page).to have_content("Footer box title #{i}")
-            expect(page).to have_content("Footer box link #{i}")
+            expect(page).to have_content("Footer event title #{i}")
+            expect(page).to have_content("Footer event link #{i}")
           end
           expect(page).to have_css("a[href='http://www.example.org/footer']", count: 3)
 
