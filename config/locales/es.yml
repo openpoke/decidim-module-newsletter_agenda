@@ -1,0 +1,67 @@
+---
+es:
+  date_range:
+    default:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
+      month: "%B"
+      same_days: "%{day} %{month}"
+      same_hours: "%{day} %{month}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
+    with_time:
+      different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
+      hour: "%I%P"
+      month: "%B"
+      same_days: "%{day} %{month}, %{from_hour} - %{until_hour}"
+      same_hours: "%{day} %{month}, %{hour}"
+      same_months: "%{from_day}-%{until_day} %{month}"
+      same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
+      year: "%Y"
+  decidim:
+    newsletter_agenda:
+      agenda_events_settings_form:
+        background_color: Color de fondo
+        body: Cuerpo
+        body_box_date_time: Fecha y hora del evento
+        body_box_description: Descripción del evento
+        body_box_image: Imagen de evento
+        body_box_link_text: Texto del enlace del evento (oculto a menos que se proporcione una URL)
+        body_box_link_url: Enlace del evento (URL)
+        body_box_title: Título del evento
+        body_final_text: Texto final del evento
+        body_subtitle: Subtítulo del evento
+        body_title: Título del evento
+        boxes_number_title: Evento %{number}
+        font_color_over_bg: Color de fuente sobre el fondo
+        footer: Pie de página
+        footer_address: Dirección de la organización
+        footer_box_date_time: Fecha y hora del evento de pie de página
+        footer_box_image: Imagen del evento
+        footer_box_link_text: Texto del enlace del evento (oculto a menos que se proporcione una URL)
+        footer_box_link_url: Enlace del evento (URL)
+        footer_box_title: Introducir título del evento en pie de página
+        footer_image: Imagen del pie de página
+        footer_social_links_title: Título de las redes sociales
+        footer_title: Título del pie de página
+        interpolations_hint: 'Sugerencia: Puedes introducir el elemento «%{name}» en cualquier lugar del cuerpo o del asunto y se sustituirá por el nombre del destinatario.'
+        intro_text: Texto de introducción
+        intro_title: Título de introducción
+        introduction: Introducción
+        main_image: Imagen de introducción
+    newsletter_templates:
+      agenda_events:
+        body_box_date_time_preview: Noviembre, 7 - 15, 10:00
+        body_box_description_preview: Esta es una descripción de evento para esta agenda.
+        body_box_link_text_preview: Leer más
+        body_box_title_preview: Esta es un título de evento para esta agenda
+        body_final_text_preview: Pero aún hay más
+        body_title_preview: Qué está ocurriendo durante la semana
+        footer_box_date_time_preview: 7 – 15 de noviembre, 10:00
+        footer_box_link_text_preview: Leer más
+        footer_box_title_preview: Este es un título de evento para esta agenda
+        footer_social_links_title_preview: Síguenos en las redes sociales
+        footer_title_preview: Si quieres ver lo que te has perdido o quieres recordarlo
+        intro_text_preview: 'Texto ficticio para el cuerpo: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar. <a href="#">Leer más</a>'
+        intro_title_preview: Título ficticio para el boletín.
+        name: Eventos de la agenda
