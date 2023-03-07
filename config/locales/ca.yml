@@ -21,32 +21,29 @@ ca:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
-        add_box: Afegeix una caixa
         background_color: Color de fons
         body: Cos
-        body_box_date_time_label: Data i hora (format text)
-        body_box_description_label: Descripció
-        body_box_image: Imatge
-        body_box_link_text_label: Text de l'enllaç en el cos de la caixa (amagat tret que es proporcioni un URL)
-        body_box_link_url_label: Enllaç del cos de la caixa
-        body_box_title_label: Títol del cos de la caixa
-        body_final_text_label: Text final del cos
-        body_subtitle_label: Subtítol del cos
-        body_title_label: Títol del cos
-        boxes_number_title: Caixa %{number}
+        body_box_date_time: Body event date/time
+        body_box_description: Body event description
+        body_box_image: Body event image
+        body_box_link_text: Body event link text (hidden unless an URL is provided)
+        body_box_link_url: Body event link URL
+        body_box_title: Body event title
+        body_final_text: Body final text
+        body_subtitle: Body subtitle
+        body_title: Body title
+        boxes_number_title: Event %{number}
         font_color_over_bg: Color de la lletra sobre el fons
         footer: Peu de pàgina
-        footer_address_label: Adreça de l'organització
-        footer_box_date_time_label: Data i hora de la caixa de peu de pàgina
-        footer_box_image: Imatge de la caixa de peu de pàgina
-        footer_box_image_label: Imatge de la caixa de peu de pàgina
-        footer_box_link_text_label: Text de l'enllaç en la caixa de peu de pàgina (amagat tret que es proporcioni un URL)
-        footer_box_link_url_label: Enllaç en la caixa de peu de pàgina
-        footer_box_title_label: Títol de la caixa de peu de pàgina
-        footer_image_label: Imatge del peu de pàgina
-        footer_social_links_title_label: Títol de les xarxes socials
+        footer_address: Organization address
+        footer_box_date_time: Footer event date/time
+        footer_box_image: Footer event image
+        footer_box_link_text: Footer event link text (hidden unless an URL is provided)
+        footer_box_link_url: Footer event link URL
+        footer_box_title: Footer event title
+        footer_image: Footer image
+        footer_social_links_title: Social links title
         footer_title: Títol del peu de pàgina
-        footer_title_label: Títol del peu de pàgina
         interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         intro_text: Text d'introducció
         intro_title: Títol d'introducció
