@@ -101,11 +101,14 @@ module Decidim
       end
 
       def host_options
-        Rails.configuration.action_mailer.default_url_options.merge(host: decidim.root_url(host: organization.host))
+        @host_options ||= begin
+          options = Rails.configuration.action_mailer.default_url_options || {}
+          options.merge(host: decidim.root_url(host: organization.host))
+        end
       end
 
       def find_handler_attributes
-        organization.attributes.select { |key| key.to_s.include?("handler") }
+        @find_handler_attributes ||= organization.attributes.select { |key| key.to_s.include?("handler") }
       end
     end
   end
