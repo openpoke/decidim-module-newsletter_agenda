@@ -28,10 +28,10 @@ ca:
         body_box_image: Imatge de l'esdeveniment
         body_box_link_text: Text d'enllaç de l'esdeveniment (amagat tret que es proporcioni una URL)
         body_box_link_url: Enllaç de l'esdeveniment (URL)
-        body_box_title: Títol a l'esdeveniment
+        body_box_title: Títol esdeveniment
         body_final_text: Text final de l'esdeveniment
-        body_subtitle: Subtítol de l'esdeveniment
-        body_title: Títol de l'esdeveniment
+        body_subtitle: Subtítol de la secció del cos
+        body_title: Títol de la secció del cos
         boxes_number_title: Esdeveniment %{number}
         font_color_over_bg: Color de la lletra sobre el fons
         footer: Peu de pàgina
