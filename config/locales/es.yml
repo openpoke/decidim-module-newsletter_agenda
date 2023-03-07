@@ -30,8 +30,8 @@ es:
         body_box_link_url: Enlace del evento (URL)
         body_box_title: Título del evento
         body_final_text: Texto final del evento
-        body_subtitle: Subtítulo del evento
-        body_title: Título del evento
+        body_subtitle: Subtítulo de la sección del cuerpo
+        body_title: Título de la sección del cuerpo
         boxes_number_title: Evento %{number}
         font_color_over_bg: Color de fuente sobre el fondo
         footer: Pie de página
