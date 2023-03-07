@@ -3,7 +3,7 @@
 SimpleCov.start do
   root ENV["ENGINE_ROOT"]
 
-  add_filter "lib/decidim/friendly_signup/version.rb"
+  add_filter "lib/decidim/newsletter_agenda/version.rb"
   add_filter "/spec"
 end
 
