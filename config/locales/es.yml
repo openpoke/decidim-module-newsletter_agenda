@@ -49,6 +49,8 @@ es:
         intro_title: Título de introducción
         introduction: Introducción
         main_image: Imagen de introducción
+        tab_body_description: The body of the newsletter can contain up to 4 events. The format is best suited for events and/or news to conform an agenda of what's coming. Of course you can let your imagination drive you to think on other ways to use it. It is not necessary to fill in all 4 events, missing entries won't appear in the newsletter. We do recommend though to fill 2 or 4 entries instead of an odd number of events.
+        tab_footer_description: The newsletter footer can contain up to 3 events. The format is also best suited for events and/or news of things that have already happened. But you can use it in any way you want. It is not necessary to fill in all 3 events, missing entries won't appear in the newsletter.
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Noviembre, 7 - 15, 10:00
