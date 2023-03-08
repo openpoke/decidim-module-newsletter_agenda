@@ -23,6 +23,7 @@
   </div>
 
   <div class="tabs-panel" id="panel2">
+    <p><%= t(".tab_body_description") %></p>
     <fieldset class="fieldset">
       <% form.fields_for :settings, settings do |settings_fields| %>
         <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") %>
@@ -50,6 +51,7 @@
   </div>
 
   <div class="tabs-panel" id="panel3">
+    <p><%= t(".tab_footer_description") %></p>
     <fieldset class="fieldset">
       <% form.fields_for :settings, settings do |settings_fields| %>
         <%= settings_fields.translated :text_field, :footer_title, label: t(".footer_title") %>

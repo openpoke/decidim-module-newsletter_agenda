@@ -22,12 +22,10 @@ module Decidim
 
     # The default address text for the newsletter agenda.
     config_accessor :default_address_text do
-      <<~ADDRESS
-        <b>Canòdrom</b><br>
-        <b>Ateneu d'Innovació Digital i Democràtica</b><br>
-        C/Concepció Arenal 165 - 09027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
-        <a href="mailto:hola@canodrom">hola@canodrom.com</a>
-      ADDRESS
+      "<b>Canòdrom</b><br>" \
+      "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
+      "C/Concepció Arenal 165 - 09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
+      "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>"
     end
 
     # To define the default first day for the agenda ranges.

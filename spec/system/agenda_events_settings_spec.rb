@@ -63,6 +63,7 @@ describe "Agenda events settings", type: :system do
         expect(page).to have_content("EVENT 2:")
         expect(page).to have_content("EVENT 3:")
         expect(page).to have_content("EVENT 4:")
+        expect(page).to have_content("The body of the newsletter can contain up to 4 events")
 
         click_link "Event 1:"
         expect(page).to have_content("Body event title")
@@ -71,14 +72,17 @@ describe "Agenda events settings", type: :system do
         expect(page).to have_content("EVENT 1:")
         expect(page).to have_content("EVENT 2:")
         expect(page).to have_content("EVENT 3:")
+        expect(page).to have_content("The newsletter footer can contain up to 3 events.")
 
         click_link "Event 1:"
         expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
         expect(page).to have_content("Social links title")
+
         address = ActionController::Base.helpers.strip_tags(content_block.settings.footer_address_text)
-        expect(page.text.gsub(/[\n ]+/, " ")).to have_content(address.gsub(/[\n ]+/, " ").strip)
+        expect(page.html.gsub(/[\n ]+/, " ")).to have_content(address.gsub(/[\n ]+/, " ").strip)
+        expect(address.lines[1..3]).to all(match(/^\S/))
       end
     end
 
