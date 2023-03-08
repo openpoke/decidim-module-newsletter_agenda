@@ -49,8 +49,8 @@ es:
         intro_title: Título de introducción
         introduction: Introducción
         main_image: Imagen de introducción
-        tab_body_description: The body of the newsletter can contain up to 4 events. The format is best suited for events and/or news to conform an agenda of what's coming. Of course you can let your imagination drive you to think on other ways to use it. It is not necessary to fill in all 4 events, missing entries won't appear in the newsletter. We do recommend though to fill 2 or 4 entries instead of an odd number of events.
-        tab_footer_description: The newsletter footer can contain up to 3 events. The format is also best suited for events and/or news of things that have already happened. But you can use it in any way you want. It is not necessary to fill in all 3 events, missing entries won't appear in the newsletter.
+        tab_body_description: El cuerpo del boletín puede contener hasta 4 eventos. El formato más adecuado es para eventos y/o noticias que se adaptan a una agenda de lo que viene. Por supuesto, puedes ser imaginativo y pensar otras formas de usarlo. No es necesario llenar los 4 eventos, las entradas que faltan no aparecerán en el boletín. Sin embargo, recomendamos llenar 2 o 4 entradas en lugar de un número impar de eventos.
+        tab_footer_description: El pie de página del boletín puede contener hasta 3 eventos. El formato que mejor se adapta es para eventos y/o noticias que ya han pasado. Pero puede utilizarlo de la forma que desee. No es necesario llenar los 3 eventos, las entradas que faltan no aparecerán en el boletín.
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Noviembre, 7 - 15, 10:00
