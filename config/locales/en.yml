@@ -53,16 +53,15 @@ en:
         introduction: Introduction
         main_image: Introduction image
         tab_body_description: The body of the newsletter can contain up to 4 events.
-          The purpose of the format is for events (all types of sessions) and/or news
-          (you can be imaginative and think of other ways to use it) in agenda format.
-          It is not necessary to fill in all 4 events, if you do less it also appears
-          in a good format.
+          The format is best suited for events and/or news to conform an agenda of
+          what's coming. Of course you can let your imagination drive you to think
+          on other ways to use it. It is not necessary to fill in all 4 events, missing
+          entries won't appear in the newsletter. We do recommend though to fill 2
+          or 4 entries instead of an odd number of events.
         tab_footer_description: The newsletter footer can contain up to 3 events.
-          The purpose of the format is for events (all types of sessions) and/or news
-          (you can be imaginative and think of other ways to use it) in agenda format.
-          For example, for events that have already happened or that are pre-announced
-          by the next newsletter. It is not necessary to fill in all 3 events, if
-          you do less it also appears in a good format.
+          The format is also best suited for events and/or news of things that have
+          already happened. But you can use it in any way you want. It is not necessary
+          to fill in all 3 events, missing entries won't appear in the newsletter.
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: November, 7 - 15, 10:00
