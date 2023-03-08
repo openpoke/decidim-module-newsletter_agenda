@@ -49,8 +49,8 @@ ca:
         intro_title: Títol d'introducció
         introduction: Introducció
         main_image: Imatge d'introducció
-        tab_body_description: The body of the newsletter can contain up to 4 events. The format is best suited for events and/or news to conform an agenda of what's coming. Of course you can let your imagination drive you to think on other ways to use it. It is not necessary to fill in all 4 events, missing entries won't appear in the newsletter. We do recommend though to fill 2 or 4 entries instead of an odd number of events.
-        tab_footer_description: The newsletter footer can contain up to 3 events. The format is also best suited for events and/or news of things that have already happened. But you can use it in any way you want. It is not necessary to fill in all 3 events, missing entries won't appear in the newsletter.
+        tab_body_description: El cos del butlletí pot contenir fins a 4 esdeveniments. El format més adequat és per esdeveniments i/o notícies que s'adapten a una agenda del que ve. Per descomptat, podeu ser imaginatius i pensar altres formes d'usar-ho. No és necessari omplir els 4 esdeveniments, les entrades que falten no apareixeran al butlletí. No obstant això, recomanem omplir 2 o 4 entrades en lloc d'un nombre imparell d'esdeveniments.
+        tab_footer_description: El peu de pàgina del butlletí pot contenir fins a 3 esdeveniments. El format que millor s'adapta és per a esdeveniments i/o notícies que ja han passat. Però podeu utilitzar-lo de la manera que vulgueu. No és necessari omplir els 3 esdeveniments, les entrades que falten no apareixeran al butlletí.
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Novembre, 7 - 15, 10:00
