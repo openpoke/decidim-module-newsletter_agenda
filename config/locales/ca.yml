@@ -28,10 +28,10 @@ ca:
         body_box_image: Imatge de l'esdeveniment
         body_box_link_text: Text d'enllaç de l'esdeveniment (amagat tret que es proporcioni una URL)
         body_box_link_url: Enllaç de l'esdeveniment (URL)
-        body_box_title: Títol a l'esdeveniment
+        body_box_title: Títol esdeveniment
         body_final_text: Text final de l'esdeveniment
-        body_subtitle: Subtítol de l'esdeveniment
-        body_title: Títol de l'esdeveniment
+        body_subtitle: Subtítol de la secció del cos
+        body_title: Títol de la secció del cos
         boxes_number_title: Esdeveniment %{number}
         font_color_over_bg: Color de la lletra sobre el fons
         footer: Peu de pàgina
@@ -49,6 +49,8 @@ ca:
         intro_title: Títol d'introducció
         introduction: Introducció
         main_image: Imatge d'introducció
+        tab_body_description: El cos del butlletí pot contenir fins a 4 esdeveniments. El format més adequat és per esdeveniments i/o notícies que s'adapten a una agenda del que ve. Per descomptat, podeu ser imaginatius i pensar altres formes d'usar-ho. No és necessari omplir els 4 esdeveniments, les entrades que falten no apareixeran al butlletí. No obstant això, recomanem omplir 2 o 4 entrades en lloc d'un nombre imparell d'esdeveniments.
+        tab_footer_description: El peu de pàgina del butlletí pot contenir fins a 3 esdeveniments. El format que millor s'adapta és per a esdeveniments i/o notícies que ja han passat. Però podeu utilitzar-lo de la manera que vulgueu. No és necessari omplir els 3 esdeveniments, les entrades que falten no apareixeran al butlletí.
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Novembre, 7 - 15, 10:00
