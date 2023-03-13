@@ -46,10 +46,13 @@
   }
 
   td.agenda .bottom {
-    background: <%= background_color %> url(<%= background_image_bottom %>) no-repeat center 100%;
-  !important;
     color: #000000 !important;
     height: 387px;
+    background-image: url(<%= background_image_bottom %>);
+  !important;
+    background-color: <%= background_color %>;
+    background-repeat: no-repeat;
+    background-position: center 100%;
     background-size: 100% 100%;
   }
 
@@ -146,6 +149,10 @@
     .footer-box {
       width: 100% !important;
       display: block !important;
+    }
+
+    .box-image {
+      width: 100% !important;
     }
 
     .footer-bottom {
