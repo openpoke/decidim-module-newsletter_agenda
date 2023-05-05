@@ -129,7 +129,7 @@ module Decidim
         when "telegram"
           "https://#{network}.me/#{value}"
         when "mastodon"
-          "https://#{value}.#{network}.social/@#{value}"
+          "https://#{network}.social/@#{value}"
         when "peertube"
           "https://#{network}.tv/c/#{value}"
         else
