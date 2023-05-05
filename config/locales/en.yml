@@ -23,6 +23,15 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
+        social_handlers: Social
+        twitter: Twitter
+        facebook: Facebook
+        instagram: Instagram
+        youtube: Youtube
+        github: Github
+        mastodon: Mastodon
+        telegram: Telegram
+        peertube: PeerTube
         background_color: Background color
         body: Body
         body_box_date_time: Body event date/time

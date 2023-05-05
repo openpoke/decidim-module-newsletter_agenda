@@ -154,17 +154,25 @@ module Decidim
                 translated: true,
                 preview: -> { "https://decidim.org" }
               )
+            end
+            settings.attribute(
+              :footer_address_text,
+              type: :text,
+              translated: false,
+              preview: -> { NewsletterAgenda.default_address_text }
+            )
+            settings.attribute(
+              :footer_social_links_title,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview") }
+            )
+            Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
               settings.attribute(
-                :footer_address_text,
+                "#{handler}_handler",
                 type: :text,
                 translated: false,
-                preview: -> { NewsletterAgenda.default_address_text }
-              )
-              settings.attribute(
-                :footer_social_links_title,
-                type: :text,
-                translated: true,
-                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview") }
+                preview: -> { "https://#{handler}.com/#{handler}" }
               )
             end
           end

@@ -36,6 +36,11 @@ module Decidim
           end
           settings[:footer_address_text] ||= NewsletterAgenda.default_address_text
 
+          # social handlers
+          Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
+            settings["#{handler}_handler"] ||= ""
+          end
+
           # boxes
           (1..4).each do |num|
             settings["body_box_link_text_#{num}"].tap do |hash|
@@ -54,6 +59,7 @@ module Decidim
           end
         end
       end
+
       # rubocop:enable Metrics/CyclomaticComplexity
       # rubocop:enable Metrics/PerceivedComplexity
     end
