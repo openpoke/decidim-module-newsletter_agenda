@@ -7,7 +7,7 @@ module Decidim
       # rubocop:disable Metrics/PerceivedComplexity
       def settings
         @settings ||= form.object.settings.tap do |settings|
-          settings[:background_color] ||= NewsletterAgenda.default_background_color || current_organization.colors["primary"] || "#733BCE"
+          settings[:background_color] ||= NewsletterAgenda.default_background_color || current_organization.colors["primary"] || "#7636D2"
           settings[:font_color_over_bg] ||= NewsletterAgenda.default_font_color_over_bg
           settings[:body_title].tap do |hash|
             I18n.available_locales.each do |locale|

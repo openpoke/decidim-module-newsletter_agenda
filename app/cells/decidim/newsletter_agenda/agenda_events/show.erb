@@ -1,5 +1,6 @@
 <style>
   table.container {
+    font-family: Inter, sans-serif !important;
     background: <%= background_color %> !important;
     max-width: 816px !important;
     width: 100%;
@@ -15,10 +16,12 @@
   .footer-box-link a,
   .footnote a {
     color: <%= font_color_over_bg %> !important;
+    font-family: Inter, sans-serif !important;
   }
 
   table.container a {
     text-decoration: underline;
+    font-family: Inter, sans-serif !important;
   }
 
   table.container th {
@@ -36,6 +39,11 @@
   table.introduction td,
   table.introduction td p {
     padding: 20px 0;
+  }
+
+  .introduction-text p {
+    text-align: center;
+    font-size: 20px !important;
   }
 
   td.agenda .top {
@@ -87,6 +95,10 @@
   .box-link a {
     color: <%= background_color %> !important;
     margin-top: 20px;
+  }
+
+  td.bottom img {
+    margin-top: 1rem;
   }
 
   .footer-title {
@@ -196,7 +208,7 @@
           </tr>
         <% end %>
         <tr>
-          <td style="font-size:30px;line-height:30px;" colspan="2">
+          <td style="font-size:30px;line-height:30px;font-weight: bold;text-align:center;" colspan="2">
             <%= translated_text_for :intro_title %>
           </td>
         </tr>
@@ -215,7 +227,7 @@
           </tr>
         <% end %>
         <tr>
-          <td>
+          <td class="introduction-text">
             <%= translated_text_for :intro_text %>
           </td>
         </tr>
@@ -227,7 +239,7 @@
       <table class="agenda">
         <tr>
           <td class="top" style="vertical-align: middle;" colspan="2">
-            <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;color: #000000 !important;">
+            <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;color: #000000 !important;font-size:24px !important">
               <%= translated_text_for :body_title %>
             </div>
             <div class="body-subtitle" style="text-align: center;">
@@ -243,7 +255,11 @@
                   <% boxes.each do |num| %>
                     <td class="event-box" style="padding: 10px;margin-bottom: 30px;" width="50%">
                       <div class="box-image">
-                        <%= image_tag(image_url("body_box_image_#{num}")) if has_image?("body_box_image_#{num}") %>
+                        <% if has_image?("body_box_image_#{num}") %>
+                          <%= link_to link_for("body_box_link_url_#{num}") do %>
+                            <%= image_tag(image_url("body_box_image_#{num}")) %>
+                          <% end %>
+                        <% end %>
                       </div>
                       <div class="box_date_time">
                         <%= translated_text_for "body_box_date_time_#{num}" %>
@@ -268,6 +284,7 @@
         <tr style="text-align: center;vertical-align: middle;">
           <td class="bottom" style="text-align: center;vertical-align: middle;">
             <%= translated_text_for :body_final_text %>
+            <%= image_tag asset_pack_url("media/images/arrow-down.png", host_options) %>
           </td>
         </tr>
       </table>
@@ -277,7 +294,7 @@
     <td class="footer">
       <table>
         <tr>
-          <h3 class="footer-title"><%= translated_text_for :footer_title %></h3>
+          <h3 class="footer-title" style="padding: 0 10%"><%= translated_text_for :footer_title %></h3>
         </tr>
       </table>
       <table cellpadding="0" cellspacing="0" border="0" align="center">
