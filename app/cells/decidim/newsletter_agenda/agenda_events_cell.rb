@@ -72,7 +72,7 @@ module Decidim
           network = k.split("_").first
 
           icon_path = asset_pack_url("media/images/#{network}.png", host_options)
-          ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon")
+          ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon", title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
           links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
         links
