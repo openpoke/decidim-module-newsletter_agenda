@@ -156,8 +156,10 @@ describe "Agenda events settings", type: :system do
             expect(page).to have_content("Event description #{i}")
             expect(page).to have_content("Event link text #{i}")
           end
-          expect(page).to have_css("a[href='http://www.example.org']", count: 4)
+          expect(page).to have_css(".box-link a[href='http://www.example.org']", count: 4)
+          expect(page).to have_css(".box-image a[href='http://www.example.org']", count: 4)
           expect(page).to have_content(translated("Final text"))
+          expect(page).to have_css(".bottom img", count: 1) # arrow
 
           (1..3).each do |i|
             expect(page).to have_content(5.days.from_now.strftime("%d/%m/%Y"), count: 3)

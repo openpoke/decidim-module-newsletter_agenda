@@ -17,6 +17,7 @@
   .footnote a {
     color: <%= font_color_over_bg %> !important;
     font-family: Inter, sans-serif !important;
+    font-weight: 300;
   }
 
   table.container a {
@@ -156,6 +157,11 @@
       display: block !important;
     }
 
+    .body-title {
+      font-size: 1.3rem !important;
+      padding: 0 10% !important;
+    }
+
     .top,
     .bottom {
       display: table-cell !important;
@@ -239,7 +245,8 @@
       <table class="agenda">
         <tr>
           <td class="top" style="vertical-align: middle;" colspan="2">
-            <div style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;color: #000000 !important;font-size:24px !important">
+            <div class="body-title" style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;color: #000000
+              !important;font-size:24px">
               <%= translated_text_for :body_title %>
             </div>
             <div class="body-subtitle" style="text-align: center;">
