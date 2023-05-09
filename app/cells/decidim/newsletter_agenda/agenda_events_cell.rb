@@ -40,6 +40,25 @@ module Decidim
         representation_url(newsletter.template.images_container.send(attribute).variant(options))
       end
 
+      def should_color_cell(col, row)
+        case col
+        when 1
+          [15, 16].include?(row)
+        when 2
+          [14, 15].include?(row)
+        when 3
+          row == 16
+        when 30
+          row == 2
+        when 31
+          row == 1
+        when 32
+          [1, 3].include?(row)
+        else
+          false
+        end
+      end
+
       def organization_logo_url
         if organization.logo.attached?
           representation_url(organization.logo.variant(resize_to_fit: [300, 80]))
