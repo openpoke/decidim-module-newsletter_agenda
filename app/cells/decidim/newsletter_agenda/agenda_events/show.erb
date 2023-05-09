@@ -148,6 +148,24 @@
     margin: 0 auto;
   }
 
+  @media only screen and (max-width: 500px) {
+    .top,
+    .bottom {
+      height: 250px !important;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .top,
+    .bottom {
+      height: 200px !important;
+    }
+
+    .body-title {
+      font-size: 1.1rem !important;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     td {
       display: block !important;
@@ -162,6 +180,7 @@
     .bottom {
       display: table-cell !important;
       vertical-align: middle !important;
+      height: 300px !important;
     }
 
     .event-box,
