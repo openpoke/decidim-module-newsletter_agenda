@@ -131,7 +131,7 @@ module Decidim
         when "mastodon"
           "https://#{network}.social/@#{value}"
         when "peertube"
-          "https://#{network}.tv/c/#{value}"
+          "https://diode.zone/a/#{value}"
         else
           "https://#{network}.com/#{value}"
         end

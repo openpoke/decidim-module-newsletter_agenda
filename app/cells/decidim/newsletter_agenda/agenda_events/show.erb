@@ -42,9 +42,13 @@
     padding: 20px 0;
   }
 
-  .introduction-text p {
-    text-align: center;
-    font-size: 20px !important;
+  td.introduction-text p {
+    text-align: left;
+    font-size: 20px;
+  }
+
+  td.introduction-title {
+
   }
 
   td.agenda .top {
@@ -127,6 +131,10 @@
     margin: 50px 0 20px 0;
   }
 
+  .footer-logo img {
+    width: 55%;
+  }
+
   .footer-social__wrap {
     text-align: right;
   }
@@ -152,9 +160,25 @@
   }
 
   @media only screen and (max-width: 500px) {
+    td.introduction-title {
+      font-size: 1.5rem !important;
+    }
+
+    td.introduction-text p {
+      font-size: 1rem !important;
+    }
+
     .top,
     .bottom {
       height: 250px !important;
+    }
+
+    .body-box-title {
+      font-size: 1.2rem !important;
+    }
+
+    td h3.footer-title {
+      font-size: 1.5rem !important;
     }
   }
 
@@ -167,6 +191,10 @@
     .body-title {
       font-size: 1.1rem !important;
     }
+
+    .footer-logo img {
+      width: 95% !important;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -176,7 +204,11 @@
 
     .body-title {
       font-size: 1.3rem !important;
-      padding: 0 10% !important;
+      padding: 0 12% !important;
+    }
+
+    .footer-title {
+      padding: 0 !important;
     }
 
     .top,
@@ -192,7 +224,8 @@
       display: block !important;
     }
 
-    .box-image {
+    .box-image,
+    .box-image img {
       width: 100% !important;
     }
 
@@ -231,7 +264,8 @@
           </tr>
         <% end %>
         <tr>
-          <td style="font-size:30px;line-height:30px;font-weight: bold;text-align:center;" colspan="2">
+          <td class="introduction-title" style="font-size:30px;line-height:30px;font-weight: bold;text-align:center;"
+              colspan="2">
             <%= translated_text_for :intro_title %>
           </td>
         </tr>
@@ -318,7 +352,7 @@
     <td class="footer">
       <table>
         <tr>
-          <h3 class="footer-title" style="padding: 0 10%"><%= translated_text_for :footer_title %></h3>
+          <h3 class="footer-title" style="padding: 0 12%"><%= translated_text_for :footer_title %></h3>
         </tr>
       </table>
       <table cellpadding="0" cellspacing="0" border="0" align="center">
