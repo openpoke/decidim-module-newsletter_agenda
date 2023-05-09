@@ -33,6 +33,7 @@ es:
         body_subtitle: Subtítulo de la sección del cuerpo
         body_title: Título de la sección del cuerpo
         boxes_number_title: Evento %{number}
+        facebook: Facebook
         font_color_over_bg: Color de fuente sobre el fondo
         footer: Pie de página
         footer_address: Dirección de la organización
@@ -44,13 +45,21 @@ es:
         footer_image: Imagen del pie de página
         footer_social_links_title: Título de las redes sociales
         footer_title: Título del pie de página
+        github: Github
+        instagram: Instagram
         interpolations_hint: 'Sugerencia: Puedes introducir el elemento «%{name}» en cualquier lugar del cuerpo o del asunto y se sustituirá por el nombre del destinatario.'
         intro_text: Texto de introducción
         intro_title: Título de introducción
         introduction: Introducción
         main_image: Imagen de introducción
+        mastodon: Mastodon
+        peertube: PeerTube
+        social_handlers: Social
         tab_body_description: El cuerpo del boletín puede contener hasta 4 eventos. El formato más adecuado es para eventos y/o noticias que se adaptan a una agenda de lo que viene. Por supuesto, puedes ser imaginativo y pensar otras formas de usarlo. No es necesario llenar los 4 eventos, las entradas que faltan no aparecerán en el boletín. Sin embargo, recomendamos llenar 2 o 4 entradas en lugar de un número impar de eventos.
         tab_footer_description: El pie de página del boletín puede contener hasta 3 eventos. El formato que mejor se adapta es para eventos y/o noticias que ya han pasado. Pero puede utilizarlo de la forma que desee. No es necesario llenar los 3 eventos, las entradas que faltan no aparecerán en el boletín.
+        telegram: Telegram
+        twitter: Twitter
+        youtube: Youtube
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Noviembre, 7 - 15, 10:00
