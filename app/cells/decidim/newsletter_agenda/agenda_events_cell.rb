@@ -34,7 +34,7 @@ module Decidim
         organization.official_img_footer.attached?
       end
 
-      def image_url(attribute, options = { resize_to_fill: [306, 204] })
+      def image_url(attribute, options = { resize_to_fill: [1200, 675] })
         return ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") unless model&.id
 
         representation_url(newsletter.template.images_container.send(attribute).variant(options))
@@ -50,7 +50,7 @@ module Decidim
 
       def footer_image_url
         if organization.official_img_footer.attached?
-          representation_url(organization.official_img_footer.variant(resize_to_fit: [500, 150]))
+          representation_url(organization.official_img_footer.variant(resize_to_fit: [1200, 675]))
         else
           ActionController::Base.helpers.asset_pack_path("media/images/decidim-logo.svg")
         end

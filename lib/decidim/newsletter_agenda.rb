@@ -12,7 +12,7 @@ module Decidim
     # this color can be overriden in the newsletter template builder.
     # hex color code with #, e.g. "#733BCE"
     config_accessor :default_background_color do
-      "#733BCE"
+      "#7636D2"
     end
 
     # The default font color over background for the newsletter agenda.
