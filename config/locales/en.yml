@@ -35,6 +35,7 @@ en:
         body_subtitle: Body subtitle
         body_title: Body title
         boxes_number_title: Event %{number}
+        facebook: Facebook
         font_color_over_bg: Font color over background
         footer: Footer
         footer_address: Organization address
@@ -46,12 +47,17 @@ en:
         footer_image: Footer image
         footer_social_links_title: Social links title
         footer_title: Footer title
+        github: Github
+        instagram: Instagram
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
         intro_text: Introduction text
         intro_title: Introduction title
         introduction: Introduction
         main_image: Introduction image
+        mastodon: Mastodon
+        peertube: PeerTube
+        social_handlers: Social
         tab_body_description: The body of the newsletter can contain up to 4 events.
           The format is best suited for events and/or news to conform an agenda of
           what's coming. Of course you can let your imagination drive you to think
@@ -62,6 +68,9 @@ en:
           The format is also best suited for events and/or news of things that have
           already happened. But you can use it in any way you want. It is not necessary
           to fill in all 3 events, missing entries won't appear in the newsletter.
+        telegram: Telegram
+        twitter: Twitter
+        youtube: Youtube
     newsletter_templates:
       agenda_events:
         body_box_date_time_preview: November, 7 - 15, 10:00
