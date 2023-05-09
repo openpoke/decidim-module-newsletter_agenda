@@ -28,6 +28,11 @@ module Decidim
       "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>"
     end
 
+    # The additional social handlers for the newsletter agenda.
+    config_accessor :additional_social_handlers do
+      [:mastodon, :telegram, :peertube]
+    end
+
     # To define the default first day for the agenda ranges.
     # This is the next monday:
     def self.next_first_day

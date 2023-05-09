@@ -129,6 +129,7 @@ describe "Agenda events settings", type: :system do
 
         click_link "Footer"
         find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
+        find("input[name='newsletter[settings][mastodon_handler]']").fill_in with: "super_mastodon"
 
         (1..3).each do |i|
           click_link "Event #{i}:"
@@ -174,8 +175,10 @@ describe "Agenda events settings", type: :system do
           expect(page).to have_content(translated("Footer title"))
           expect(page).to have_content("Barcelona, Spain")
 
-          expect(page).to have_content(translated("twitter"))
-          expect(page).not_to have_content(translated("facebook"))
+          expect(page).to have_css(".footer-social__icon[title='Twitter']")
+          expect(page).to have_css(".footer-social__icon[title='Mastodon']")
+          expect(page).not_to have_css(".footer-social__icon[title='Facebook']")
+          expect(page).not_to have_css(".footer-social__icon[title='Telegram']")
 
           # no links or images without host
           expect(page.body).not_to include("src=\"/")

@@ -66,14 +66,14 @@ module Decidim
 
       def social_links
         links = []
-        find_handler_attributes.each do |k, v|
+        all_handler_attributes.each do |k, v|
           next if v.blank?
 
           network = k.split("_").first
-          network_url = "https://#{network}.com/#{v}"
 
-          ico = icon(network).gsub(%r{href="(/[^"]+)}) { |m| m.gsub(Regexp.last_match(1), asset_url(Regexp.last_match(1), host_options)) }
-          links << link_to(ico, network_url, target: "_blank", rel: "noopener", class: "footer-social__icon")
+          icon_path = asset_pack_url("media/images/#{network}.png", host_options)
+          ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon", title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
+          links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
         links
       end
@@ -107,8 +107,34 @@ module Decidim
         end
       end
 
-      def find_handler_attributes
-        @find_handler_attributes ||= organization.attributes.select { |key| key.to_s.include?("handler") }
+      def organization_handler_attributes
+        organization.attributes.select { |key| key.to_s.include?("handler") }
+      end
+
+      def additional_handler_attributes
+        additional_handler_attributes = {}
+        Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
+          key = "#{handler}_handler"
+          additional_handler_attributes[key] = model.settings[key] if model.settings[key].present?
+        end
+        additional_handler_attributes
+      end
+
+      def all_handler_attributes
+        organization_handler_attributes.merge(additional_handler_attributes)
+      end
+
+      def network_url(value, network)
+        case network
+        when "telegram"
+          "https://#{network}.me/#{value}"
+        when "mastodon"
+          "https://#{network}.social/@#{value}"
+        when "peertube"
+          "https://#{network}.tv/c/#{value}"
+        else
+          "https://#{network}.com/#{value}"
+        end
       end
     end
   end

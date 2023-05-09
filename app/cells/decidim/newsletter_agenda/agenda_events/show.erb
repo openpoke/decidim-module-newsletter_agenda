@@ -101,13 +101,6 @@
     margin: 10px 0;
   }
 
-  .footer-social__icon .icon {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    fill: <%= font_color_over_bg %>;
-  }
-
   .footer-social {
     margin: 20px 0;
   }
@@ -130,8 +123,18 @@
   }
 
   .footer-social {
-    display: inline-block;
     vertical-align: middle;
+  }
+
+  .footer-social__icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-social__icon:last-child {
+    margin-right: 0;
   }
 
   .footnote center {
@@ -179,7 +182,6 @@
 
     .footer-social {
       display: block;
-      text-align: center;
     }
   }
 </style>
