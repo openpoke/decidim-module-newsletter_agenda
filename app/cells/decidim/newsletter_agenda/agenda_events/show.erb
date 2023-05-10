@@ -42,17 +42,13 @@
     padding: 20px 0;
   }
 
-  div.hero-image {
+  div.main-image {
     background-image: url("<%= image_url(:main_image) %>");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;
     width: 100%;
-  }
-
-  div.hero-image table td {
-    border: 1px solid #000000;
   }
 
   table.responsive-table {
@@ -172,6 +168,18 @@
     margin: 0 auto;
   }
 
+  @media only screen and (max-width: 670px) {
+    .responsive-table {
+      display: none !important;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+    }
+  }
+
   @media only screen and (max-width: 500px) {
     td.introduction-title {
       font-size: 1.5rem !important;
@@ -285,7 +293,7 @@
         <% if has_image?(:main_image) %>
           <tr>
             <td>
-              <div class="hero-image">
+              <div class="main-image">
                 <table class="responsive-table">
                   <% (1..16).each do |row| %>
                     <tr>
