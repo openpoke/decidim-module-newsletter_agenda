@@ -42,11 +42,21 @@
     padding: 20px 0;
   }
 
-  table.row.content.image {
+  div.hero-image {
     background-image: url("<%= image_url(:main_image) %>");
-    background-position: 100% center;
-    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     max-width: 100%;
+    width: 100%;
+  }
+
+  div.hero-image table td {
+    border: 1px solid #000000;
+  }
+
+  table.responsive-table {
+    table-layout: fixed;
   }
 
   td.introduction-text p {
@@ -275,19 +285,21 @@
         <% if has_image?(:main_image) %>
           <tr>
             <td>
-              <table class="row content image">
-                <% (1..16).each do |row| %>
-                  <tr>
-                    <% (1..32).each do |col| %>
-                      <% cell_style = "padding-bottom: 0;" %>
-                      <% if should_color_cell(col, row) %>
-                        <% cell_style += "background-color: #{background_color};" %>
+              <div class="hero-image">
+                <table class="responsive-table">
+                  <% (1..16).each do |row| %>
+                    <tr>
+                      <% (1..32).each do |col| %>
+                        <% cell_style = "padding-bottom: 0;" %>
+                        <% if should_color_cell(col, row) %>
+                          <% cell_style += "background-color: #{background_color};" %>
+                        <% end %>
+                        <td style="<%= cell_style %>"></td>
                       <% end %>
-                      <td style="<%= cell_style %>"></td>
-                    <% end %>
-                  </tr>
-                <% end %>
-              </table>
+                    </tr>
+                  <% end %>
+                </table>
+              </div>
             </td>
           </tr>
         <% end %>
