@@ -167,58 +167,10 @@
     width: 90%;
     margin: 0 auto;
   }
+</style>
 
-  @media only screen and (max-width: 670px) {
-    .responsive-table {
-      display: none !important;
-    }
-
-    .main-image {
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%;
-    }
-  }
-
-  @media only screen and (max-width: 500px) {
-    td.introduction-title {
-      font-size: 1.5rem !important;
-    }
-
-    td.introduction-text p {
-      font-size: 1rem !important;
-    }
-
-    .top,
-    .bottom {
-      height: 250px !important;
-    }
-
-    .body-box-title {
-      font-size: 1.2rem !important;
-    }
-
-    td h3.footer-title {
-      font-size: 1.5rem !important;
-    }
-  }
-
-  @media only screen and (max-width: 400px) {
-    .top,
-    .bottom {
-      height: 200px !important;
-    }
-
-    .body-title {
-      font-size: 1.1rem !important;
-    }
-
-    .footer-logo img {
-      width: 95% !important;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
+<style>
+  @media only screen and (max-width:600px) {
     td {
       display: block !important;
     }
@@ -251,24 +203,62 @@
     }
 
     .footer-bottom {
-      display: block;
-      text-align: center;
+      display: block !important;
+      text-align: center !important;
     }
 
     .footer-social__wrap {
-      text-align: left;
+      text-align: left !important;
     }
 
     .footer-address {
-      display: block;
+      display: block !important;
     }
 
     .footer-social__wrap {
-      display: block;
+      display: block !important;
     }
 
     .footer-social {
-      display: block;
+      display: block !important;
+    }
+  }
+
+  @media only screen and (max-width:500px) {
+    td.introduction-title {
+      font-size: 1.5rem !important;
+    }
+
+    td.introduction-text p {
+      font-size: 1rem !important;
+    }
+
+    .top,
+    .bottom {
+      height: 250px !important;
+    }
+
+    .body-box-title {
+      font-size: 1.2rem !important;
+    }
+
+    td h3.footer-title {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  @media only screen and (max-width:400px) {
+    .top,
+    .bottom {
+      height: 200px !important;
+    }
+
+    .body-title {
+      font-size: 1.1rem !important;
+    }
+
+    .footer-logo img {
+      width: 95% !important;
     }
   }
 </style>
@@ -293,21 +283,14 @@
         <% if has_image?(:main_image) %>
           <tr>
             <td>
-              <div class="main-image">
-                <table class="responsive-table">
-                  <% (1..16).each do |row| %>
-                    <tr>
-                      <% (1..32).each do |col| %>
-                        <% cell_style = "padding-bottom: 0;" %>
-                        <% if should_color_cell(col, row) %>
-                          <% cell_style += "background-color: #{background_color};" %>
-                        <% end %>
-                        <td style="<%= cell_style %>"></td>
-                      <% end %>
-                    </tr>
-                  <% end %>
-                </table>
-              </div>
+              <table class="row content image">
+                <tr>
+                  <th class="small-12 first columns">
+                    <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]) %>
+                  </th>
+                  <th class="expander"></th>
+                </tr>
+              </table>
             </td>
           </tr>
         <% end %>
