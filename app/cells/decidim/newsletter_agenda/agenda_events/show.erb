@@ -30,9 +30,12 @@
   }
 
   td.introduction,
-  .middle,
   .footer {
     padding: 30px 10% 0 10%;
+  }
+
+  .middle {
+    padding: 0 10%;
   }
 
   table.introduction,
@@ -79,7 +82,18 @@
     color: #000000 !important;
   }
 
-  td.footer {
+  .body-title {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  td.agenda .bottom,
+  td.agenda .top {
+    vertical-align: middle !important;
+  }
+
+  .empty-block {
+    height: 40px;
   }
 
   .body-subtitle {
@@ -112,10 +126,6 @@
     margin: 5% auto;
     min-width: 70%;
     text-align: center;
-  }
-
-  .footer-box {
-    padding: 0 !important;
   }
 
   .footer-box-title {
@@ -237,9 +247,7 @@
     }
 
     .body-title {
-      font-size: 1.3rem !important;
-      padding: 0 12% !important;
-      margin: 25% 0 5% !important;
+      font-size: 1.2rem !important;
     }
 
     .footer-title {
@@ -249,7 +257,6 @@
     td.agenda .top,
     td.agenda .bottom {
       display: table-cell !important;
-      vertical-align: middle !important;
       height: 300px !important;
     }
 
@@ -257,6 +264,7 @@
     .footer-box {
       width: 100% !important;
       display: block !important;
+      padding-left: 0 !important;
     }
 
     .box-image,
@@ -358,6 +366,14 @@
     .body-title {
       font-size: 1.1rem !important;
     }
+
+    .empty-block {
+      height: 20px !important;
+    }
+
+    .body-title {
+      width: 65% !important;
+    }
   }
 
   @media only screen and (max-width:360px) {
@@ -419,10 +435,11 @@
       <table class="agenda">
         <tr>
           <td class="top" style="vertical-align: middle;" colspan="2">
-            <div class="body-title" style="text-align: center;margin: 60px 0 40px;padding: 5% 2% 0;color: #000000
-              !important;font-size:24px">
+            <div class="empty-block"></div>
+            <div class="body-title" style="text-align: center;color: #000000 !important;font-size:24px">
               <%= translated_text_for :body_title %>
             </div>
+            <div class="empty-block"></div>
             <div class="body-subtitle" style="text-align: center;">
               <%= translated_text_for :body_subtitle %>
             </div>
