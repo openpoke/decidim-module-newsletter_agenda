@@ -62,7 +62,6 @@
   td.agenda .top {
     color: #000000 !important;
     height: 387px;
-    width: 774px;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     background: #ffffff;
   }
@@ -70,7 +69,6 @@
   td.agenda .bottom {
     color: #000000 !important;
     height: 387px;
-    width: 774px;
     border-radius: 0 0 50% 50%  / 0 0 100% 100%;
     background: #ffffff;
   }
@@ -177,6 +175,60 @@
     table.container {
       max-width: 1000px !important;
     }
+
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 500px !important;
+    }
+  }
+
+  @media only screen and (max-width:950px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 475px !important;
+    }
+  }
+
+  @media only screen and (max-width:900px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 450px !important;
+    }
+  }
+
+  @media only screen and (max-width:850px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 425px !important;
+    }
+  }
+
+  @media only screen and (max-width:800px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 400px !important;
+    }
+  }
+
+  @media only screen and (max-width:750px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 375px !important;
+    }
+  }
+
+  @media only screen and (max-width:700px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 350px !important;
+    }
+  }
+
+  @media only screen and (max-width:650px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 325px !important;
+    }
   }
 
   @media only screen and (max-width:600px) {
@@ -187,14 +239,15 @@
     .body-title {
       font-size: 1.3rem !important;
       padding: 0 12% !important;
+      margin: 25% 0 5% !important;
     }
 
     .footer-title {
       padding: 0 !important;
     }
 
-    .top,
-    .bottom {
+    td.agenda .top,
+    td.agenda .bottom {
       display: table-cell !important;
       vertical-align: middle !important;
       height: 300px !important;
@@ -255,6 +308,13 @@
     }
   }
 
+  @media only screen and (max-width:550px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 275px !important;
+    }
+  }
+
   @media only screen and (max-width:500px) {
     td.introduction-title {
       font-size: 1.5rem !important;
@@ -264,8 +324,8 @@
       font-size: 1rem !important;
     }
 
-    .top,
-    .bottom {
+    td.agenda .top,
+    td.agenda .bottom {
       height: 250px !important;
     }
 
@@ -278,14 +338,39 @@
     }
   }
 
+  @media only screen and (max-width:450px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 210px !important;
+    }
+
+    .body-subtitle {
+      font-size: 2rem !important;
+    }
+  }
+
   @media only screen and (max-width:400px) {
-    .top,
-    .bottom {
-      height: 200px !important;
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 185px !important;
     }
 
     .body-title {
       font-size: 1.1rem !important;
+    }
+  }
+
+  @media only screen and (max-width:360px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 165px !important;
+    }
+  }
+
+  @media only screen and (max-width:340px) {
+    td.agenda .top,
+    td.agenda .bottom {
+      height: 150px !important;
     }
   }
 </style>
