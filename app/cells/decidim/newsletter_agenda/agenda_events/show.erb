@@ -3,7 +3,6 @@
     font-family: Inter, sans-serif !important;
     background: <%= background_color %> !important;
     width: 100%;
-    max-width: 1000px;
   }
 
   table.container,
@@ -117,6 +116,10 @@
     text-align: center;
   }
 
+  .footer-box {
+    padding: 0 !important;
+  }
+
   .footer-box-title {
     font-size: 18px;
     font-weight: bold;
@@ -170,6 +173,12 @@
 </style>
 
 <style>
+  @media only screen and (min-width:1000px) {
+    table.container {
+      max-width: 1000px !important;
+    }
+  }
+
   @media only screen and (max-width:600px) {
     td {
       display: block !important;
@@ -217,7 +226,7 @@
     }
 
     .footer-address p {
-      font-size: 80%;
+      font-size: 80% !important;
     }
 
     .footer-social__wrap {
@@ -281,7 +290,7 @@
   }
 </style>
 
-<table style="max-width: 1000px !important;" class="main container">
+<table class="main container">
   <tr>
     <td class="introduction">
       <table class="introduction">
