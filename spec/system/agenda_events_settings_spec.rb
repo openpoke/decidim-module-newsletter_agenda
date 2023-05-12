@@ -170,11 +170,7 @@ describe "Agenda events settings", type: :system do
           expect(page).to have_css("a[href='http://www.example.org/footer']", count: 3)
 
           expect(page).to have_css("img[src*='avatar.jpg']", count: 2)
-          expect(page).to have_css(".main-image", count: 1)
-
-          main_image_style = page.evaluate_script("getComputedStyle(document.querySelector('.main-image')).backgroundImage")
-
-          expect(main_image_style).to include("city.jpeg")
+          expect(page).to have_css("img[src*='city.jpeg']", count: 1)
           expect(page).to have_css("img[src*='city2.jpeg']", count: 4)
           expect(page).to have_css("img[src*='city3.jpeg']", count: 3)
 
