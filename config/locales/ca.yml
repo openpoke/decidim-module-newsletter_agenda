@@ -45,7 +45,7 @@ ca:
         footer_image: Imatge del peu de pàgina
         footer_social_links_title: Títol de les xarxes socials
         footer_title: Títol del peu de pàgina
-        github: Github
+        github: GitHub
         instagram: Instagram
         interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         intro_text: Text d'introducció
@@ -54,7 +54,7 @@ ca:
         main_image: Imatge d'introducció
         mastodon: Mastodon
         peertube: PeerTube
-        social_handlers: Social
+        social_handlers: Xarxes socials
         tab_body_description: El cos del butlletí pot contenir fins a 4 esdeveniments. El format més adequat és per esdeveniments i/o notícies que s'adapten a una agenda del que ve. Per descomptat, podeu ser imaginatius i pensar altres formes d'usar-ho. No és necessari omplir els 4 esdeveniments, les entrades que falten no apareixeran al butlletí. No obstant això, recomanem omplir 2 o 4 entrades en lloc d'un nombre imparell d'esdeveniments.
         tab_footer_description: El peu de pàgina del butlletí pot contenir fins a 3 esdeveniments. El format que millor s'adapta és per a esdeveniments i/o notícies que ja han passat. Però podeu utilitzar-lo de la manera que vulgueu. No és necessari omplir els 3 esdeveniments, les entrades que falten no apareixeran al butlletí.
         telegram: Telegram
