@@ -53,10 +53,6 @@
     width: 100%;
   }
 
-  table.responsive-table {
-    table-layout: fixed;
-  }
-
   td.introduction-text p {
     text-align: left;
     font-size: 20px;
@@ -67,6 +63,7 @@
     height: 387px;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     background: #ffffff;
+    padding-top: 40px;
   }
 
   td.agenda .bottom {
@@ -80,6 +77,7 @@
   table.agenda p {
     background: #ffffff !important;
     color: #000000 !important;
+    margin: 0;
   }
 
   .body-title {
@@ -246,6 +244,14 @@
       display: block !important;
     }
 
+    table.container tr {
+      padding: 0 !important;
+    }
+
+    table.container td {
+      margin: 0 !important;
+    }
+
     .body-title {
       font-size: 1.2rem !important;
     }
@@ -353,7 +359,7 @@
     }
 
     .body-subtitle {
-      font-size: 2rem !important;
+      font-size: 1.7rem !important;
     }
   }
 
@@ -431,11 +437,10 @@
     </td>
   </tr>
   <tr>
-    <td class="agenda">
-      <table class="agenda">
+    <td class="agenda" style="padding: 0">
+      <table class="agenda" style="padding: 0; margin: 0">
         <tr>
-          <td class="top" style="vertical-align: middle;" colspan="2">
-            <div class="empty-block"></div>
+          <td class="top" style="vertical-align: middle;">
             <div class="body-title" style="text-align: center;color: #000000 !important;font-size:24px">
               <%= translated_text_for :body_title %>
             </div>
