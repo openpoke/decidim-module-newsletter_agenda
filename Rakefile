@@ -3,6 +3,7 @@
 require "decidim/dev/common_rake"
 
 def seed_db(path)
+  FileUtils.cp("babel.config.json","#{path}/babel.config,json")
   Dir.chdir(path) do
     system("bundle exec rake db:seed")
   end
