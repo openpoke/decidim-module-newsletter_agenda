@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require "decidim/dev/common_rake"
+require "fileutils"
 
 def seed_db(path)
-  FileUtils.cp("babel.config.json","#{path}/babel.config,json")
+  FileUtils.cp("babel.config.json", "#{path}/babel.config.json")
   Dir.chdir(path) do
     system("bundle exec rake db:seed")
   end
