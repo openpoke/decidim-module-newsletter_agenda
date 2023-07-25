@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "decidim-core", Decidim::NewsletterAgenda::COMPAT_DECIDIM_VERSION
 
   spec.add_development_dependency "decidim-dev", Decidim::NewsletterAgenda::COMPAT_DECIDIM_VERSION
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

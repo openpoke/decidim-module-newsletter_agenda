@@ -23,9 +23,9 @@ module Decidim
     # The default address text for the newsletter agenda.
     config_accessor :default_address_text do
       "<b>Canòdrom</b><br>" \
-      "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
-      "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
-      "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>"
+        "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
+        "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
+        "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>"
     end
 
     # The additional social handlers for the newsletter agenda.
