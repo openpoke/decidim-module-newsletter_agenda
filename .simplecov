@@ -4,7 +4,6 @@ SimpleCov.start do
   root ENV.fetch("ENGINE_ROOT", nil)
 
   add_filter "lib/decidim/newsletter_agenda/version.rb"
-  add_filter "lib/decidim/newsletter_agenda/component.rb"
   add_filter "/spec"
 end
 
