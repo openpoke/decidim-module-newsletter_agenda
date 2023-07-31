@@ -16,10 +16,8 @@ AllCops:
     - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app/**/*"
-    - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
-    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -463,7 +461,6 @@ Naming/FileName:
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
-    - "decidim-dev/lib/decidim-dev.rb"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1261,8 +1258,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
-  Exclude:
-    - decidim-assemblies/spec/forms/assembly_form_spec.rb
 
 RSpec/NestedGroups:
   Max: 7
