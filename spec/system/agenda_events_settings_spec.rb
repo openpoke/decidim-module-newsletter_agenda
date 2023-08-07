@@ -109,10 +109,8 @@ describe "Agenda events settings", type: :system do
         fill_in :newsletter_subject_en, with: "Subject"
         find('input[name="newsletter[settings][intro_title_en]"]').fill_in with: "Intro title"
         page.execute_script("document.querySelector('input[name=\"newsletter[settings][intro_text_en]\"]').value = 'Intro text';")
-        click_button "Add file"
-        attach_file("newsletter[images][main_image][]", Decidim::Dev.asset("city.jpeg"), visible: :hidden)
-        sleep 1
-        find(".add-file-main_image").click
+
+        dynamically_attach_file("newsletter_images_main_image", Decidim::Dev.asset("city.jpeg"))
 
         click_link "Body"
         find('input[name="newsletter[settings][body_title_en]"]').fill_in with: "Body title"
@@ -125,10 +123,7 @@ describe "Agenda events settings", type: :system do
           find("input[name='newsletter[settings][body_box_description_#{i}_en]']").fill_in with: "Event description #{i}"
           find("input[name='newsletter[settings][body_box_link_text_#{i}_en]']").fill_in with: "Event link text #{i}"
           find("input[name='newsletter[settings][body_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org"
-          find("#newsletter_images_body_box_image_#{i}_button").click
-          attach_file("newsletter[images][body_box_image_#{i}][]", Decidim::Dev.asset("city2.jpeg"), visible: :hidden)
-          sleep 1
-          find(".add-file-body_box_image_#{i}").click
+          dynamically_attach_file("newsletter_images_body_box_image_#{i}", Decidim::Dev.asset("city2.jpeg"))
         end
 
         find("input[name='newsletter[settings][body_final_text_en]']").fill_in with: "Final text"
@@ -143,16 +138,12 @@ describe "Agenda events settings", type: :system do
           find("input[name='newsletter[settings][footer_box_title_#{i}_en]']").fill_in with: "Footer event title #{i}"
           find("input[name='newsletter[settings][footer_box_link_text_#{i}_en]']").fill_in with: "Footer event link #{i}"
           find("input[name='newsletter[settings][footer_box_link_url_#{i}_en]']").fill_in with: "http://www.example.org/footer"
-          find("#newsletter_images_footer_box_image_#{i}_button").click
-          attach_file("newsletter[images][footer_box_image_#{i}][]", Decidim::Dev.asset("city3.jpeg"), visible: :hidden)
-          sleep 1
-          find(".add-file-footer_box_image_#{i}").click
+          dynamically_attach_file("newsletter_images_footer_box_image_#{i}", Decidim::Dev.asset("city3.jpeg"))
         end
 
         page.execute_script("document.querySelector('input[name=\"newsletter[settings][footer_address_text]\"]').value = 'Barcelona, Spain';")
 
         click_button "Save"
-        sleep 1
       end
 
       it "renders the correct the settings form" do
