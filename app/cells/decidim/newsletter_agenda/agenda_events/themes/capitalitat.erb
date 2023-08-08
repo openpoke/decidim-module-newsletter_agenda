@@ -1,4 +1,8 @@
 <style>
+  body {
+    background-color: #ffffff;
+  }
+
   .introduction-text p {
     font-size: 18px !important;
     color: #ffffff;
@@ -25,7 +29,7 @@
 <!-- Logo -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" style="padding-top: 32px; padding-bottom: 32px; background-color: #fff">
+    <td align="center" style="padding-top: 32px; padding-bottom: 32px;">
       <% if has_organization_logo? %>
         <%= image_tag organization_logo_url, alt: "Organization Logo" %>
       <% end %>
@@ -44,18 +48,77 @@
   </tr>
   <tr>
     <td align="left" style="padding: 0 48px 32px; color: #FFFFFF; font-size:30px;line-height:30px;font-weight: bold;">
-     <%= translated_text_for :intro_title %>
+      <%= translated_text_for :intro_title %>
     </td>
   </tr>
   <tr>
     <td align="left" style="padding: 0 48px;" class="introduction-text">
-     <%= translated_text_for :intro_text %>
+      <%= translated_text_for :intro_text %>
     </td>
   </tr>
   <tr>
     <td align="center" style="padding: 20px;" class="intro-button">
       <% link = link_for(:intro_link_url) %>
       <%= link_to translated_text_for(:intro_link_text), link, target: :blank if link %>
+    </td>
+  </tr>
+</table>
+
+<!--Boxes-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="padding: 32px;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <% (1..4).each do |num| %>
+          <% if num.odd? %>
+            <tr>
+          <% end %>
+
+          <td style="width: 50%; vertical-align: top; padding: 0 8px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <!-- Image -->
+                  <% if has_image?("body_box_image_#{num}") %>
+                    <%= link_to link_for("body_box_link_url_#{num}") do %>
+                      <%= image_tag(image_url("body_box_image_#{num}"), style: "width:100%; max-width:500px; display:block; margin:0 auto;") %>
+                    <% end %>
+                  <% end %>
+
+                  <!-- Date -->
+                  <p style="text-align:left; color: #3998D4; font-size: 16px; font-weight: bold; padding-top: 10px;margin: 0;">
+                    <%= translated_text_for "body_box_date_time_#{num}" %>
+                  </p>
+
+                  <!-- Title -->
+                  <h2 style="text-align:left; color: #3998D4; font-size: 18px; font-weight: bold; padding: 0;">
+                    <%= translated_text_for "body_box_title_#{num}" %>
+                  </h2>
+
+                  <!-- Text -->
+                  <p style="text-align:left; font-size: 16px; padding: 5px 0;">
+                    <%= translated_text_for "body_box_description_#{num}" %>
+                  </p>
+
+                  <!-- Link -->
+                  <% link = link_for("body_box_link_url_#{num}") %>
+                  <% if link %>
+                    <p style="text-align:left; padding-top: 10px;">
+                      <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
+                                  style: "color: #3998D4;font-weight: bold; text-decoration: underline;",
+                                  target: :blank %>
+                    </p>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <% if num.even? && num != 4 %>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
     </td>
   </tr>
 </table>
