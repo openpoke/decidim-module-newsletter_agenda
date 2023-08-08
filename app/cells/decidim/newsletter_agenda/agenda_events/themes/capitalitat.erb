@@ -134,7 +134,7 @@
 <!--Footer-->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
   <tr>
-    <td align="left" style="padding: 32px 40px 0 32px; color: #FFFFFF; font-size:30px;line-height:28px;">
+    <td align="left" style="padding: 32px 32px 0 40px; color: #FFFFFF; font-size:30px;line-height:28px;">
       <%= translated_text_for :footer_title %>
     </td>
   </tr>
@@ -168,8 +168,8 @@
               <!-- Text -->
               <table width="100%">
                 <tr>
-                  <td style="text-align:left; font-size: 14px; padding: 5px 0;">
-                    <%#= translated_text_for "footer_box_text_#{num}" %>
+                  <td style="text-align:left; color: #ffffff; font-size: 14px; padding: 5px 0;">
+                    <%= translated_text_for "footer_box_description_#{num}" %>
                   </td>
                 </tr>
               </table>
@@ -178,7 +178,9 @@
                 <tr>
                   <td style="text-align:left; padding-top: 10px;">
                     <% link = link_for("footer_box_link_url_#{num}") %>
-                    <%= link_to translated_text_for("footer_box_link_text_#{num}"), link, style: "color: #ffffff; text-decoration: underline;", target: :blank if link %>
+                    <%= link_to translated_text_for("footer_box_link_text_#{num}"), link,
+                                style: "color: #ffffff; text-decoration: underline; font-size: 12px; font-weight: bold;",
+                                target: :blank if link %>
                   </td>
                 </tr>
               </table>

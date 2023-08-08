@@ -154,6 +154,12 @@ module Decidim
                 preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_title_preview") }
               )
               settings.attribute(
+                "footer_box_description_#{i}",
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_box_description_preview") }
+              )
+              settings.attribute(
                 "footer_box_link_text_#{i}",
                 type: :text,
                 translated: true,

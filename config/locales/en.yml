@@ -40,6 +40,7 @@ en:
         footer: Footer
         footer_address: Organization address
         footer_box_date_time: Footer event date/time
+        footer_box_description: Footer event description
         footer_box_image: Footer event image
         footer_box_link_text: Footer event link text (hidden unless an URL is provided)
         footer_box_link_url: Footer event link URL
@@ -83,6 +84,7 @@ en:
         body_title_preview: What is happening during the week
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_link_text_preview: Read more
+        footer_box_description_preview: This is a footer description for this agenda
         footer_box_title_preview: This is a footer title for this agenda
         footer_social_links_title_preview: Follow us on social networks
         footer_title_preview: Whether you want to see what you missed or you want

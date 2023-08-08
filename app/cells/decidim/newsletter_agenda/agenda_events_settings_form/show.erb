@@ -65,6 +65,7 @@
               <div class="accordion-content" data-tab-content>
                 <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
                 <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
+                <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 %>
                 <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
                 <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
                 <% form.fields_for :images, form.object.images do |images_fields| %>
