@@ -54,7 +54,8 @@
   </tr>
   <tr>
     <td align="center" style="padding: 20px;" class="intro-button">
-      <%= link_to "Read more", "#", class: "button expanded small" %>
+      <% link = link_for(:intro_link_url) %>
+      <%= link_to translated_text_for(:intro_link_text), link, target: :blank if link %>
     </td>
   </tr>
 </table>

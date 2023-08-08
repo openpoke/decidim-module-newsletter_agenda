@@ -15,6 +15,8 @@
       <% form.fields_for :settings, settings do |settings_fields| %>
         <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
         <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
+        <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text") %>
+        <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") %>
       <% end %>
       <% form.fields_for :images, form.object.images do |images_fields| %>
         <%= images_fields.upload :main_image, label: t(".main_image") %>

@@ -51,6 +51,8 @@ en:
         instagram: Instagram
         interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or
           subject and it will be replaced by the recipient''s name.'
+        intro_link_text: Introduction link text
+        intro_link_url: Introduction link URL
         intro_text: Introduction text
         intro_title: Introduction title
         introduction: Introduction
@@ -85,6 +87,7 @@ en:
         footer_social_links_title_preview: Follow us on social networks
         footer_title_preview: Whether you want to see what you missed or you want
           to remember it
+        intro_link_text_preview: Read more
         intro_text_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium
           facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed
           id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna,

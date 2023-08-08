@@ -69,6 +69,17 @@ module Decidim
               preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_text_preview") }
             )
             settings.attribute(
+              :intro_link_text,
+              type: :text,
+              translated: true,
+              preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.intro_link_text_preview") }
+            )
+            settings.attribute(
+              :intro_link_url,
+              type: :text,
+              preview: -> { "https://example.com" }
+            )
+            settings.attribute(
               :body_title,
               type: :text,
               translated: true,
