@@ -33,6 +33,16 @@ module Decidim
       [:mastodon, :telegram, :peertube]
     end
 
+    # The additional handlers for the newsletter template builder.
+    config_accessor :themes do
+      [:canodrom, :capitalitat]
+    end
+
+    def self.current_theme
+      # This method should return the currently selected theme, e.g., :canodrom or :capitalitat
+      :capitalitat
+    end
+
     # To define the default first day for the agenda ranges.
     # This is the next monday:
     def self.next_first_day
