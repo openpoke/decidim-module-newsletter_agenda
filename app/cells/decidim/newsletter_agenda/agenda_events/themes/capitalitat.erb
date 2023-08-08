@@ -1,8 +1,4 @@
 <style>
-  /*body {*/
-  /*  background-color: #ffffff;*/
-  /*}*/
-
   .introduction-text p {
     font-size: 18px !important;
     color: #ffffff;
@@ -25,6 +21,31 @@
     cursor: pointer;
   }
 
+  .footer-social__wrap {
+    text-align: right;
+  }
+
+  .footer-social {
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .footer-social__icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-social__icon:last-child {
+    margin-right: 0;
+  }
+
+  .footer-logos img {
+    width: auto;
+    height: 30px;
+  }
+
   @media only screen and (max-width: 400px) {
     td[class="footer-box"] {
       display: block;
@@ -34,165 +55,204 @@
   }
 </style>
 
-<!-- Logo -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;  max-width: 816px !important;">
   <tr>
-    <td align="center" style="padding-top: 32px; padding-bottom: 32px;">
-      <% if has_organization_logo? %>
-        <%= image_tag organization_logo_url, alt: "Organization Logo" %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+    <td>
+      <!-- Logo -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" style="padding-top: 32px; padding-bottom: 32px;">
+            <% if has_organization_logo? %>
+              <%= image_tag organization_logo_url, alt: "Organization Logo" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
 
-<!-- Intro-content -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: <%= background_color %>;">
-  <tr>
-    <td align="center" style="padding: 48px">
-      <% if has_image?(:main_image) %>
-        <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image" %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" style="padding: 0 48px 32px; color: #FFFFFF; font-size:30px;line-height:30px;font-weight: bold;">
-      <%= translated_text_for :intro_title %>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" style="padding: 0 48px;" class="introduction-text">
-      <%= translated_text_for :intro_text %>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" style="padding: 20px;" class="intro-button">
-      <% link = link_for(:intro_link_url) %>
-      <%= link_to translated_text_for(:intro_link_text), link, target: :blank if link %>
-    </td>
-  </tr>
-</table>
+      <!-- Intro-content -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: <%= background_color %>;">
+        <tr>
+          <td align="center" style="padding: 48px">
+            <% if has_image?(:main_image) %>
+              <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td align="left" style="padding: 0 48px 32px; color: #FFFFFF; font-size:30px;line-height:30px;font-weight: bold;">
+            <%= translated_text_for :intro_title %>
+          </td>
+        </tr>
+        <tr>
+          <td align="left" style="padding: 0 48px;" class="introduction-text">
+            <%= translated_text_for :intro_text %>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding: 20px;" class="intro-button">
+            <% link = link_for(:intro_link_url) %>
+            <%= link_to translated_text_for(:intro_link_text), link, target: :blank if link %>
+          </td>
+        </tr>
+      </table>
 
-<!--Boxes-->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td style="padding: 32px;">
+      <!--Boxes-->
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <% (1..4).each do |num| %>
-          <% if num.odd? %>
-            <tr>
-          <% end %>
+        <tr>
+          <td style="padding: 32px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <% (1..4).each do |num| %>
+                <% if num.odd? %>
+                  <tr>
+                <% end %>
 
-          <td style="width: 50%; vertical-align: top; padding: 0 8px;">
+                <td style="width: 50%; vertical-align: top; padding: 0 8px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <!-- Image -->
+                        <% if has_image?("body_box_image_#{num}") %>
+                          <%= link_to link_for("body_box_link_url_#{num}") do %>
+                            <%= image_tag(image_url("body_box_image_#{num}"), style: "width:100%; max-width:500px; display:block; margin:0 auto;") %>
+                          <% end %>
+                        <% end %>
+
+                        <!-- Date -->
+                        <p style="text-align:left; color: #3998D4; font-size: 16px; font-weight: bold; padding-top: 10px;margin: 0;">
+                          <%= translated_text_for "body_box_date_time_#{num}" %>
+                        </p>
+
+                        <!-- Title -->
+                        <h2 style="text-align:left; color: #3998D4; font-size: 18px; font-weight: bold; padding: 0;">
+                          <%= translated_text_for "body_box_title_#{num}" %>
+                        </h2>
+
+                        <!-- Text -->
+                        <p style="text-align:left; font-size: 16px; padding: 5px 0;">
+                          <%= translated_text_for "body_box_description_#{num}" %>
+                        </p>
+
+                        <!-- Link -->
+                        <% link = link_for("body_box_link_url_#{num}") %>
+                        <% if link %>
+                          <p style="text-align:left; padding-top: 10px;">
+                            <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
+                                        style: "color: #3998D4;font-weight: bold; text-decoration: underline;",
+                                        target: :blank %>
+                          </p>
+                        <% end %>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+
+                <% if num.even? && num != 4 %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!--Footer-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
+        <tr>
+          <td align="left" style="padding: 32px 32px 0 40px; color: #FFFFFF; font-size:30px;line-height:28px;">
+            <%= translated_text_for :footer_title %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 32px;">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td>
-                  <!-- Image -->
-                  <% if has_image?("body_box_image_#{num}") %>
-                    <%= link_to link_for("body_box_link_url_#{num}") do %>
-                      <%= image_tag(image_url("body_box_image_#{num}"), style: "width:100%; max-width:500px; display:block; margin:0 auto;") %>
+                <% (1..3).each do |num| %>
+                  <td class="footer-box" style="width: 33.33%; vertical-align: top; padding: 0 8px;">
+                    <!-- Image -->
+                    <% if has_image?("footer_box_image_#{num}") %>
+                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132])) %>
                     <% end %>
-                  <% end %>
-
-                  <!-- Date -->
-                  <p style="text-align:left; color: #3998D4; font-size: 16px; font-weight: bold; padding-top: 10px;margin: 0;">
-                    <%= translated_text_for "body_box_date_time_#{num}" %>
-                  </p>
-
-                  <!-- Title -->
-                  <h2 style="text-align:left; color: #3998D4; font-size: 18px; font-weight: bold; padding: 0;">
-                    <%= translated_text_for "body_box_title_#{num}" %>
-                  </h2>
-
-                  <!-- Text -->
-                  <p style="text-align:left; font-size: 16px; padding: 5px 0;">
-                    <%= translated_text_for "body_box_description_#{num}" %>
-                  </p>
-
-                  <!-- Link -->
-                  <% link = link_for("body_box_link_url_#{num}") %>
-                  <% if link %>
-                    <p style="text-align:left; padding-top: 10px;">
-                      <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
-                                  style: "color: #3998D4;font-weight: bold; text-decoration: underline;",
-                                  target: :blank %>
-                    </p>
-                  <% end %>
+                    <!-- Date -->
+                    <table width="100%">
+                      <tr>
+                        <td style="text-align:left; color: #ffffff; font-size: 15px; font-weight: bold; padding-top: 10px;
+                          margin: 0;">
+                          <%= translated_text_for "footer_box_date_time_#{num}" %>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Title -->
+                    <table width="100%">
+                      <tr>
+                        <td style="text-align:left; color: #ffffff; font-size: 16px; font-weight: bold; padding: 0;">
+                          <%= translated_text_for "footer_box_title_#{num}" %>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Text -->
+                    <table width="100%">
+                      <tr>
+                        <td style="text-align:left; color: #ffffff; font-size: 14px; padding: 5px 0;">
+                          <%= translated_text_for "footer_box_description_#{num}" %>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Link -->
+                    <table width="100%">
+                      <tr>
+                        <td style="text-align:left; padding-top: 10px;">
+                          <% link = link_for("footer_box_link_url_#{num}") %>
+                          <%= link_to translated_text_for("footer_box_link_text_#{num}"), link,
+                                      style: "color: #ffffff; text-decoration: underline; font-size: 12px; font-weight: bold;",
+                                      target: :blank if link %>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                <% end %>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Divider -->
+        <tr>
+          <td style="border-top: 1px solid #ccc; padding: 20px 0;"></td>
+        </tr>
+        <!--Footer bottom-->
+        <tr>
+          <td style="padding: 0 0 32px 0">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
+              <tr>
+                <!-- Social -->
+                <td style="padding: 0 32px;">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="left" class="footer-social__wrap" style="color: #ffffff; font-size: 12px">
+                        <%= translated_text_for :footer_social_links_title %>
+                        <div class="footer-social">
+                          <%= social_links.join.html_safe %>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- Logos -->
+                <td style="padding: 0 32px;">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="footer-logos">
+                      <% if has_footer_image? %>
+                      <td><%= image_tag footer_image_url %></td>
+                      <% end %>
+                      <td><%= image_pack_tag("media/images/footer_logo_1.svg")  %></td>
+                      <td><%= image_pack_tag("media/images/footer_logo_2.svg")  %></td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>
           </td>
-
-          <% if num.even? && num != 4 %>
-            </tr>
-          <% end %>
-        <% end %>
-      </table>
-    </td>
-  </tr>
-</table>
-
-<!--Footer-->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
-  <tr>
-    <td align="left" style="padding: 32px 32px 0 40px; color: #FFFFFF; font-size:30px;line-height:28px;">
-      <%= translated_text_for :footer_title %>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding: 32px;">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <% (1..3).each do |num| %>
-            <td class="footer-box" style="width: 33.33%; vertical-align: top; padding: 0 8px;">
-              <!-- Image -->
-              <% if has_image?("footer_box_image_#{num}") %>
-                <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132])) %>
-              <% end %>
-              <!-- Date -->
-              <table width="100%">
-                <tr>
-                  <td style="text-align:left; color: #ffffff; font-size: 15px; font-weight: bold; padding-top: 10px;
-                    margin: 0;">
-                    <%= translated_text_for "footer_box_date_time_#{num}" %>
-                  </td>
-                </tr>
-              </table>
-              <!-- Title -->
-              <table width="100%">
-                <tr>
-                  <td style="text-align:left; color: #ffffff; font-size: 16px; font-weight: bold; padding: 0;">
-                    <%= translated_text_for "footer_box_title_#{num}" %>
-                  </td>
-                </tr>
-              </table>
-              <!-- Text -->
-              <table width="100%">
-                <tr>
-                  <td style="text-align:left; color: #ffffff; font-size: 14px; padding: 5px 0;">
-                    <%= translated_text_for "footer_box_description_#{num}" %>
-                  </td>
-                </tr>
-              </table>
-              <!-- Link -->
-              <table width="100%">
-                <tr>
-                  <td style="text-align:left; padding-top: 10px;">
-                    <% link = link_for("footer_box_link_url_#{num}") %>
-                    <%= link_to translated_text_for("footer_box_link_text_#{num}"), link,
-                                style: "color: #ffffff; text-decoration: underline; font-size: 12px; font-weight: bold;",
-                                target: :blank if link %>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          <% end %>
         </tr>
       </table>
     </td>
   </tr>
-  <!-- Divider -->
-  <tr>
-    <td style="border-top: 1px solid #ccc; padding: 20px 0;"></td>
-  </tr>
-  <!-- Here will be the line and the lower footer -->
 </table>
