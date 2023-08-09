@@ -11,7 +11,7 @@ describe "Agenda events settings", type: :system do
   let!(:content_block) do
     create :content_block,
            organization: organization,
-           manifest_name: :agenda_events,
+           manifest_name: :canodrom_agenda_events,
            scope_name: :newsletter_template,
            scoped_resource_id: newsletter.id,
            settings: settings
@@ -35,7 +35,7 @@ describe "Agenda events settings", type: :system do
 
   describe "raw template" do
     it "shows the preview template" do
-      visit decidim_admin.preview_newsletter_template_path(id: :agenda_events)
+      visit decidim_admin.preview_newsletter_template_path(id: :canodrom_agenda_events)
 
       expect(page).to have_content("This is an event title for this agenda")
       expect(page).to have_content("What is happening during the week")
@@ -48,7 +48,7 @@ describe "Agenda events settings", type: :system do
       visit decidim_admin.root_path
       click_link "Newsletters"
       page.all(:link, "New newsletter").first.click
-      page.all(:link, "Use this template").last.click
+      page.all(:link, href: "/admin/newsletter_templates/canodrom_agenda_events/newsletters/new").last.click
     end
 
     context "when automatic customizable settings" do
@@ -88,14 +88,14 @@ describe "Agenda events settings", type: :system do
 
     context "when settings from the form" do
       let!(:content_block_new) do
-        content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :newsletter_template, scoped_resource_id: newsletter.id, manifest_name: :agenda_events)
+        content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :newsletter_template, scoped_resource_id: newsletter.id, manifest_name: :canodrom_agenda_events)
         content_block.destroy!
         content_block = create(
           :content_block,
           :newsletter_template,
           organization: organization,
           scoped_resource_id: newsletter.id,
-          manifest_name: "agenda_events",
+          manifest_name: :canodrom_agenda_events,
           settings: {
             intro_title: Decidim::Faker::Localized.word,
             intro_text: Decidim::Faker::Localized.word,
