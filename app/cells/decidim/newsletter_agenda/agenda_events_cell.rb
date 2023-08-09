@@ -13,6 +13,10 @@ module Decidim
         render :show
       end
 
+      def theme
+        model.manifest_name.gsub("_agenda_events", "")
+      end
+
       def has_image?(attribute)
         # for previews
         return true unless model&.id
