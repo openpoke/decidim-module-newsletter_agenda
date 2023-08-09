@@ -33,7 +33,8 @@ module Decidim
       [:mastodon, :telegram, :peertube]
     end
 
-    # The additional handlers for the newsletter template builder.
+    # Defines additional handlers for the newsletter template builder.
+    # Available themes: :canodrom, :capitalitat
     config_accessor :themes do
       [:canodrom, :capitalitat]
     end
