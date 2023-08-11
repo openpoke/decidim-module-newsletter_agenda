@@ -127,6 +127,10 @@
     margin: 50px 0 20px 0;
   }
 
+  .footer-bottom__logo {
+    height: 40px;
+  }
+
   .footer-social__wrap {
     text-align: right;
   }
@@ -363,7 +367,7 @@
         <table class="footer-logo" style="margin: 5% 0;">
           <tr>
             <td class="footer-bottom">
-              <%= image_tag footer_image_url %>
+              <%= image_tag footer_image_url, class: "footer-bottom__logo" %>
             </td>
           </tr>
         </table>

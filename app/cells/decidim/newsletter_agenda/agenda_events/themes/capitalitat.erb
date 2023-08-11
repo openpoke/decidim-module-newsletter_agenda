@@ -55,7 +55,16 @@
 
   .footer-logos img {
     width: auto;
-    height: 40px;
+    height: 30px;
+  }
+
+  .footer-logos .footer-logo:first-child img {
+    margin-left: 0 !important;
+  }
+
+  .footer-logos .footer-logo:not(:first-child) img {
+    margin-left: 16px;
+    margin-right: 0;
   }
 
   @media only screen and (max-width: 400px) {
@@ -75,8 +84,12 @@
     }
 
     .footer-logo img {
-      height: 40px !important;
-      width: auto;
+      height: 30px !important;
+      width: auto !important;
+    }
+
+    .social-links {
+      padding-top: 20px !important;
     }
   }
 </style>
@@ -250,8 +263,20 @@
           <td style="padding: 0 0 32px 0">
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
               <tr>
+                <!-- Logos -->
+                <td class="mobile-responsive" style="padding: 0 32px 0 0;">
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr class="footer-logos">
+                      <% if has_footer_image? %>
+                        <td class="footer-logo no-margin"><%= image_tag footer_image_url %></td>
+                      <% end %>
+                      <td class="footer-logo"><%= image_pack_tag("media/images/capital_logo.png") %></td>
+                      <td class="footer-logo"><%= image_pack_tag("media/images/metropolita_logo.png") %></td>
+                    </tr>
+                  </table>
+                </td>
                 <!-- Social -->
-                <td class="mobile-responsive" style="padding: 0 32px;">
+                <td class="mobile-responsive social-links" style="padding: 0 32px;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="left" class="footer-social__wrap" style="color: #ffffff; font-size: 12px">
@@ -260,18 +285,6 @@
                           <%= social_links.join.html_safe %>
                         </div>
                       </td>
-                    </tr>
-                  </table>
-                </td>
-                <!-- Logos -->
-                <td class="mobile-responsive" style="padding: 0 32px;">
-                  <table border="0" cellspacing="0" cellpadding="0">
-                    <tr class="footer-logos">
-                      <% if has_footer_image? %>
-                        <td class="footer-logo"><%= image_tag footer_image_url %></td>
-                      <% end %>
-                      <!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_1.svg") %></td>-->
-                      <!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_2.svg") %></td>-->
                     </tr>
                   </table>
                 </td>
