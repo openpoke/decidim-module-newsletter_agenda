@@ -86,8 +86,16 @@ module Decidim
         asset_pack_url("media/images/background_top.gif", **host_options)
       end
 
-      def background_image_bottom
+      def background_image_bottom_url
         asset_pack_url("media/images/background_bottom.gif", **host_options)
+      end
+
+      def footer_image_capitalitat
+        asset_pack_url("media/images/capital_logo.png", **host_options)
+      end
+
+      def footer_image_metropolita
+        asset_pack_url("media/images/metropolita_logo.png", **host_options)
       end
 
       def background_color
@@ -106,9 +114,9 @@ module Decidim
 
       def host_options
         @host_options ||= begin
-          options = Rails.configuration.action_mailer.default_url_options || {}
-          options.merge(host: decidim.root_url(host: organization.host))
-        end
+                            options = Rails.configuration.action_mailer.default_url_options || {}
+                            options.merge(host: decidim.root_url(host: organization.host))
+                          end
       end
 
       def organization_handler_attributes
