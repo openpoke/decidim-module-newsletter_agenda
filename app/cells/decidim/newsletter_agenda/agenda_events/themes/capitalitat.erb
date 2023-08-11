@@ -58,6 +58,10 @@
     height: 30px;
   }
 
+  .footer-logo {
+    padding-left: 16px !important;
+  }
+
   .footer-logos .footer-logo:first-child img {
     margin-left: 0 !important;
   }
@@ -81,6 +85,7 @@
 
     .footer-logo {
       padding-top: 20px !important;
+      padding-left: 0 !important;
     }
 
     .footer-logo img {
@@ -271,7 +276,8 @@
                         <td class="footer-logo no-margin"><%= image_tag footer_image_url %></td>
                       <% end %>
                       <td class="footer-logo"><%= image_pack_tag("media/images/capital_logo.png") %></td>
-                      <td class="footer-logo"><%= image_pack_tag("media/images/metropolita_logo.png") %></td>
+                      <td class="footer-logo"><%= image_pack_tag("media/images/metropolita_logo.png")
+                      %></td>
                     </tr>
                   </table>
                 </td>
