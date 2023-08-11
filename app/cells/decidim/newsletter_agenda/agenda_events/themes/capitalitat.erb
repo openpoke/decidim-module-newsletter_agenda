@@ -58,19 +58,6 @@
     height: 30px;
   }
 
-  .footer-logo {
-    padding-left: 16px !important;
-  }
-
-  .footer-logos .footer-logo:first-child img {
-    margin-left: 0 !important;
-  }
-
-  .footer-logos .footer-logo:not(:first-child) img {
-    margin-left: 16px;
-    margin-right: 0;
-  }
-
   @media only screen and (max-width: 400px) {
     td.mobile-responsive {
       width: 100% !important;
@@ -275,8 +262,8 @@
                       <% if has_footer_image? %>
                         <td class="footer-logo no-margin"><%= image_tag footer_image_url %></td>
                       <% end %>
-                      <td class="footer-logo"><%= image_pack_tag("media/images/capital_logo.png") %></td>
-                      <td class="footer-logo"><%= image_pack_tag("media/images/metropolita_logo.png")
+                      <td class="footer-logo" style="padding-left: 16px;"><%= image_pack_tag("media/images/capital_logo.png") %></td>
+                      <td class="footer-logo" style="padding-left: 16px;"><%= image_pack_tag("media/images/metropolita_logo.png")
                       %></td>
                     </tr>
                   </table>
