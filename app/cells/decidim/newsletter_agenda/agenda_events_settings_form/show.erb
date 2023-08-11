@@ -15,8 +15,8 @@
       <% form.fields_for :settings, settings do |settings_fields| %>
         <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
         <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
-        <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text") %>
-        <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") %>
+        <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text") if theme == "capitalitat" %>
+        <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") if theme == "capitalitat" %>
       <% end %>
       <% form.fields_for :images, form.object.images do |images_fields| %>
         <%= images_fields.upload :main_image, label: t(".main_image") %>
@@ -28,8 +28,8 @@
     <p><%= t(".tab_body_description") %></p>
     <fieldset class="fieldset">
       <% form.fields_for :settings, settings do |settings_fields| %>
-        <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") %>
-        <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") %>
+        <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") unless theme == "capitalitat" %>
+        <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == "capitalitat" %>
         <ul id="box-container" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
           <% (1..4).each do |num| %>
             <li class="box accordion-item" id="box<%= num %>" data-accordion-item>
@@ -47,7 +47,7 @@
             </li>
           <% end %>
         </ul>
-        <%= settings_fields.translated :text_field, :body_final_text, label: t(".body_final_text") %>
+        <%= settings_fields.translated :text_field, :body_final_text, label: t(".body_final_text") unless theme == "capitalitat" %>
       <% end %>
     </fieldset>
   </div>
@@ -65,7 +65,7 @@
               <div class="accordion-content" data-tab-content>
                 <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
                 <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
-                <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 %>
+                <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 if theme == "capitalitat" %>
                 <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
                 <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
                 <% form.fields_for :images, form.object.images do |images_fields| %>
@@ -75,8 +75,9 @@
             </li>
           <% end %>
         </ul>
-        <%= settings_fields.editor :footer_address_text, label: t(".footer_address") %>
+        <%= settings_fields.editor :footer_address_text, label: t(".footer_address") unless theme == "capitalitat" %>
         <%= settings_fields.translated :text_field, :footer_social_links_title, label: t(".footer_social_links_title") %>
+        <%= settings_fields.translated :text_field, :footer_additional_text if theme == "capitalitat" %>
         <div class="label--tabs">
           <label for="organization_social_handlers">
             <%= t(".social_handlers") %>

@@ -82,6 +82,7 @@ en:
         body_box_title_preview: This is an event title for this agenda
         body_final_text_preview: But there's more
         body_title_preview: What is happening during the week
+        footer_additional_text_preview: This is a footer additional text for this agenda
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_description_preview: This is a footer description for this agenda
         footer_box_link_text_preview: Read more
