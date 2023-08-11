@@ -1,12 +1,8 @@
 <style>
-  table.container {
-    max-width: 800px !important;
-    width: 100%;
-  }
-
-  table.container th {
-    padding-left: 0;
-    padding-right: 0;
+  table.main.container {
+    width: 580px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
   }
 
   .introduction-text,
@@ -85,7 +81,7 @@
   }
 </style>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;  max-width: 816px !important;">
+<table class="main container" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;">
   <tr>
     <td>
       <!-- Logo -->
@@ -274,8 +270,8 @@
                       <% if has_footer_image? %>
                         <td class="footer-logo"><%= image_tag footer_image_url %></td>
                       <% end %>
-<!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_1.svg") %></td>-->
-<!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_2.svg") %></td>-->
+                      <!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_1.svg") %></td>-->
+                      <!--                      <td class="footer-logo"><%#= image_pack_tag("media/images/footer_logo_2.svg") %></td>-->
                     </tr>
                   </table>
                 </td>
