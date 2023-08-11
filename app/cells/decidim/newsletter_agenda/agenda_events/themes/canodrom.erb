@@ -95,6 +95,10 @@
     margin-bottom: 20px;
   }
 
+  .box-image img {
+    width: 100% !important;
+  }
+
   .box-link,
   .box-link a {
     color: <%= background_color %> !important;
@@ -162,40 +166,16 @@
     margin: 0 auto;
   }
 
-  /*@media only screen and (max-width: 500px) {*/
-  /*  .top,*/
-  /*  .bottom {*/
-  /*    height: 250px !important;*/
-  /*  }*/
-  /*}*/
-
   @media only screen and (max-width: 400px) {
-    /*.top,*/
-    /*.bottom {*/
-    /*  height: 200px !important;*/
-    /*}*/
-
     .body-title {
       font-size: 1.1rem !important;
     }
   }
 
   @media only screen and (max-width: 600px) {
-    /*td {*/
-    /*  display: block !important;*/
-    /*}*/
-
     .body-title {
       font-size: 1.3rem !important;
-      /*padding: 0 10% !important;*/
     }
-
-    /*.top,*/
-    /*.bottom {*/
-    /*  display: table-cell !important;*/
-    /*  vertical-align: middle !important;*/
-    /*  height: 300px !important;*/
-    /*}*/
 
     .event-box,
     .footer-box {
@@ -276,10 +256,6 @@
         <tr>
           <td class="top" style="vertical-align: middle; padding: 0 120px; text-align: center; font-size:24px;"
               colspan="2">
-            <!--            <div class="body-title" style="text-align: center;margin: 60px 0 40px;padding: 5% 20% 0;color: #000000-->
-            <!--              !important;font-size:24px">-->
-            <%#= translated_text_for :body_title %>
-            <!--            </div>-->
             <%= translated_text_for :body_title %>
             <div class="body-subtitle" style="text-align: center; margin-top: 20px">
               <%= translated_text_for :body_subtitle %>
