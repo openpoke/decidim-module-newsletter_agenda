@@ -33,6 +33,12 @@ module Decidim
       [:mastodon, :telegram, :peertube]
     end
 
+    # Defines additional handlers for the newsletter template builder.
+    # Available themes: :canodrom, :capitalitat
+    config_accessor :themes do
+      [:canodrom, :capitalitat]
+    end
+
     # To define the default first day for the agenda ranges.
     # This is the next monday:
     def self.next_first_day

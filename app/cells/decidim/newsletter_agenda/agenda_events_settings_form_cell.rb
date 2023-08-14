@@ -60,6 +60,10 @@ module Decidim
         end
       end
 
+      def theme
+        content_block.manifest_name.gsub("_agenda_events", "")
+      end
+
       # rubocop:enable Metrics/CyclomaticComplexity
       # rubocop:enable Metrics/PerceivedComplexity
     end
