@@ -38,6 +38,7 @@ ca:
         footer: Peu de pàgina
         footer_address: Adreça de l'organització
         footer_box_date_time: Data i hora de l'esdeveniment en peu de pàgina
+        footer_box_description: Footer event description
         footer_box_image: Imatge de l'esdeveniment en peu de pàgina
         footer_box_link_text: Text d'enllaç de l'esdeveniment (amagat tret que es proporcioni una URL)
         footer_box_link_url: Enllaç de l'esdeveniment (URL)
@@ -48,6 +49,8 @@ ca:
         github: GitHub
         instagram: Instagram
         interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
+        intro_link_text: Introduction link text
+        intro_link_url: Introduction link URL
         intro_text: Text d'introducció
         intro_title: Títol d'introducció
         introduction: Introducció
@@ -68,11 +71,14 @@ ca:
         body_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
         body_final_text_preview: Però hi ha més
         body_title_preview: Que hi ha durant la setmana
+        footer_additional_text_preview: This is a footer additional text for this agenda
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
+        footer_box_description_preview: This is a footer description for this agenda
         footer_box_link_text_preview: Llegiu-ne més
         footer_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
         footer_social_links_title_preview: Segueix-nos a les xarxes socials
         footer_title_preview: Tant si vols veure el que t'has perdut com si vols recordar-ho
+        intro_link_text_preview: Read more
         intro_text_preview: 'Text fictici per al cos: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilitasis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut torttor sit amet, imperdiet dapibus arcu. Suspendesse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar. <a href="#">Llegir més</a>'
         intro_title_preview: Text fictici pel títol del butlletí.
         name: Esdeveniments de l'agenda
