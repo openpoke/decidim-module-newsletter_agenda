@@ -55,7 +55,7 @@
 
   .footer-logos img {
     width: auto;
-    height: 30px;
+    height: 25px;
   }
 
   @media only screen and (max-width: 400px) {
@@ -279,14 +279,11 @@
                   </table>
                 </td>
                 <!-- Logos -->
-                <td class="mobile-responsive logos-block" style="padding: 0 32px 0 0;">
+                <td class="mobile-responsive logos-block" style="padding: 0 32px 0 0;vertical-align: bottom;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr class="footer-logos">
-                      <%# if has_footer_image? %>
-<!--                        <td class="footer-logo no-margin"><%#= image_tag footer_image_url %></td>-->
-                      <%# end %>
-                      <td class="footer-logo" style="padding-left: 16px;"><%= image_tag footer_image_capitalitat %></td>
-                      <td class="footer-logo" style="padding-left: 16px;"><%= image_tag footer_image_ajuntament %></td>
+                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag footer_image_capitalitat %></td>
+                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag footer_image_ajuntament %></td>
                       <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag footer_image_metropolita %></td>
                     </tr>
                   </table>
@@ -294,7 +291,7 @@
               </tr>
               <!-- Additional text -->
               <tr>
-                <td colspan="2" style="padding: 0 32px; color: #ffffff; font-size: 10px;"><%= translated_text_for(:footer_additional_text) %></td>
+                <td colspan="2" style="padding: 20px 32px; color: #ffffff; font-size: 10px;"><%= translated_text_for(:footer_additional_text) %></td>
               </tr>
             </table>
           </td>

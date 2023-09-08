@@ -92,6 +92,7 @@
             <% end %>
           </ul>
         </div>
+        <% unless theme == "capitalitat" %>
         <div class="tabs-content" data-tabs-content="organization_social_handlers">
           <% Decidim::NewsletterAgenda.additional_social_handlers.each do |handler| %>
             <div class="tabs-panel <% if handler == Decidim::NewsletterAgenda.additional_social_handlers.first %> is-active <% end %>" id="<%= handler %>">
@@ -99,6 +100,7 @@
             </div>
           <% end %>
         </div>
+        <% end %>
       <% end %>
     </fieldset>
   </div>

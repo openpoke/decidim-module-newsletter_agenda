@@ -72,15 +72,25 @@ module Decidim
 
       def social_links
         links = []
+        allowed_networks = theme == "capitalitat" ? ["twitter", "youtube"] : all_handler_attributes.keys.map { |k| k.split("_").first }
+
         all_handler_attributes.each do |k, v|
           next if v.blank?
 
           network = k.split("_").first
 
-          icon_path = asset_pack_url("media/images/#{network}.png", **host_options)
+          next unless allowed_networks.include?(network)
+
+          icon_path = if theme == "capitalitat"
+                        asset_pack_url("media/images/capitalitat_#{network}.png", **host_options)
+                      else
+                        asset_pack_url("media/images/#{network}.png", **host_options)
+                      end
+
           ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon", title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
           links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
+
         links
       end
 
@@ -120,9 +130,9 @@ module Decidim
 
       def host_options
         @host_options ||= begin
-          options = Rails.configuration.action_mailer.default_url_options || {}
-          options.merge(host: decidim.root_url(host: organization.host))
-        end
+                            options = Rails.configuration.action_mailer.default_url_options || {}
+                            options.merge(host: decidim.root_url(host: organization.host))
+                          end
       end
 
       def organization_handler_attributes
