@@ -12,7 +12,8 @@ module Decidim
       end
 
       def body
-        parse_interpolations(model.settings.body_title, recipient_user, newsletter.id)
+        content = model.settings.body_title.is_a?(Hash) ? model.settings.body_title.values.first : model.settings.body_title
+        parse_interpolations(content, recipient_user, newsletter.id)
       end
 
       def theme
