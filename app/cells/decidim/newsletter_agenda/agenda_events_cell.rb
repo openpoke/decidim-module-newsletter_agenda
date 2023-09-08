@@ -72,7 +72,7 @@ module Decidim
 
       def social_links
         links = []
-        allowed_networks = theme == "capitalitat" ? ["twitter", "youtube"] : all_handler_attributes.keys.map { |k| k.split("_").first }
+        allowed_networks = theme == "capitalitat" ? %w(twitter youtube) : all_handler_attributes.keys.map { |k| k.split("_").first }
 
         all_handler_attributes.each do |k, v|
           next if v.blank?
