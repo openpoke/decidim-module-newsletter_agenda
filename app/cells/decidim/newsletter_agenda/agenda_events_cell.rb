@@ -7,10 +7,12 @@ module Decidim
     class AgendaEventsCell < NewsletterTemplates::BaseCell
       include Decidim::LayoutHelper
 
-      alias body show
-
       def show
         render :show
+      end
+
+      def body
+        parse_interpolations(model.settings.body_title, recipient_user, newsletter.id)
       end
 
       def theme
@@ -96,6 +98,10 @@ module Decidim
 
       def footer_image_metropolita
         asset_pack_url("media/images/metropolita_logo.png", **host_options)
+      end
+
+      def footer_image_ajuntament
+        asset_pack_url("media/images/ajuntament.png", **host_options)
       end
 
       def background_color
