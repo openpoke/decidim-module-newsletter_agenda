@@ -7,10 +7,12 @@ module Decidim
     class AgendaEventsCell < NewsletterTemplates::BaseCell
       include Decidim::LayoutHelper
 
-      alias body show
-
       def show
         render :show
+      end
+
+      def body
+        parse_interpolations("", recipient_user, newsletter.id)
       end
 
       def theme
@@ -70,15 +72,25 @@ module Decidim
 
       def social_links
         links = []
+        allowed_networks = theme == "capitalitat" ? %w(twitter youtube) : all_handler_attributes.keys.map { |k| k.split("_").first }
+
         all_handler_attributes.each do |k, v|
           next if v.blank?
 
           network = k.split("_").first
 
-          icon_path = asset_pack_url("media/images/#{network}.png", **host_options)
+          next unless allowed_networks.include?(network)
+
+          icon_path = if theme == "capitalitat"
+                        asset_pack_url("media/images/capitalitat_#{network}.png", **host_options)
+                      else
+                        asset_pack_url("media/images/#{network}.png", **host_options)
+                      end
+
           ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon", title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
           links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
+
         links
       end
 
@@ -96,6 +108,10 @@ module Decidim
 
       def footer_image_metropolita
         asset_pack_url("media/images/metropolita_logo.png", **host_options)
+      end
+
+      def footer_image_ajuntament
+        asset_pack_url("media/images/ajuntament.png", **host_options)
       end
 
       def background_color

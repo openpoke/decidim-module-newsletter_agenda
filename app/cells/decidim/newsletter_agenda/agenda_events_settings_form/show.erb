@@ -78,6 +78,7 @@
         <%= settings_fields.editor :footer_address_text, label: t(".footer_address") unless theme == "capitalitat" %>
         <%= settings_fields.translated :text_field, :footer_social_links_title, label: t(".footer_social_links_title") %>
         <%= settings_fields.translated :text_field, :footer_additional_text if theme == "capitalitat" %>
+        <% unless theme == "capitalitat" %>
         <div class="label--tabs">
           <label for="organization_social_handlers">
             <%= t(".social_handlers") %>
@@ -99,6 +100,7 @@
             </div>
           <% end %>
         </div>
+        <% end %>
       <% end %>
     </fieldset>
   </div>
