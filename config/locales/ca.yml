@@ -38,7 +38,7 @@ ca:
         footer: Peu de pàgina
         footer_address: Adreça de l'organització
         footer_box_date_time: Data i hora de l'esdeveniment en peu de pàgina
-        footer_box_description: Footer event description
+        footer_box_description: Descripció de l'esdeveniment a peu de pàgina
         footer_box_image: Imatge de l'esdeveniment en peu de pàgina
         footer_box_link_text: Text d'enllaç de l'esdeveniment (amagat tret que es proporcioni una URL)
         footer_box_link_url: Enllaç de l'esdeveniment (URL)
@@ -49,8 +49,8 @@ ca:
         github: GitHub
         instagram: Instagram
         interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
-        intro_link_text: Introduction link text
-        intro_link_url: Introduction link URL
+        intro_link_text: Text de l'enllaç d'introducció
+        intro_link_url: URL de l'enllaç d'introducció
         intro_text: Text d'introducció
         intro_title: Títol d'introducció
         introduction: Introducció
