@@ -9,6 +9,7 @@ module Decidim
       # rubocop:disable Metrics/PerceivedComplexity
       def settings
         @settings ||= form.object.settings.tap do |settings|
+          settings[:link_color] ||= default_link_color
           settings[:background_color] ||= default_background_color
           settings[:font_color_over_bg] ||= default_font_color_over_bg
           settings[:body_title].tap do |hash|

@@ -86,26 +86,6 @@ module Decidim
         links
       end
 
-      def background_image_top
-        asset_pack_url("media/images/background_top.gif", **host_options)
-      end
-
-      def background_image_bottom_url
-        asset_pack_url("media/images/background_bottom.gif", **host_options)
-      end
-
-      def footer_image_capitalitat
-        asset_pack_url("media/images/capital_logo.png", **host_options)
-      end
-
-      def footer_image_metropolita
-        asset_pack_url("media/images/metropolita_logo.png", **host_options)
-      end
-
-      def footer_image_ajuntament
-        asset_pack_url("media/images/ajuntament.png", **host_options)
-      end
-
       private
 
       def representation_url(image)

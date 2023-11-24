@@ -26,6 +26,11 @@ module Decidim
           end
         end
 
+        def link_color
+          @link_color ||= model.settings.link_color.presence ||
+                          default_link_color
+        end
+
         def background_color
           @background_color ||= model.settings.background_color.presence ||
                                 default_background_color
@@ -34,6 +39,13 @@ module Decidim
         def font_color_over_bg
           @font_color_over_bg ||= model.settings.font_color_over_bg.presence ||
                                   default_font_color_over_bg
+        end
+
+        def default_link_color
+          @default_link_color ||= NewsletterAgenda.default_link_color ||
+                                  NewsletterAgenda.themes&.dig(theme, :default_link_color) ||
+                                  current_organization.colors["primary"] ||
+                                  "#39747f"
         end
 
         def default_background_color

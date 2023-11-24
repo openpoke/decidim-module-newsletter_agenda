@@ -23,6 +23,7 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
+        link_color: Link color
         background_color: Background color
         body: Body
         body_box_date_time: Body event date/time

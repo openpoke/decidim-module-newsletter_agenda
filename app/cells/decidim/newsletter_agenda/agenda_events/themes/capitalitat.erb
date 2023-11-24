@@ -153,12 +153,12 @@
                         <% end %>
 
                         <!-- Date -->
-                        <p style="text-align:left; color: #3998D4; font-size: 16px; font-weight: bold; padding-top: 10px;margin: 0;">
+                        <p style="text-align:left; color: <%= link_color %>; font-size: 16px; font-weight: bold; padding-top: 10px;margin: 0;">
                           <%= translated_text_for "body_box_date_time_#{num}" %>
                         </p>
 
                         <!-- Title -->
-                        <h2 style="text-align:left; color: #3998D4; font-size: 18px; font-weight: bold; padding: 0;">
+                        <h2 style="text-align:left; color: <%= link_color %>; font-size: 18px; font-weight: bold; padding: 0;">
                           <%= translated_text_for "body_box_title_#{num}" %>
                         </h2>
 
@@ -172,7 +172,7 @@
                         <% if link %>
                           <p style="text-align:left; padding-top: 10px;">
                             <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
-                                        style: "color: #3998D4;font-weight: bold; text-decoration: underline;",
+                                        style: "color: #{link_color};font-weight: bold; text-decoration: underline;",
                                         target: :blank %>
                           </p>
                         <% end %>
@@ -282,9 +282,9 @@
                 <td class="mobile-responsive logos-block" style="padding: 0 32px 0 0;vertical-align: bottom;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr class="footer-logos">
-                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag footer_image_capitalitat %></td>
-                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag footer_image_ajuntament %></td>
-                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag footer_image_metropolita %></td>
+                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/capital_logo.png", **host_options) %></td>
+                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/ajuntament.png", **host_options) %></td>
+                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag asset_pack_url("media/images/metropolita_logo.png", **host_options) %></td>
                     </tr>
                   </table>
                 </td>

@@ -22,6 +22,10 @@ module Decidim
       nil
     end
 
+    config_accessor :default_link_color do
+      nil
+    end
+
     # The default address text for the newsletter agenda.
     # leave it empty (nil) to use the one defined in the config accessor "themes" for the theme
     config_accessor :default_address_text do
@@ -41,6 +45,7 @@ module Decidim
         canodrom: {
           default_background_color: "#7636D2",
           default_font_color_over_bg: "#FFFFFF",
+          default_link_color: "#7636D2",
           default_address_text: "<b>Canòdrom</b><br>" \
                                 "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
                                 "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
@@ -51,6 +56,7 @@ module Decidim
         capitalitat: {
           default_background_color: "#524F9F",
           default_font_color_over_bg: "#FFFFFF",
+          default_link_color: "#524F9F",
           default_address_text: "<b>European Capital of Democracy</b><br>" \
                                 "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://capitalofdemocracy.barcelona'>capitalofdemocracy.barcelona</a><br>" \
                                 "<a href='mailto:rgpd@pemb.cat'>rgpd@pemb.cat</a>",

@@ -48,6 +48,11 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute(
+                :link_color,
+                type: :text,
+                preview: -> { Decidim::NewsletterAgenda.default_link_color || properties[:default_link_color] || "#39747f" }
+              )
+              settings.attribute(
                 :background_color,
                 type: :text,
                 preview: -> { Decidim::NewsletterAgenda.default_background_color || properties[:default_background_color] || "#39747f" }
