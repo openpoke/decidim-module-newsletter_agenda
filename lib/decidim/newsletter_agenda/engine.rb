@@ -17,11 +17,11 @@ module Decidim
       end
 
       initializer "decidim-newsletter_agenda.newsletter_templates" do
-        Decidim::NewsletterAgenda.themes.each do |theme|
+        Decidim::NewsletterAgenda.themes.each do |theme, properties|
           Decidim.content_blocks.register(:newsletter_template, "#{theme}_agenda_events") do |content_block|
             content_block.cell = "decidim/newsletter_agenda/agenda_events"
             content_block.settings_form_cell = "decidim/newsletter_agenda/agenda_events_settings_form"
-            content_block.public_name_key = "decidim.newsletter_templates.agenda_events.name"
+            content_block.public_name_key = "decidim.newsletter_templates.agenda_events.#{theme}_name"
 
             content_block.images = [
               {
@@ -48,14 +48,19 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute(
+                :link_color,
+                type: :text,
+                preview: -> { Decidim::NewsletterAgenda.default_link_color || properties[:default_link_color] || "#39747f" }
+              )
+              settings.attribute(
                 :background_color,
                 type: :text,
-                preview: -> { Decidim::NewsletterAgenda.default_background_color || "#733BCE" }
+                preview: -> { Decidim::NewsletterAgenda.default_background_color || properties[:default_background_color] || "#39747f" }
               )
               settings.attribute(
                 :font_color_over_bg,
                 type: :text,
-                preview: -> { Decidim::NewsletterAgenda.default_font_color_over_bg || "#FFFFFF" }
+                preview: -> { Decidim::NewsletterAgenda.default_font_color_over_bg || properties[:default_font_color_over_bg] || "#FFFFFF" }
               )
               settings.attribute(
                 :intro_title,
@@ -177,7 +182,7 @@ module Decidim
                 :footer_address_text,
                 type: :text,
                 translated: false,
-                preview: -> { NewsletterAgenda.default_address_text }
+                preview: -> { NewsletterAgenda.default_address_text || properties[:default_address_text] }
               )
               settings.attribute(
                 :footer_social_links_title,
@@ -191,12 +196,12 @@ module Decidim
                 translated: true,
                 preview: -> { I18n.t("decidim.newsletter_templates.agenda_events.footer_additional_text_preview") }
               )
-              Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
+              (Decidim::NewsletterAgenda.social_handlers || properties[:social_handlers])&.each do |handler|
                 settings.attribute(
                   "#{handler}_handler",
                   type: :text,
                   translated: false,
-                  preview: -> { "https://#{handler}.com/#{handler}" }
+                  preview: -> { "my-#{handler}" }
                 )
               end
             end

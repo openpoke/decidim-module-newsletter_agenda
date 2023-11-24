@@ -19,11 +19,12 @@ describe "Agenda events settings", type: :system do
 
   let(:settings) do
     {
-      background_color: organization.colors["primary"],
-      font_color_over_bg: Decidim::NewsletterAgenda.default_font_color_over_bg,
-      intro_title: "Intro title",
-      intro_text: "Intro text",
-      footer_address_text: Decidim::NewsletterAgenda.default_address_text
+      background_color: "#7636d1",
+      link_color: "#FF0FF0",
+      font_color_over_bg: "#FFFFF0",
+      intro_title_en: "Intro title",
+      intro_text_en: "Intro text",
+      footer_address_text: "Some address"
     }
   end
 
@@ -52,9 +53,11 @@ describe "Agenda events settings", type: :system do
     end
 
     context "when automatic customizable settings" do
-      it "renders the correct the settings form" do
+      it "renders the default settings" do
         expect(page).to have_content("Background color")
         expect(page).to have_field("newsletter[settings][background_color]", with: "#7636d2")
+        expect(page).to have_content("Link color")
+        expect(page).to have_field("newsletter[settings][link_color]", with: "#7636d2")
         expect(page).to have_content("Font color over background")
         expect(page).to have_field("newsletter[settings][font_color_over_bg]", with: "#ffffff")
 
@@ -78,33 +81,12 @@ describe "Agenda events settings", type: :system do
         expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
+        expect(page).to have_content("C/Concepció Arenal 165")
         expect(page).to have_content("Social links title")
-
-        address = ActionController::Base.helpers.strip_tags(content_block.settings.footer_address_text)
-        expect(page.html.gsub(/[\n ]+/, " ")).to have_content(address.gsub(/[\n ]+/, " ").strip)
-        expect(address.lines[1..3]).to all(match(/^\S/))
       end
     end
 
     context "when settings from the form" do
-      let!(:content_block_new) do
-        content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :newsletter_template, scoped_resource_id: newsletter.id, manifest_name: :canodrom_agenda_events)
-        content_block.destroy!
-        content_block = create(
-          :content_block,
-          :newsletter_template,
-          organization: organization,
-          scoped_resource_id: newsletter.id,
-          manifest_name: :canodrom_agenda_events,
-          settings: {
-            intro_title: Decidim::Faker::Localized.word,
-            intro_text: Decidim::Faker::Localized.word,
-            body_box_link: I18n.available_locales.index_with { |_locale| Faker::Internet.url }
-          }
-        )
-        content_block
-      end
-
       before do
         fill_in :newsletter_subject_en, with: "Subject"
         find('input[name="newsletter[settings][intro_title_en]"]').fill_in with: "Intro title"
@@ -130,6 +112,7 @@ describe "Agenda events settings", type: :system do
 
         click_link "Footer"
         find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
+        click_link "Mastodon"
         find("input[name='newsletter[settings][mastodon_handler]']").fill_in with: "super_mastodon"
 
         (1..3).each do |i|

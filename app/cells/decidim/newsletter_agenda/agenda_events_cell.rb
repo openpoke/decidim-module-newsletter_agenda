@@ -6,17 +6,14 @@ module Decidim
   module NewsletterAgenda
     class AgendaEventsCell < NewsletterTemplates::BaseCell
       include Decidim::LayoutHelper
+      include ThemeMethods
 
       def show
         render :show
       end
 
       def body
-        parse_interpolations("", recipient_user, newsletter.id)
-      end
-
-      def theme
-        model.manifest_name.gsub("_agenda_events", "")
+        @body ||= parse_interpolations("", recipient_user, newsletter.id)
       end
 
       def has_image?(attribute)
@@ -72,54 +69,21 @@ module Decidim
 
       def social_links
         links = []
-        allowed_networks = theme == "capitalitat" ? %w(twitter youtube) : all_handler_attributes.keys.map { |k| k.split("_").first }
 
         all_handler_attributes.each do |k, v|
-          next if v.blank?
+          next if v.strip.blank?
 
           network = k.split("_").first
 
-          next unless allowed_networks.include?(network)
+          path = "images/#{theme}_#{network}.png"
+          path = "images/#{network}.png" unless File.exist?(File.join(Decidim::NewsletterAgenda::Engine.root, "app/packs/#{path}"))
 
-          icon_path = if theme == "capitalitat"
-                        asset_pack_url("media/images/capitalitat_#{network}.png", **host_options)
-                      else
-                        asset_pack_url("media/images/#{network}.png", **host_options)
-                      end
-
-          ico = tag.img(src: icon_path, alt: network.capitalize, class: "footer-social__icon", title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
+          ico = tag.img(src: asset_pack_url("media/#{path}", **host_options), alt: network.capitalize, class: "footer-social__icon",
+                        title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
           links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
 
         links
-      end
-
-      def background_image_top
-        asset_pack_url("media/images/background_top.gif", **host_options)
-      end
-
-      def background_image_bottom_url
-        asset_pack_url("media/images/background_bottom.gif", **host_options)
-      end
-
-      def footer_image_capitalitat
-        asset_pack_url("media/images/capital_logo.png", **host_options)
-      end
-
-      def footer_image_metropolita
-        asset_pack_url("media/images/metropolita_logo.png", **host_options)
-      end
-
-      def footer_image_ajuntament
-        asset_pack_url("media/images/ajuntament.png", **host_options)
-      end
-
-      def background_color
-        model.settings.background_color.presence || NewsletterAgenda.default_background_color
-      end
-
-      def font_color_over_bg
-        model.settings.font_color_over_bg.presence || NewsletterAgenda.default_font_color_over_bg || "#FFFFFF"
       end
 
       private
@@ -135,21 +99,11 @@ module Decidim
         end
       end
 
-      def organization_handler_attributes
-        organization.attributes.select { |key| key.to_s.include?("handler") }
-      end
-
-      def additional_handler_attributes
-        additional_handler_attributes = {}
-        Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
-          key = "#{handler}_handler"
-          additional_handler_attributes[key] = model.settings[key] if model.settings[key].present?
-        end
-        additional_handler_attributes
-      end
-
       def all_handler_attributes
-        organization_handler_attributes.merge(additional_handler_attributes)
+        @all_handler_attributes ||= social_handlers&.to_h do |handler|
+          key = "#{handler}_handler"
+          [key, model.settings[key] || organization_handler_attributes[key]]
+        end
       end
 
       def network_url(value, network)

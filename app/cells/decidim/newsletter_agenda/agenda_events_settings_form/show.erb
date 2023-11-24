@@ -1,4 +1,5 @@
 <% form.fields_for :settings, settings do |settings_fields| %>
+  <%= settings_fields.text_field :link_color, label: t(".link_color"), type: "color" %>
   <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color" %>
   <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
 <% end %>
@@ -15,8 +16,8 @@
       <% form.fields_for :settings, settings do |settings_fields| %>
         <%= settings_fields.translated :text_field, :intro_title, label: t(".intro_title") %>
         <%= settings_fields.translated :editor, :intro_text, label: t(".intro_text") %>
-        <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text") if theme == "capitalitat" %>
-        <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") if theme == "capitalitat" %>
+        <%= settings_fields.translated :text_field, :intro_link_text, label: t(".intro_link_text") if theme == :capitalitat %>
+        <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") if theme == :capitalitat %>
       <% end %>
       <% form.fields_for :images, form.object.images do |images_fields| %>
         <%= images_fields.upload :main_image, label: t(".main_image") %>
@@ -28,8 +29,8 @@
     <p><%= t(".tab_body_description") %></p>
     <fieldset class="fieldset">
       <% form.fields_for :settings, settings do |settings_fields| %>
-        <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") unless theme == "capitalitat" %>
-        <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == "capitalitat" %>
+        <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") unless theme == :capitalitat %>
+        <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == :capitalitat %>
         <ul id="box-container" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
           <% (1..4).each do |num| %>
             <li class="box accordion-item" id="box<%= num %>" data-accordion-item>
@@ -75,18 +76,18 @@
             </li>
           <% end %>
         </ul>
-        <%= settings_fields.editor :footer_address_text, label: t(".footer_address") unless theme == "capitalitat" %>
+        <%= settings_fields.editor :footer_address_text, label: t(".footer_address") unless theme == :capitalitat %>
         <%= settings_fields.translated :text_field, :footer_social_links_title, label: t(".footer_social_links_title") %>
-        <%= settings_fields.translated :text_field, :footer_additional_text if theme == "capitalitat" %>
-        <% unless theme == "capitalitat" %>
+        <%= settings_fields.translated :text_field, :footer_additional_text if theme == :capitalitat %>
+
         <div class="label--tabs">
           <label for="organization_social_handlers">
             <%= t(".social_handlers") %>
           </label>
           <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
-            <% Decidim::NewsletterAgenda.additional_social_handlers.each do |handler| %>
-              <li class="tabs-title <% if handler == Decidim::NewsletterAgenda.additional_social_handlers.first %> is-active <% end %>">
-                <a href="#<%= handler %>" <% if handler == Decidim::NewsletterAgenda.additional_social_handlers.first %> aria-selected="true" <% end %>>
+            <% social_handlers&.each do |handler| %>
+              <li class="tabs-title <% if handler == social_handlers.first %> is-active <% end %>">
+                <a href="#<%= handler %>" <% if handler == social_handlers.first %> aria-selected="true" <% end %>>
                   <%= t(".#{handler}") %>
                 </a>
               </li>
@@ -94,14 +95,13 @@
           </ul>
         </div>
         <div class="tabs-content" data-tabs-content="organization_social_handlers">
-          <% Decidim::NewsletterAgenda.additional_social_handlers.each do |handler| %>
-            <div class="tabs-panel <% if handler == Decidim::NewsletterAgenda.additional_social_handlers.first %> is-active <% end %>" id="<%= handler %>">
-              <%= settings_fields.text_field "#{handler}_handler", label: false %>
+          <% social_handlers&.each do |handler| %>
+            <div class="tabs-panel <% if handler == social_handlers.first %> is-active <% end %>" id="<%= handler %>">
+              <%= settings_fields.text_field "#{handler}_handler", placeholder: t(".wont_show"), label: false %>
             </div>
           <% end %>
         </div>
         <% end %>
-      <% end %>
     </fieldset>
   </div>
 </div>
