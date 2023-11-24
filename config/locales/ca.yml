@@ -54,7 +54,7 @@ ca:
         intro_text: Text d'introducció
         intro_title: Títol d'introducció
         introduction: Introducció
-        link_color: Link color
+        link_color: Color de l’enllaç
         main_image: Imatge d'introducció
         mastodon: Mastodon
         peertube: PeerTube
@@ -63,7 +63,7 @@ ca:
         tab_footer_description: El peu de pàgina del butlletí pot contenir fins a 3 esdeveniments. El format que millor s'adapta és per a esdeveniments i/o notícies que ja han passat. Però podeu utilitzar-lo de la manera que vulgueu. No és necessari omplir els 3 esdeveniments, les entrades que falten no apareixeran al butlletí.
         telegram: Telegram
         twitter: Twitter
-        wont_show: Won't be shown
+        wont_show: No es mostrarà
         youtube: Youtube
     newsletter_templates:
       agenda_events:
@@ -73,8 +73,8 @@ ca:
         body_box_title_preview: Aquest és un títol de l'esdeveniment per a aquesta agenda
         body_final_text_preview: Però hi ha més
         body_title_preview: Que hi ha durant la setmana
-        canodrom_name: Agenda events (edition Canòdrom)
-        capitalitat_name: Agenda events (edition Capitalitat)
+        canodrom_name: Agenda d'esdeveniments (edició Canòdrom)
+        capitalitat_name: Agenda d'esdeveniments (edició Capitalitat)
         footer_additional_text_preview: Aquest és un text addicional per al peu de pàgina per a aquesta agenda
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
         footer_box_description_preview: Això és un peu de pàgina per a aquesta agenda
