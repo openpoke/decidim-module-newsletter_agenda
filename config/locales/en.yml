@@ -23,7 +23,6 @@ en:
   decidim:
     newsletter_agenda:
       agenda_events_settings_form:
-        link_color: Link color
         background_color: Background color
         body: Body
         body_box_date_time: Body event date/time
@@ -58,6 +57,7 @@ en:
         intro_text: Introduction text
         intro_title: Introduction title
         introduction: Introduction
+        link_color: Link color
         main_image: Introduction image
         mastodon: Mastodon
         peertube: PeerTube
@@ -74,6 +74,7 @@ en:
           to fill in all 3 events, missing entries won't appear in the newsletter.
         telegram: Telegram
         twitter: Twitter
+        wont_show: Won't be shown
         youtube: Youtube
     newsletter_templates:
       agenda_events:
@@ -83,6 +84,8 @@ en:
         body_box_title_preview: This is an event title for this agenda
         body_final_text_preview: But there's more
         body_title_preview: What is happening during the week
+        canodrom_name: Agenda events (edition Canòdrom)
+        capitalitat_name: Agenda events (edition Capitalitat)
         footer_additional_text_preview: This is a footer additional text for this
           agenda
         footer_box_date_time_preview: 7 – 15 Novembre, 10:00
@@ -103,5 +106,3 @@ en:
           enim. In eget magna sed enim efficitur elementum sit amet aliquam quam.
           Donec fermentum metus eget urna luctus pulvinar. <a href="#">Read more</a>'
         intro_title_preview: Dummy title for the newsletter.
-        canodrom_name: Agenda events (edition Canòdrom)
-        capitalitat_name: Agenda events (edition Capitalitat)

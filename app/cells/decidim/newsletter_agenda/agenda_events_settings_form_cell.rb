@@ -37,11 +37,12 @@ module Decidim
               hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview", locale: locale) if hash[locale].nil?
             end
           end
-          settings[:footer_address_text] ||= default_address_text
+
+          settings[:footer_address_text] = default_address_text if settings[:footer_address_text].blank?
 
           # social handlers
           social_handlers&.each do |handler|
-            settings["#{handler}_handler"] ||= ""
+            settings["#{handler}_handler"] ||= organization_handler_attributes["#{handler}_handler"]
           end
 
           # boxes

@@ -63,7 +63,8 @@ module Decidim
 
         def default_address_text
           @default_address_text ||= NewsletterAgenda.default_address_text ||
-                                    NewsletterAgenda.themes.dig(theme, :default_address_text)
+                                    NewsletterAgenda.themes.dig(theme, :default_address_text) ||
+                                    ""
         end
       end
     end

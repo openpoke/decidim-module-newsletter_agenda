@@ -182,7 +182,7 @@ module Decidim
                 :footer_address_text,
                 type: :text,
                 translated: false,
-                preview: -> { NewsletterAgenda.default_address_text }
+                preview: -> { NewsletterAgenda.default_address_text || properties[:default_address_text] }
               )
               settings.attribute(
                 :footer_social_links_title,
