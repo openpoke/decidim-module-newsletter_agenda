@@ -54,6 +54,7 @@ es:
         intro_text: Texto de introducción
         intro_title: Título de introducción
         introduction: Introducción
+        link_color: Link color
         main_image: Imagen de introducción
         mastodon: Mastodon
         peertube: PeerTube
@@ -62,6 +63,7 @@ es:
         tab_footer_description: El pie de página del boletín puede contener hasta 3 eventos. El formato que mejor se adapta es para eventos y/o noticias que ya han pasado. Pero puede utilizarlo de la forma que desee. No es necesario llenar los 3 eventos, las entradas que faltan no aparecerán en el boletín.
         telegram: Telegram
         twitter: Twitter
+        wont_show: Won't be shown
         youtube: Youtube
     newsletter_templates:
       agenda_events:
@@ -71,6 +73,8 @@ es:
         body_box_title_preview: Esta es un título de evento para esta agenda
         body_final_text_preview: Pero aún hay más
         body_title_preview: Qué está ocurriendo durante la semana
+        canodrom_name: Agenda events (edition Canòdrom)
+        capitalitat_name: Agenda events (edition Capitalitat)
         footer_additional_text_preview: This is a footer additional text for this agenda
         footer_box_date_time_preview: 7 – 15 de noviembre, 10:00
         footer_box_description_preview: This is a footer description for this agenda
@@ -81,4 +85,3 @@ es:
         intro_link_text_preview: Read more
         intro_text_preview: 'Texto ficticio para el cuerpo: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar. <a href="#">Leer más</a>'
         intro_title_preview: Título ficticio para el boletín.
-        name: Eventos de la agenda
