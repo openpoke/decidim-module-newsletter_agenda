@@ -10,33 +10,53 @@ module Decidim
     # The default background color for the newsletter agenda.
     # leave it empty (nil) to use the configured organization's main color.
     # this color can be overriden in the newsletter template builder.
-    # hex color code with #, e.g. "#733BCE"
+    # hex color code with #, e.g. "#39747f".
+    # If nil, it uses the one defined in the config accessor "themes" for the theme
     config_accessor :default_background_color do
-      "#7636D2"
+      nil
     end
 
     # The default font color over background for the newsletter agenda.
+    # leave it empty (nil) to use the one defined in the config accessor "themes" for the theme
     config_accessor :default_font_color_over_bg do
-      "#FFFFFF"
+      nil
     end
 
     # The default address text for the newsletter agenda.
+    # leave it empty (nil) to use the one defined in the config accessor "themes" for the theme
     config_accessor :default_address_text do
-      "<b>Canòdrom</b><br>" \
-        "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
-        "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
-        "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>"
+      nil
     end
 
-    # The additional social handlers for the newsletter agenda.
-    config_accessor :additional_social_handlers do
-      [:mastodon, :telegram, :peertube]
+    # The social handlers for the newsletter agenda. If defined in the organization will try to reuse them
+    # leave it empty (nil) to use the one defined in the config accessor "themes" for the theme
+    config_accessor :social_handlers do
+      nil
     end
 
     # Defines additional handlers for the newsletter template builder.
     # Available themes: :canodrom, :capitalitat
     config_accessor :themes do
-      [:canodrom, :capitalitat]
+      {
+        canodrom: {
+          default_background_color: "#7636D2",
+          default_font_color_over_bg: "#FFFFFF",
+          default_address_text: "<b>Canòdrom</b><br>" \
+                                "<b>Ateneu d'Innovació Digital i Democràtica</b><br>" \
+                                "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://canodrom.barcelona'>canodrom.barcelona</a><br>" \
+                                "<a href='mailto:hola@canodrom.com'>hola@canodrom.com</a>",
+          social_handlers: [:twitter, :instagram, :facebook, :youtube, :github, :mastodon, :telegram, :peertube]
+
+        },
+        capitalitat: {
+          default_background_color: "#524F9F",
+          default_font_color_over_bg: "#FFFFFF",
+          default_address_text: "<b>European Capital of Democracy</b><br>" \
+                                "C/Concepció Arenal 165<br>09027 Barcelona <a href='https://capitalofdemocracy.barcelona'>capitalofdemocracy.barcelona</a><br>" \
+                                "<a href='mailto:rgpd@pemb.cat'>rgpd@pemb.cat</a>",
+          social_handlers: [:twitter, :youtube]
+        }
+      }
     end
 
     # To define the default first day for the agenda ranges.

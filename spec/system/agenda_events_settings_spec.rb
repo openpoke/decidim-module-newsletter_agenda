@@ -19,8 +19,8 @@ describe "Agenda events settings", type: :system do
 
   let(:settings) do
     {
-      background_color: organization.colors["primary"],
-      font_color_over_bg: Decidim::NewsletterAgenda.default_font_color_over_bg,
+      background_color: "#7636d2",
+      font_color_over_bg: "#FF0FF0",
       intro_title: "Intro title",
       intro_text: "Intro text",
       footer_address_text: Decidim::NewsletterAgenda.default_address_text
@@ -56,7 +56,7 @@ describe "Agenda events settings", type: :system do
         expect(page).to have_content("Background color")
         expect(page).to have_field("newsletter[settings][background_color]", with: "#7636d2")
         expect(page).to have_content("Font color over background")
-        expect(page).to have_field("newsletter[settings][font_color_over_bg]", with: "#ffffff")
+        expect(page).to have_field("newsletter[settings][font_color_over_bg]", with: "#ff0ff0")
 
         click_link "Body"
         expect(page).to have_content("EVENT 1:")

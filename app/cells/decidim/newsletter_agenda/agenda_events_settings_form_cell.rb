@@ -3,12 +3,14 @@
 module Decidim
   module NewsletterAgenda
     class AgendaEventsSettingsFormCell < NewsletterTemplates::BaseSettingsFormCell
+      include ThemeMethods
+
       # rubocop:disable Metrics/CyclomaticComplexity
       # rubocop:disable Metrics/PerceivedComplexity
       def settings
         @settings ||= form.object.settings.tap do |settings|
-          settings[:background_color] ||= NewsletterAgenda.default_background_color || current_organization.colors["primary"] || "#7636D2"
-          settings[:font_color_over_bg] ||= NewsletterAgenda.default_font_color_over_bg
+          settings[:background_color] ||= default_background_color
+          settings[:font_color_over_bg] ||= default_font_color_over_bg
           settings[:body_title].tap do |hash|
             I18n.available_locales.each do |locale|
               hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.body_title_preview", locale: locale) if hash[locale].nil?
@@ -34,10 +36,10 @@ module Decidim
               hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview", locale: locale) if hash[locale].nil?
             end
           end
-          settings[:footer_address_text] ||= NewsletterAgenda.default_address_text
+          settings[:footer_address_text] ||= default_address_text
 
           # social handlers
-          Decidim::NewsletterAgenda.additional_social_handlers.each do |handler|
+          social_handlers&.each do |handler|
             settings["#{handler}_handler"] ||= ""
           end
 
@@ -59,11 +61,6 @@ module Decidim
           end
         end
       end
-
-      def theme
-        content_block.manifest_name.gsub("_agenda_events", "")
-      end
-
       # rubocop:enable Metrics/CyclomaticComplexity
       # rubocop:enable Metrics/PerceivedComplexity
     end
