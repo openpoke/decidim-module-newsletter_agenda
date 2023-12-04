@@ -94,7 +94,6 @@
     .social-links {
       padding-top: 20px !important;
     }
-    
   }
 </style>
 
@@ -117,7 +116,7 @@
         <tr>
           <td align="center" style="padding: 48px">
             <% if has_image?(:main_image) %>
-              <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image" %>
+              <%= image_tag(image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image", width: "653", height: "436", style: "width: 100%; height: auto;") %>
             <% end %>
           </td>
         </tr>
@@ -214,7 +213,7 @@
                   <td class="mobile-responsive footer-box__image" style="width: 33.33%; vertical-align: top; padding: 08px;">
                     <!-- Image -->
                     <% if has_image?("footer_box_image_#{num}") %>
-                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132])) %>
+                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132]), width: 198, height: 132) %>
                     <% end %>
                     <!-- Date -->
                     <table width="100%">
