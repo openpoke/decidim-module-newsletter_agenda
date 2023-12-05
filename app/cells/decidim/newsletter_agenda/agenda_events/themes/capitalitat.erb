@@ -5,9 +5,6 @@
     padding: 0 !important;
   }
 
-  mso-table-lspace: 0pt;
-  mso-table-rspace: 0pt;
-
   .introduction-text,
   .introduction-text p {
     font-size: 18px !important;
@@ -61,10 +58,6 @@
     height: 25px;
   }
 
-    img {
-        -ms-interpolation-mode: bicubic;
-    }
-
   @media only screen and (max-width: 400px) {
     td.mobile-responsive {
       width: 100% !important;
@@ -97,7 +90,21 @@
   }
 </style>
 
-<table class="main container" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-collapse: collapse !important;">
+<if mso>
+  <style type="text/css">
+      table {
+          border-collapse: collapse !important;
+      }
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      img {
+          -ms-interpolation-mode: bicubic;
+      }
+  </style>
+<endif>
+
+
+<table class="main container" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;">
   <tr>
     <td>
       <!-- Logo -->
@@ -116,7 +123,7 @@
         <tr>
           <td align="center" style="padding: 48px">
             <% if has_image?(:main_image) %>
-              <%= image_tag(image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image", width: "653", height: "436", style: "width: 100%; height: auto;") %>
+              <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]), alt: "Intro Image", width: "653", height: "436", style: "width: 100%; height: auto;" %>
             <% end %>
           </td>
         </tr>
@@ -213,7 +220,7 @@
                   <td class="mobile-responsive footer-box__image" style="width: 33.33%; vertical-align: top; padding: 08px;">
                     <!-- Image -->
                     <% if has_image?("footer_box_image_#{num}") %>
-                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132]), width: 198, height: 132) %>
+                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132]), width: "198", height: "132", style: "width: 100%; height: auto;") %>
                     <% end %>
                     <!-- Date -->
                     <table width="100%">
@@ -289,9 +296,9 @@
                 <td class="mobile-responsive logos-block" style="padding: 0 32px 0 0;vertical-align: bottom;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr class="footer-logos">
-                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/capital_logo.png", **host_options) %></td>
-                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/ajuntament.png", **host_options) %></td>
-                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag asset_pack_url("media/images/metropolita_logo.png", **host_options) %></td>
+                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/capital_logo.png", **host_options), style: "width: 100px; height: auto;" %></td>
+                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/ajuntament.png", **host_options), style: "width: 100px; height: auto;" %></td>
+                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag asset_pack_url("media/images/metropolita_logo.png", **host_options), style: "width: 100px; height: auto;" %></td>
                     </tr>
                   </table>
                 </td>

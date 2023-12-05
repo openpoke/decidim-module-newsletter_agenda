@@ -6,17 +6,6 @@
     background: <%= background_color %> !important;
   }
 
-  table {
-    border-collapse: collapse !important;
-  }
-
-  mso-table-lspace: 0pt;
-  mso-table-rspace: 0pt;
-
-  img {
-        -ms-interpolation-mode: bicubic;
-  }
-
   table.container,
   table.container td,
   table.container p,
@@ -233,7 +222,7 @@
               <table class="row content image">
                 <tr>
                   <th class="small-12 first columns">
-                    <%= image_tag(image_url(:main_image, resize_to_fit: [653, 436]), width: "653", height: "436") %>
+                    <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]) %>
                   </th>
                   <th class="expander"></th>
                 </tr>
