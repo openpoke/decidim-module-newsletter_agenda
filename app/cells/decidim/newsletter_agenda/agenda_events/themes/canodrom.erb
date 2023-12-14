@@ -260,7 +260,7 @@
                       <div class="box-image">
                         <% if has_image?("body_box_image_#{num}") %>
                           <%= link_to link_for("body_box_link_url_#{num}") do %>
-                            <%= image_tag(image_url("body_box_image_#{num}", resize_to_fill: [238, 134]), width: "238", height: "134", style: "width:100%; max-width:100%; display:block; margin:0 auto;") %>
+                            <%= image_tag(image_url("body_box_image_#{num}"), width: "238", height: "134", style: "width:100%; max-width:500px; display:block; margin:0 auto;") %>
                           <% end %>
                         <% end %>
                       </div>
@@ -287,7 +287,7 @@
         <tr style="text-align: center;vertical-align: middle;">
           <td class="bottom" style="text-align: center;vertical-align: middle;">
             <%= translated_text_for :body_final_text %>
-            <%= image_tag asset_pack_url("media/images/arrow-down.png", **host_options), style: "display: block;  margin-top: 1rem;" %>
+            <%= image_tag asset_pack_url("media/images/arrow-down.png", **host_options) %>
           </td>
         </tr>
       </table>
@@ -328,7 +328,7 @@
           </td>
           <td class="footer-social__wrap" style="padding-top: 24px">
             <%= translated_text_for :footer_social_links_title %>
-            <div class="footer-social">
+            <div class="footer-social" >
               <%= social_links.join.html_safe %>
             </div>
           </td>
