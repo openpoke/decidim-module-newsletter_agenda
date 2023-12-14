@@ -39,7 +39,7 @@ describe "Agenda events settings", type: :system do
       visit decidim_admin.preview_newsletter_template_path(id: :canodrom_agenda_events)
 
       expect(page).to have_content("This is an event title for this agenda")
-      #expect(page).to have_content("What is happening during the week")
+      expect(page).to have_content("What is happening during the week")
       expect(page).to have_content("Dummy text for body:")
     end
   end
