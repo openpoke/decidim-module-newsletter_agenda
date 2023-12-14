@@ -148,7 +148,7 @@
                         <!-- Image -->
                         <% if has_image?("body_box_image_#{num}") %>
                           <%= link_to link_for("body_box_link_url_#{num}") do %>
-                            <%= image_tag(image_url("body_box_image_#{num}", resize_to_fill: [238, 134]), width: "238", height: "134", style: "width:100%; max-width:100%; display:block; margin:0 auto;") %>
+                            <%= image_tag(image_url("body_box_image_#{num}", resize_to_fill: [238, 134]), width: "238", height: "134", style: "width:100%; max-width:500px; display:block; margin:0 auto;") %>
                           <% end %>
                         <% end %>
 
@@ -282,9 +282,9 @@
                 <td class="mobile-responsive logos-block" style="padding: 0 32px 0 0;vertical-align: bottom;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr class="footer-logos">
-                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/capital_logo.png", **host_options, resize_to_fit: [138, 25]), width: "180", height: "25" %></td>
-                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/ajuntament.png", **host_options, resize_to_fit: [66, 25]), width: "120", height: "25" %></td>
-                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag asset_pack_url("media/images/metropolita_logo.png", **host_options, resize_to_fit: [51, 25]), width: "140", height: "25" %></td>
+                      <td align="left" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/capital_logo.png", **host_options), width: "180", height: "25" %></td>
+                      <td align="center" class="footer-logo" style="padding-left: 16px;padding-right: 20px;"><%= image_tag asset_pack_url("media/images/ajuntament.png", **host_options), width: "100", height: "25" %></td>
+                      <td align="right" class="footer-logo" style="padding-left: 16px;"><%= image_tag asset_pack_url("media/images/metropolita_logo.png", **host_options), width: "80", height: "25" %></td>
                     </tr>
                   </table>
                 </td>
