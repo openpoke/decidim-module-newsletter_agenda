@@ -165,6 +165,11 @@
     margin: 0 auto;
   }
 
+  img {
+    -ms-interpolation-mode: nearest-neighbor;
+    -ms-interpolation-mode: bicubic;
+  }
+
   @media only screen and (max-width: 500px) {
     .event-box,
     .footer-box {
@@ -220,8 +225,8 @@
           <tr>
             <td>
               <table class="row content image">
-                <tr>
-                  <th class="small-12 first columns">
+                <tr align="center">
+                  <th class="small-12 first columns" align="center">
                     <%= image_tag image_url(:main_image, resize_to_fit: [653, 436]), width: "653", height: "436" %>
                   </th>
                   <th class="expander"></th>
