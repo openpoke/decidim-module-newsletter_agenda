@@ -16,7 +16,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-newsletter_agenda", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "faker", "~> 2.14"
+gem "faker", "~> 3.2"
 gem "rspec", "~> 3.0"
 
 group :development, :test do
