@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module NewsletterAgenda
-    class AgendaEventsSettingsFormCell < NewsletterTemplates::BaseSettingsFormCell
+  module NewsletterTemplates
+    class AgendaEventsSettingsFormCell < BaseSettingsFormCell
       include ThemeMethods
 
       # rubocop:disable Metrics/CyclomaticComplexity

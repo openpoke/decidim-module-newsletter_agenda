@@ -3,8 +3,8 @@
 require "cell/partial"
 
 module Decidim
-  module NewsletterAgenda
-    class AgendaEventsCell < NewsletterTemplates::BaseCell
+  module NewsletterTemplates
+    class AgendaEventsCell < BaseCell
       include Decidim::LayoutHelper
       include ThemeMethods
 
