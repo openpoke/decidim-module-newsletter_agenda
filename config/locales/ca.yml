@@ -19,7 +19,7 @@ ca:
       same_years: "%{from_day} %{from_month} - %{until_day} %{until_month}"
       year: "%Y"
   decidim:
-    newsletter_agenda:
+    newsletter_templates:
       agenda_events_settings_form:
         background_color: Color de fons
         body: Cos
@@ -65,7 +65,6 @@ ca:
         twitter: Twitter
         wont_show: No es mostrarà
         youtube: Youtube
-    newsletter_templates:
       agenda_events:
         body_box_date_time_preview: Novembre, 7 - 15, 10:00
         body_box_description_preview: Aquesta és una descripció de l'esdeveniment per a aquesta agenda.
