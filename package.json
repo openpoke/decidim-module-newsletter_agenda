@@ -4,10 +4,14 @@
   "description": "A 3 steps proposals for Decidim",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
-    "stylelint": "stylelint **/*.scss",
+    "stylelint": "stylelint app/packs/**/*.scss",
     "stylelint-fix": "stylelint **/*.scss --fix"
+  },
+  "engines": {
+      "node": "18.17.1",
+      "npm": ">=9.6.7"
   },
   "repository": {
     "type": "git",
@@ -23,10 +27,7 @@
   },
   "homepage": "https://github.com/Openpoke/decidim-module-newsletter_agenda#readme",
   "stylelint": {
-    "extends": "@decidim/stylelint-config",
-    "rules" : {
-      "block-opening-brace-space-before": "always"
-    }
+    "extends": "@decidim/stylelint-config"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
@@ -39,11 +40,12 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "eslint-config-prettier": "^8.2.0",
-    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-standard": "^3.1.0",
     "sass-embedded": "~1.57.1"
   },
   "dependencies": {
+    "stylelint": "^16.1.0"
   }
 }
