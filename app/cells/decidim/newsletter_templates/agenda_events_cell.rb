@@ -3,8 +3,8 @@
 require "cell/partial"
 
 module Decidim
-  module NewsletterAgenda
-    class AgendaEventsCell < NewsletterTemplates::BaseCell
+  module NewsletterTemplates
+    class AgendaEventsCell < BaseCell
       include Decidim::LayoutHelper
       include ThemeMethods
 
@@ -79,7 +79,7 @@ module Decidim
           path = "images/#{network}.png" unless File.exist?(File.join(Decidim::NewsletterAgenda::Engine.root, "app/packs/#{path}"))
 
           ico = tag.img(src: asset_pack_url("media/#{path}", **host_options), alt: network.capitalize, class: "footer-social__icon",
-                        title: t("decidim.newsletter_agenda.agenda_events_settings_form.#{network}"))
+                        title: t("decidim.newsletter_templates.agenda_events_settings_form.#{network}"))
           links << link_to(ico, network_url(v, network), target: "_blank", rel: "noopener", class: "footer-social__icon")
         end
 

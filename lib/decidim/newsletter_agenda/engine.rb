@@ -19,8 +19,8 @@ module Decidim
       initializer "decidim-newsletter_agenda.newsletter_templates" do
         Decidim::NewsletterAgenda.themes.each do |theme, properties|
           Decidim.content_blocks.register(:newsletter_template, "#{theme}_agenda_events") do |content_block|
-            content_block.cell = "decidim/newsletter_agenda/agenda_events"
-            content_block.settings_form_cell = "decidim/newsletter_agenda/agenda_events_settings_form"
+            content_block.cell = "decidim/newsletter_templates/agenda_events"
+            content_block.settings_form_cell = "decidim/newsletter_templates/agenda_events_settings_form"
             content_block.public_name_key = "decidim.newsletter_templates.agenda_events.#{theme}_name"
 
             content_block.images = [

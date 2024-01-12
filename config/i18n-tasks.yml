@@ -9,7 +9,7 @@ data:
 ignore_unused:
 
 ignore_missing:
-  - decidim.newsletter_agenda.agenda_events_settings_form.*
+  - decidim.newsletter_templates.agenda_events_settings_form.*
 
 search:
   relative_roots:
