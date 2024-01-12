@@ -19,6 +19,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105 
+
       - uses: actions/setup-node@master
         with:
           node-version: ${{ env.NODE_VERSION }}
