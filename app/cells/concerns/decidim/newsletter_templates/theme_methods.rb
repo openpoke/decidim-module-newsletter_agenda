@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module NewsletterAgenda
+  module NewsletterTemplates
     module ThemeMethods
       extend ActiveSupport::Concern
 
