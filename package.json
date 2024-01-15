@@ -10,8 +10,8 @@
     "stylelint-fix": "stylelint **/*.scss --fix"
   },
   "engines": {
-      "node": "18.17.1",
-      "npm": ">=9.6.7"
+    "node": "18.17.1",
+    "npm": ">=9.6.7"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "sass-embedded": "~1.57.1"
   },
   "dependencies": {
-    "stylelint": "^16.1.0"
+    "stylelint": "^16.1.0",
+    "tw-elements": "^1.1.0"
   }
 }
