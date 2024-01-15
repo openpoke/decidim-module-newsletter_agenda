@@ -4,10 +4,10 @@
   <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
 <% end %>
 
-<ul class="tabs" data-tabs id="newsletter-tabs">
-  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><%= t(".introduction") %></a></li>
-  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2"><%= t(".body") %></a></li>
-  <li class="tabs-title"><a data-tabs-target="panel3" href="#panel3"><%= t(".footer") %></a></li>
+<ul class="tabs flex items-center justify-around font-bold" data-tabs id="newsletter-tabs">
+  <li class="tabs-title is-active p-4 cursor-pointer"><a href="#panel1" aria-selected="true"><%= t(".introduction") %></a></li>
+  <li class="tabs-title p-4 cursor-pointer"><a data-tabs-target="panel2" href="#panel2"><%= t(".body") %></a></li>
+  <li class="tabs-title p-4 cursor-pointer"><a data-tabs-target="panel3" href="#panel3"><%= t(".footer") %></a></li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="newsletter-tabs">
