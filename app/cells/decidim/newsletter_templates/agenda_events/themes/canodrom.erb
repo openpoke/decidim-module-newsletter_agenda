@@ -83,10 +83,6 @@
     font-size: 36px;
   }
 
-  .box_date_time {
-    color: <%= background_color %>;
-  }
-
   .body-box-title {
     font-size: 24px;
     font-weight: bold;
@@ -103,8 +99,7 @@
   }
 
   .box-link,
-  .box-link a,
-  .box-link > a {
+  .box-link a{
     color: <%= background_color %> !important;
     margin-top: 20px;
   }
@@ -118,6 +113,13 @@
     min-width: 70%;
     text-align: center;
   }
+
+  .footer-title,
+    .footer-box-title,
+    .footer-box-date-time,
+    .footer-box-link {
+      color: <%= background_color %> !important;
+    }
 
   .footer-box-title {
     font-size: 18px;
