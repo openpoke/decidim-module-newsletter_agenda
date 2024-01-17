@@ -15,7 +15,7 @@
 }
 
 .tabs-title > a {
-  padding: 1.25rem 1.5rem;
+  padding: 1.15rem 1.5rem;
   font-size: 1rem;
   line-height: 1;
 }
@@ -94,6 +94,18 @@ button#newsletter_images_main_image_button {
 
   .accordion-item:last-child:not(.is-active) > .accordion-title {
     border-bottom: 1px solid #e6e6e6;
+  }
+
+  .accordion-title::before {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    margin-top: -0.5rem;
+    content: "+";
+  }
+
+  .is-active > .accordion-title::before {
+    content: "–";
   }
 }
 

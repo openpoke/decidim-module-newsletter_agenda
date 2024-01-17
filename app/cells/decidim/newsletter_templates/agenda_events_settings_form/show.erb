@@ -33,7 +33,7 @@
         <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == :capitalitat %>
         <ul id="box-container" class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
           <% (1..4).each do |num| %>
-            <li class="box accordion-item" id="box<%= num %>" data-accordion-item>
+            <li class="box accordion-item cursor-pointer" id="box<%= num %>" data-accordion-item>
               <a href="#" class="accordion-title body-box-title"><%= t(".boxes_number_title", number: num) %>:</a>
               <div class="accordion-content" data-tab-content>
                 <%= settings_fields.translated :text_field, "body_box_title_#{num}", label: t(".body_box_title") %>
@@ -111,3 +111,4 @@
 </div>
 
 <%= stylesheet_pack_tag "decidim_newsletter_agenda" %>
+<%= append_javascript_pack_tag "decidim_newsletter_agenda" %>
