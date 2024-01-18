@@ -59,10 +59,11 @@ input[type="color"] {
   padding-top: 0.05rem !important;
 }
 
-button#newsletter_images_main_image_button {
+button#newsletter_images_main_image_button,
+.accordion button {
   background-color: #039be5;
   color: #fff;
-  margin: 0 0 1rem;
+  margin: 0 0 1rem !important;
   padding: 0.85em 1em;
   border: 1px solid transparent;
   border-radius: 4px;
