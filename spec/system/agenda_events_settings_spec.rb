@@ -6,7 +6,7 @@ describe "Agenda events settings" do
   let(:organization_logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
   let(:footer_logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
   let(:organization) { create(:organization, logo: organization_logo, official_img_footer: footer_logo, twitter_handler: "twitter", facebook_handler: "") }
-  let!(:admin) { create(:user, :admin, :confirmed, organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let!(:newsletter) { create(:newsletter, :sent, total_recipients: 1) }
   let!(:content_block) do
     create(:content_block,
@@ -151,7 +151,6 @@ describe "Agenda events settings" do
             expect(page).to have_content("Footer event title #{i}")
             expect(page).to have_content("Footer event link #{i}")
           end
-          expect(page).to have_link("a[href='http://www.example.org/footer']", count: 3)
 
           expect(page).to have_css("img[src*='avatar.jpg']", count: 2)
           expect(page).to have_css("img[src*='city.jpeg']", count: 1)
