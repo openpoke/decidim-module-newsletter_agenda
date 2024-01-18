@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 9dea35e0b8f5ab9c52433d05f4a48b8ad299e664
+  revision: dbd148e3733988d8d8bc1faef84846082e6ffdbd
   branch: release/0.28-stable
   specs:
     decidim (0.28.0)
@@ -264,11 +264,11 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.17.0)
+    bootsnap (1.17.1)
       msgpack (~> 1.2)
     browser (2.7.1)
     builder (3.2.4)
-    bullet (7.1.5)
+    bullet (7.1.6)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.3)
@@ -305,7 +305,7 @@ GEM
       json
       simplecov
     commonmarker (0.23.10)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -359,7 +359,7 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faker (3.2.2)
+    faker (3.2.3)
       i18n (>= 1.8.11, < 2)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
@@ -465,7 +465,7 @@ GEM
     mime-types-data (3.2023.1205)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    minitest (5.20.0)
+    minitest (5.21.1)
     msgpack (1.7.2)
     multi_xml (0.6.0)
     mustache (1.1.1)
@@ -527,7 +527,7 @@ GEM
     parallel (1.24.0)
     parallel_tests (4.4.0)
       parallel
-    parser (3.3.0.2)
+    parser (3.3.0.4)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)

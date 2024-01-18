@@ -1,0 +1,16 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(function (item) {
+        const title = item.querySelector('.accordion-title');
+        let content = item.querySelector('.accordion-content');
+        content.style.display = 'none';
+
+        title.addEventListener('click', function () {
+
+            content = item.querySelector('.accordion-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        });
+        });
+    });
+</script>
