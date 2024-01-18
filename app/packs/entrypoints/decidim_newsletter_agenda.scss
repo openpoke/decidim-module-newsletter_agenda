@@ -1,13 +1,12 @@
 .tabs {
-  background-color: #3E4C5C !important;
+  background-color: #3e4c5c !important;
   margin: 0;
   border: 1px solid transparent;
-  background: #e8e8e8;
   list-style-type: none;
   margin-bottom: 0.5rem;
 }
 
-.tabs-title a{
+.tabs-title a {
   line-height: inherit;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -20,56 +19,59 @@
   line-height: 1;
 }
 
-.tabs-title > a:focus, .tabs-title > a[aria-selected=true], .tabs-title > a:hover {
+.tabs-title > a:focus,
+.tabs-title > a[aria-selected="true"],
+.tabs-title > a:hover {
   background: #fff;
   color: #039be5;
 }
 
-.tabs-title > a:focus, .tabs-title > a:hover {
+.tabs-title > a:focus,
+.tabs-title > a:hover {
   text-decoration: underline;
 }
 
-.form input, 
-  .form select, 
-  .form textarea, 
-  .form .check-radio, 
-  .form .input-field, 
-  .form .data-picker {
-    margin-bottom: 1.5rem;
+.form input,
+.form select,
+.form textarea,
+.form .check-radio,
+.form .input-field,
+.form .data-picker {
+  margin-bottom: 1.5rem;
 }
 
-input[type=color] {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    height: 2.4375rem;
-    margin: 0 0 1rem;
-    padding: 0.5rem;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
-    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
-    appearance: none;
-  }
+input[type="color"] {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2.4375rem;
+  margin: 0 0 1rem;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  appearance: none;
+}
 
 .form-defaults select {
-    padding-top: 0.05rem !important;
+  padding-top: 0.05rem !important;
 }
 
 button#newsletter_images_main_image_button {
-    background-color: #039be5;
-    color: #fff;
-    margin: 0 0 1rem 0;
-    padding: 0.85em 1em;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: background-color 0.25s ease-out, color 0.25s ease-out;
-    font-family: inherit;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
-  }
+  background-color: #039be5;
+  color: #fff;
+  margin: 0 0 1rem;
+  padding: 0.85em 1em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-family: inherit;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
 
 .accordion {
   .accordion-title,
