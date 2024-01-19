@@ -1,38 +1,13 @@
 .tabs {
-  background-color: #3e4c5c !important;
-  margin: 0;
-  border: 1px solid transparent;
-  list-style-type: none;
-  margin-bottom: 0.5rem;
-}
-
-.tabs-title a {
-  line-height: inherit;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  padding: 1.1rem 1rem;
-}
-
-.tabs-title > a {
-  padding: 1.15rem 1.5rem;
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.tabs-title > a:focus,
-.tabs-title > a[aria-selected="true"],
-.tabs-title > a:hover {
-  background: #fff;
+  background-color: #e8e8e8;
   color: #039be5;
 }
 
-.tabs-title > a:focus,
-.tabs-title > a:hover {
-  text-decoration: underline;
+.is-active {
+  background-color: #fff;
 }
 
 .form input,
-.form select,
 .form textarea,
 .form .check-radio,
 .form .input-field,
@@ -57,6 +32,7 @@ input[type="color"] {
 
 .form-defaults select {
   padding-top: 0.05rem !important;
+  margin: 0.5rem 0 0 !important;
 }
 
 button#newsletter_images_main_image_button,
@@ -109,6 +85,10 @@ button#newsletter_images_main_image_button,
 
   .is-active > .accordion-title::before {
     content: "–";
+  }
+
+  span {
+    float: none !important;
   }
 }
 

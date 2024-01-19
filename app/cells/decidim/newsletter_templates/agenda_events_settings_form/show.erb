@@ -7,10 +7,10 @@
   <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
 <% end %>
 
-<ul class="tabs flex items-center py-4" data-tabs id="newsletter-tabs">
-  <li class="tabs-title is-active cursor-pointer"><a href="#panel1" aria-selected="true"><%= t(".introduction") %></a></li>
-  <li class="tabs-title cursor-pointer"><a data-tabs-target="panel2" href="#panel2"><%= t(".body") %></a></li>
-  <li class="tabs-title cursor-pointer"><a data-tabs-target="panel3" href="#panel3"><%= t(".footer") %></a></li>
+<ul class="tabs flex items-center bg-gray-2 border border-solid border-transparent" data-tabs id="newsletter-tabs">
+  <li class="tabs-title is-active cursor-pointer focus:bg-white hover:bg-white py-5 px-6"><a href="#panel1" aria-selected="true" class="no-underline hover:underline focus:underline hover:text-secondary focus:text-secondary"><%= t(".introduction") %></a></li>
+  <li class="tabs-title cursor-pointer focus:bg-white hover:bg-white py-5 px-6"><a data-tabs-target="panel2" href="#panel2" class="no-underline hover:underline focus:underline hover:text-secondary focus:text-secondary"><%= t(".body") %></a></li>
+  <li class="tabs-title cursor-pointer focus:bg-white hover:bg-white py-5 px-6"><a data-tabs-target="panel3" href="#panel3" class="no-underline hover:underline focus:underline hover:text-secondary focus:text-secondary"><%= t(".footer") %></a></li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="newsletter-tabs">
@@ -41,7 +41,7 @@
               <div class="accordion-content" data-tab-content>
                 <%= settings_fields.translated :text_field, "body_box_title_#{num}", label: t(".body_box_title") %>
                 <%= settings_fields.translated :text_field, "body_box_date_time_#{num}", label: t(".body_box_date_time") %>
-                <%= settings_fields.translated :text_field, "body_box_description_#{num}", label: t(".body_box_description"), maxlength: 250 %>
+                <%= settings_fields.translated :text_field, "body_box_description_#{num}", label: t(".body_box_description"), maxlength: 250, class: "mb-0 !mb-0" %>
                 <%= settings_fields.translated :text_field, "body_box_link_text_#{num}", label: t(".body_box_link_text") %>
                 <%= settings_fields.translated :text_field, "body_box_link_url_#{num}", label: t(".body_box_link_url") %>
                 <% form.fields_for :images, form.object.images do |images_fields| %>
@@ -87,10 +87,10 @@
           <label for="organization_social_handlers">
             <%= t(".social_handlers") %>
           </label>
-          <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
+          <ul class="flex flex-row list-none text-gray" data-tabs id="organization_social_handlers">
             <% social_handlers&.each do |handler| %>
-              <li class="tabs-title <% if handler == social_handlers.first %> is-active <% end %>">
-                <a href="#<%= handler %>" <% if handler == social_handlers.first %> aria-selected="true" <% end %>>
+              <li class="tabs-title <%='is-active' if handler == social_handlers.first %> px-2 border-l border-gray-300">
+                <a href="#<%= handler %>" <%='aria-selected="true"' if handler == social_handlers.first %>  class="hover:underline focus:underline hover:text-secondary focus:text-secondary">
                   <%= t(".#{handler}") %>
                 </a>
               </li>
@@ -99,7 +99,7 @@
         </div>
         <div class="tabs-content" data-tabs-content="organization_social_handlers">
           <% social_handlers&.each do |handler| %>
-            <div class="tabs-panel <% if handler == social_handlers.first %> is-active <% end %>" id="<%= handler %>">
+            <div class="tabs-panel" <% if handler == social_handlers.first %> is-active <% end %>" id="<%= handler %>">
               <%= settings_fields.text_field "#{handler}_handler", placeholder: t(".wont_show"), label: false %>
             </div>
           <% end %>

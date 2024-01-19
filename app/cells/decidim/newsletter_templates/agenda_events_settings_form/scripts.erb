@@ -12,5 +12,20 @@
             content.style.display = content.style.display === 'none' ? 'block' : 'none';
         });
         });
+
+        const tabLinks = document.querySelectorAll('.tabs-title');
+        tabLinks.forEach(function(tabLink) {
+        tabLink.addEventListener('click', function() {
+            tabLinks.forEach(function(tab) {
+                tab.style.background = '#E8E8E8';
+                tab.style.color = '#039be5';
+            })
+            this.style.background = '#fff';
+            this.style.color = '#039be5';
+        });
+        tabLink.setAttribute('aria-selected', 'true');
+        });
     });
+
+
 </script>
