@@ -89,8 +89,8 @@
           </label>
           <ul class="flex flex-row list-none text-gray" data-tabs id="organization_social_handlers">
             <% social_handlers&.each do |handler| %>
-              <li class="tabs-title <%='is-active' if handler == social_handlers.first %> px-2 border-l border-gray-300">
-                <a href="#<%= handler %>" <%='aria-selected="true"' if handler == social_handlers.first %>  class="hover:underline focus:underline hover:text-secondary focus:text-secondary">
+              <li class="tabs-title <%= 'is-active' if handler == social_handlers.first %> px-2 border-l border-gray-300">
+                <a href="#<%= handler %>" <%= 'aria-selected="true"' if handler == social_handlers.first %> class="hover:underline focus:underline hover:text-secondary focus:text-secondary">
                   <%= t(".#{handler}") %>
                 </a>
               </li>
@@ -99,7 +99,7 @@
         </div>
         <div class="tabs-content" data-tabs-content="organization_social_handlers">
           <% social_handlers&.each do |handler| %>
-            <div class="tabs-panel" <% if handler == social_handlers.first %> is-active <% end %>" id="<%= handler %>">
+            <div class="tabs-panel <% if handler == social_handlers.first %> is-active <% end %>" id="<%= handler %>">
               <%= settings_fields.text_field "#{handler}_handler", placeholder: t(".wont_show"), label: false %>
             </div>
           <% end %>
