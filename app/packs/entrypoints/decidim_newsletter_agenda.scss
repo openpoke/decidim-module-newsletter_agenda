@@ -1,6 +1,10 @@
+:root {
+  --secondary-rgb: #039be5;
+}
+
 .tabs {
   background-color: #e8e8e8;
-  color: #039be5;
+  color: var(--secondary-rgb);
 }
 
 .is-active {
@@ -64,7 +68,7 @@ button#newsletter_images_main_image_button,
     font-weight: 600;
     line-height: 1;
     text-transform: uppercase;
-    color: #1779ba;
+    color: var(--secondary-rgb);
 
     &:hover {
       background: #eee;
