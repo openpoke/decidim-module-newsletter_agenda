@@ -176,7 +176,7 @@
 
                         <!-- Link -->
                         <% link = link_for("body_box_link_url_#{num}") %>
-                        <% if link %>
+                        <% if link.present? %>
                           <p style="text-align:left; padding-top: 10px;">
                             <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
                                         style: "color: #{link_color};font-weight: bold; text-decoration: underline;",
@@ -213,7 +213,7 @@
                   <td class="mobile-responsive footer-box__image" style="width: 33.33%; vertical-align: top; padding: 08px;">
                     <!-- Image -->
                     <% if has_image?("footer_box_image_#{num}") %>
-                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [198, 132]), width: "198", height: "132", style: "width: 100%; height: auto;") %>
+                      <%= image_tag(image_url("footer_box_image_#{num}", resize_to_fill: [152, 101]), width: "152", height: "101", style: "width: 100%; height: auto;") %>
                     <% end %>
                     <!-- Date -->
                     <table width="100%">
