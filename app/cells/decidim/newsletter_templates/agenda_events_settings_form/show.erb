@@ -23,7 +23,7 @@
           <%= settings_fields.text_field :intro_link_url, label: t(".intro_link_url") if theme == :capitalitat %>
         <% end %>
         <% form.fields_for :images, form.object.images do |images_fields| %>
-          <%= images_fields.upload :main_image, label: t(".main_image") %>
+          <%= images_fields.upload :main_image, label: t(".main_image"), class: "bg-newsletterblue" %>
         <% end %>
       </fieldset>
     </div>
@@ -34,10 +34,15 @@
         <% form.fields_for :settings, settings do |settings_fields| %>
           <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") unless theme == :capitalitat %>
           <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == :capitalitat %>
-          <div class="c-accordion" data-component="accordion">
+          <div class="c-accordion text-newsletterblue" data-component="accordion">
             <% (1..4).each do |num| %>
-              <button role="heading" aria-level="3">
-                <a href="#" id="accordion-trigger-<%= num %>" class="c-accordion__trigger" data-controls="accordion-panel-<%= num %>"><%= t(".boxes_number_title", number: num) %>:</a>
+              <button role="heading" aria-level="3" class="flex flex-col gap-8 w-full bg-gray-6">
+                <a href="#" id="accordion-trigger-<%= num %>" class="c-accordion__trigger bg-gray-6 px-8 py-4 w-full hover:underline flex items-center justify-between" data-controls="accordion-panel-<%= num %>">
+                  <span><%= t(".boxes_number_title", number: num) %>:</span>
+                  <svg width="1em" height="1em" role="img" aria-hidden="true">
+                    <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-add-line" tabindex="-1" />
+                  </svg>
+                </a>
               </button>
                 <div id="accordion-panel-<%= num %>" class="c-accordion__panel">
                   <%= settings_fields.translated :text_field, "body_box_title_#{num}", label: t(".body_box_title") %>
@@ -46,7 +51,7 @@
                   <%= settings_fields.translated :text_field, "body_box_link_text_#{num}", label: t(".body_box_link_text") %>
                   <%= settings_fields.translated :text_field, "body_box_link_url_#{num}", label: t(".body_box_link_url") %>
                   <% form.fields_for :images, form.object.images do |images_fields| %>
-                    <%= images_fields.upload :"body_box_image_#{num}", label: t(".body_box_image") %>
+                    <%= images_fields.upload :"body_box_image_#{num}", label: t(".body_box_image"), class: "bg-red text-white" %>
                   <% end %>
                 </div>
             <% end %>
@@ -62,12 +67,17 @@
         <% form.fields_for :settings, settings do |settings_fields| %>
           <%= settings_fields.translated :text_field, :footer_title, label: t(".footer_title") %>
 
-          <div class="c-accordion" data-component="accordion">
+          <div class="text-newsletterblue" data-component="accordion">
             <% (1..3).each do |num| %>
-              <button ole="heading" aria-level="3">
-                <a href="#" id="accordion-trigger-<%= num %>" class="c-accordion__trigger" data-controls="accordion-panel-<%= num %>"><%= t(".boxes_number_title", number: num) %>:</a>
+              <button role="heading" aria-level="3" class="flex flex-col gap-8 w-full bg-gray-6">
+                <a href="#" id="trigger-<%= num %>" data-controls="panel-<%= num %>" class="bg-gray-6 px-8 py-4 w-full hover:underline flex items-center justify-between">
+                  <span><%= t(".boxes_number_title", number: num) %>:</span>
+                  <svg width="1em" height="1em" role="img" aria-hidden="true">
+                    <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-add-line" tabindex="-1" />
+                  </svg>
+                </a>
               </button>
-              <div id="accordion-panel-<%= num %>" class="c-accordion__panel">
+              <div id="panel-<%= num %>" aria-hidden="true">
                 <div class="c-accordion__inner">
                   <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
                   <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
@@ -78,7 +88,7 @@
                     <%= images_fields.upload :"footer_box_image_#{num}", label: t(".footer_box_image") %>
                   <% end %>
                 </div>
-                </div>
+              </div>
             <% end %>
           </div>
           <%= settings_fields.editor :footer_address_text, label: t(".footer_address") unless theme == :capitalitat %>
