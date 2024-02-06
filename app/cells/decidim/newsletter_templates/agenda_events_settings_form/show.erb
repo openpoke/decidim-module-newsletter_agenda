@@ -49,7 +49,6 @@
                     <%= images_fields.upload :"body_box_image_#{num}", label: t(".body_box_image") %>
                   <% end %>
                 </div>
-             
             <% end %>
           </div>
           <%= settings_fields.translated :text_field, :body_final_text, label: t(".body_final_text") unless theme == "capitalitat" %>
@@ -68,18 +67,17 @@
               <button ole="heading" aria-level="3">
                 <a href="#" id="accordion-trigger-<%= num %>" class="c-accordion__trigger" data-controls="accordion-panel-<%= num %>"><%= t(".boxes_number_title", number: num) %>:</a>
               </button>
-
-                <div  id="accordion-panel-<%= num %>" class="c-accordion__panel">
-                  <div class="c-accordion__inner">
-                    <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
-                    <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
-                    <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 if theme == "capitalitat" %>
-                    <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
-                    <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
-                    <% form.fields_for :images, form.object.images do |images_fields| %>
-                      <%= images_fields.upload :"footer_box_image_#{num}", label: t(".footer_box_image") %>
-                    <% end %>
-                  </div>
+              <div id="accordion-panel-<%= num %>" class="c-accordion__panel">
+                <div class="c-accordion__inner">
+                  <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
+                  <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
+                  <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 if theme == "capitalitat" %>
+                  <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
+                  <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
+                  <% form.fields_for :images, form.object.images do |images_fields| %>
+                    <%= images_fields.upload :"footer_box_image_#{num}", label: t(".footer_box_image") %>
+                  <% end %>
+                </div>
                 </div>
             <% end %>
           </div>
@@ -100,24 +98,18 @@
                 </li>
               <% end %>
             </ul>
-          
-            
               <% social_handlers&.each do |handler| %>
                 <div class="pt-4 pb-px" id="panel-<%= handler %>">
                   <%= settings_fields.text_field "#{handler}_handler", placeholder: t(".wont_show"), label: false %>
                 </div>
               <% end %>
-            
           </div>
           <% end %>
       </fieldset>
     </div>
-
 
   <div class="row column">
     <%= t(".interpolations_hint") %>
   </div>
 
 </div>
-
-
