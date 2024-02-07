@@ -68,7 +68,7 @@ describe "Agenda events settings" do
         expect(page).to have_content("EVENT 4:")
         expect(page).to have_content("The body of the newsletter can contain up to 4 events")
 
-        click_link_or_button "Event 1:"
+        find("#body-trigger-1").click
         expect(page).to have_content("Body event title")
 
         click_link_or_button "Footer"
@@ -77,7 +77,7 @@ describe "Agenda events settings" do
         expect(page).to have_content("EVENT 3:")
         expect(page).to have_content("The newsletter footer can contain up to 3 events.")
 
-        click_link_or_button "Event 1:"
+        find("#footer-trigger-1").click
         expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
@@ -99,7 +99,7 @@ describe "Agenda events settings" do
         find('input[name="newsletter[settings][body_subtitle_en]"]').fill_in with: "Body subtitle"
 
         (1..4).each do |i|
-          click_link_or_button "Event #{i}:"
+          find("#body-trigger-#{i}").click
           find("input[name='newsletter[settings][body_box_title_#{i}_en]']").fill_in with: "Event title #{i}"
           find("input[name='newsletter[settings][body_box_date_time_#{i}_en]']").fill_in with: i.days.from_now.strftime("%d/%m/%Y")
           find("input[name='newsletter[settings][body_box_description_#{i}_en]']").fill_in with: "Event description #{i}"
@@ -116,7 +116,7 @@ describe "Agenda events settings" do
         find("input[name='newsletter[settings][mastodon_handler]']").fill_in with: "super_mastodon"
 
         (1..3).each do |i|
-          click_link_or_button "Event #{i}:"
+          find("#footer-trigger-#{i}").click
           find("input[name='newsletter[settings][footer_box_date_time_#{i}_en]']").fill_in with: 5.days.from_now.strftime("%d/%m/%Y")
           find("input[name='newsletter[settings][footer_box_title_#{i}_en]']").fill_in with: "Footer event title #{i}"
           find("input[name='newsletter[settings][footer_box_link_text_#{i}_en]']").fill_in with: "Footer event link #{i}"
