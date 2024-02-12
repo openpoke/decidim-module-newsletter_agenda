@@ -94,7 +94,6 @@
             <% end %>
           </ul>
         </div>
-        <% console %>
         <div class="tabs-content" data-tabs-content="organization_social_handlers">
           <% social_handlers&.each do |handler, default| %>
             <div class="tabs-panel <% if handler == social_handlers.keys.first %> is-active <% end %>" id="<%= handler %>">
