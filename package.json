@@ -1,20 +1,15 @@
 {
   "name": "decidim_module_newsletter_agneda",
-  "version": "1.1",
+  "version": "2.0",
   "description": "A 3 steps proposals for Decidim",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
-    "stylelint": "stylelint app/packs/**/*.scss",
-    "stylelint-fix": "stylelint **/*.scss --fix"
-  },
-  "engines": {
-    "node": "18.17.1",
-    "npm": ">=9.6.7"
-  },
-  "stylelint": {
-    "extends": "@decidim/stylelint-config"
+    "stylelint": "stylelint **/*.scss",
+    "stylelint-fix": "stylelint **/*.scss --fix",
+    "prettier": "prettier --check '**/*.scss'",
+    "prettify": "prettier --write '**/*.scss'"
   },
   "repository": {
     "type": "git",
@@ -29,37 +24,26 @@
     "url": "https://github.com/Openpoke/decidim-module-newsletter_agenda/issues"
   },
   "homepage": "https://github.com/Openpoke/decidim-module-newsletter_agenda#readme",
+  "stylelint": {
+    "extends": "@decidim/stylelint-config"
+  },
+  "prettier": "@decidim/prettier-config",
   "devDependencies": {
-    "@babel/core": "^7.11.0",
-      "@babel/eslint-parser": "^7.16.5",
-      "@babel/plugin-proposal-private-methods": "^7.18.6",
-      "@babel/plugin-transform-runtime": "^7.22.5",
-      "@babel/preset-env": "^7.21.5",
-      "@babel/preset-react": "^7.22.5",
-      "@decidim/dev": "^0.28.0",
-      "@decidim/eslint-config": "^0.28.0",
-      "@decidim/stylelint-config": "^0.28.0",
-      "eslint": "^8.7.0",
-      "eslint-config-airbnb": "^19.0.4",
-      "eslint-config-prettier": "^8.2.0",
-      "eslint-config-standard": "^17.0.0",
-      "eslint-plugin-import": "^2.22.0",
-      "eslint-plugin-jsx-a11y": "^6.7.1",
-      "eslint-plugin-react": "^7.32.2",
-      "postcss-scss": "^4.0.9",
-      "webpack-dev-server": "^4.15.1"
+    "@decidim/dev": "0.29.1",
+    "@decidim/eslint-config": "0.29.1",
+    "@decidim/prettier-config": "0.29.1",
+    "@decidim/stylelint-config": "0.29.1",
+    "postcss-scss": "^4.0.9",
+    "sass-embedded": "^1.83.1",
+    "@tarekraafat/autocomplete.js": "^10.2.9"
   },
   "dependencies": {
-      "eslint-plugin-n": "^16.6.2",
-      "eslint-plugin-node": "^11.1.0",
-      "eslint-plugin-promise": "^6.1.1",
-      "eslint-plugin-react-hooks": "^4.6.0",
-      "eslint-plugin-standard": "^5.0.0",
-      "frappe-gantt": "^0.6.1",
-      "postcss": "^8.4.33",
-      "prettier": "2.8.8",
-      "stylelint": "^15.3.0",
-      "stylelint-prettier": "^3.0.0",
-      "webpack": "^5.89.0"
+    "codemirror": "^5.65.16",
+    "form-storage": "^1.3.5",
+    "formBuilder": "^3.19.12",
+    "inline-attacher": "^0.0.7",
+    "jsrender": "^1.0.9",
+    "leaflet.featuregroup.subgroup": "^1.0.2",
+    "tom-select": "2.2.2"
   }
 }
