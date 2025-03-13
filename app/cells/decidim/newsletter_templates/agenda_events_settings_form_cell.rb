@@ -12,24 +12,24 @@ module Decidim
           settings[:link_color] ||= default_link_color
           settings[:background_color] ||= default_background_color
           settings[:font_color_over_bg] ||= default_font_color_over_bg
-          localize_setting(settings[:body_title]) do
-            hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.body_title_preview", locale:)
+          localize_setting(settings[:body_title]) do |locale|
+            I18n.t("decidim.newsletter_templates.agenda_events.body_title_preview", locale:)
           end
 
           localize_setting(settings[:body_subtitle]) do
-            hash[locale] = DateRangeFormatter.format(Decidim::NewsletterAgenda.next_first_day, Decidim::NewsletterAgenda.next_last_day)
+            DateRangeFormatter.format(Decidim::NewsletterAgenda.next_first_day, Decidim::NewsletterAgenda.next_last_day)
           end
 
-          localize_setting(settings[:body_final_text]) do
-            hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.body_final_text_preview", locale:) if hash[locale].nil?
+          localize_setting(settings[:body_final_text]) do |locale|
+            I18n.t("decidim.newsletter_templates.agenda_events.body_final_text_preview", locale:)
           end
 
-          localize_setting(settings[:footer_title]) do
-            hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.footer_title_preview", locale:) if hash[locale].nil?
+          localize_setting(settings[:footer_title]) do |locale|
+            I18n.t("decidim.newsletter_templates.agenda_events.footer_title_preview", locale:)
           end
 
-          localize_setting(settings[:footer_social_links_title]) do
-            hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview", locale:) if hash[locale].nil?
+          localize_setting(settings[:footer_social_links_title]) do |locale|
+            I18n.t("decidim.newsletter_templates.agenda_events.footer_social_links_title_preview", locale:)
           end
 
           settings[:footer_address_text] = default_address_text if settings[:footer_address_text].blank?
@@ -41,18 +41,14 @@ module Decidim
 
           # boxes
           (1..4).each do |num|
-            settings["body_box_link_text_#{num}"].tap do |hash|
-              I18n.available_locales.each do |locale|
-                hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.body_box_link_text_preview", locale:) if hash[locale].nil?
-              end
+            localize_setting(settings["body_box_link_text_#{num}"]) do |locale|
+              I18n.t("decidim.newsletter_templates.agenda_events.body_box_link_text_preview", locale:)
             end
           end
 
           (1..3).each do |num|
-            settings["footer_box_link_text_#{num}"].tap do |hash|
-              I18n.available_locales.each do |locale|
-                hash[locale] = I18n.t("decidim.newsletter_templates.agenda_events.footer_box_link_text_preview", locale:) if hash[locale].nil?
-              end
+            localize_setting(settings["footer_box_link_text_#{num}"]) do |locale|
+              I18n.t("decidim.newsletter_templates.agenda_events.footer_box_link_text_preview", locale:)
             end
           end
         end
@@ -66,7 +62,7 @@ module Decidim
         setting.tap do |hash|
           hash = {} unless hash.is_a?(Hash)
           I18n.available_locales.each do |locale|
-            yield if hash[locale].nil?
+            hash[locale] = yield(locale) if hash[locale].nil?
           end
         end
       end
