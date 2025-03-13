@@ -6,6 +6,16 @@
   margin-bottom: 1.5rem;
 }
 
+.color-fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  label {
+    width: 100%;
+  }
+}
+
 input[type="color"] {
   display: block;
   box-sizing: border-box;

@@ -1,10 +1,12 @@
 
-<%= stylesheet_pack_tag "decidim_newsletter_agenda", media: :all %>
+<% append_stylesheet_pack_tag "decidim_newsletter_agenda", media: :all %>
 
 <% form.fields_for :settings, settings do |settings_fields| %>
-  <%= settings_fields.text_field :link_color, label: t(".link_color"), type: "color" %>
-  <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color" %>
-  <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
+  <div class="color-fields">
+    <%= settings_fields.text_field :link_color, label: t(".link_color"), type: "color" %>
+    <%= settings_fields.text_field :background_color, label: t(".background_color"), type: "color" %>
+    <%= settings_fields.text_field :font_color_over_bg, label: t(".font_color_over_bg"), type: "color" %>
+  </div>
 <% end %>
 
 <div class="layout-main__section" data-component="accordion" data-multiselectable="false" data-collapsible="false">

@@ -1,4 +1,4 @@
-import "../../../app/packs/entrypoints/decidim_newsletter_agenda.scss";
+import "entrypoints/decidim_newsletter_agenda.scss";
 
 // Images
 require.context("../images", true)
