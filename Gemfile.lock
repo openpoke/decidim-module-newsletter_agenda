@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 860cd92588ff2328854401014e772998d0839619
+  revision: 1be5d913c2cc67c88c8d11446a4bd3da171436c2
   branch: release/0.29-stable
   specs:
     decidim (0.29.2)
@@ -134,6 +134,8 @@ GIT
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -753,6 +755,10 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    spring (4.3.0)
+    spring-watcher-listen (2.1.0)
+      listen (>= 2.7, < 4.0)
+      spring (>= 4)
     stringio (3.1.5)
     temple (0.10.3)
     terminal-table (4.0.0)
