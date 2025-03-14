@@ -25,6 +25,7 @@
   "stylelint": {
     "extends": "@decidim/stylelint-config"
   },
+  "prettier": "@decidim/prettier-config",
   "devDependencies": {
     "@decidim/dev": "0.29.1",
     "@decidim/eslint-config": "0.29.1",
