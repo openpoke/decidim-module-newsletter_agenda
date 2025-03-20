@@ -52,7 +52,7 @@ Decidim::NewsletterAgenda.configure do |config|
     config.default_address_text = <<~ADDRESS
       <b>Canòdrom</b><br>
       <b>Ateneu d'Innovació Digital i Democràtica</b><br>
-      C/Concepció Arenal 165 - 09027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
+      C/Concepción Arenal 165 - 08027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
       <a href="mailto:hola@canodrom">hola@canodrom.com</a>
     ADDRESS
 end

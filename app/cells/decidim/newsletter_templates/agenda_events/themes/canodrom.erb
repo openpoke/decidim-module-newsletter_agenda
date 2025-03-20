@@ -139,6 +139,7 @@
 
   .footer-bottom__logo {
     height: 40px;
+    padding-left: 35px;
   }
 
   .footer-social__wrap {
@@ -280,7 +281,7 @@
                       </div>
                       <div class="box-link">
                         <% link = link_for("body_box_link_url_#{num}") %>
-                        <%= link_to translated_text_for("body_box_link_text_#{num}"), link, target: :blank if link %>
+                        <%= link_to translated_text_for("body_box_link_text_#{num}"), link, target: :blank if link.strip.present? %>
                       </div>
                     </td>
                   <% end %>
@@ -320,7 +321,7 @@
               </div>
               <div class="footer-box-link">
                 <% link = link_for("footer_box_link_url_#{num}") %>
-                <%= link_to(translated_text_for("footer_box_link_text_#{num}"), link, target: :blank) if link %>
+                <%= link_to(translated_text_for("footer_box_link_text_#{num}"), link, target: :blank) if link.strip.present? %>
               </div>
             </td>
           <% end %>

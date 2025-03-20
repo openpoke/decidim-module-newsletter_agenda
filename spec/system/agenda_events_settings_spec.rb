@@ -81,7 +81,7 @@ describe "Agenda events settings" do
         expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
-        expect(page).to have_content("C/Concepció Arenal 165")
+        expect(page).to have_content("C/Concepción Arenal 165")
         expect(page).to have_content("Social links title")
       end
     end
