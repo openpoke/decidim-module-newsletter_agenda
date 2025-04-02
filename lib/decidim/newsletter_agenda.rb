@@ -66,7 +66,7 @@ module Decidim
           default_font_color_over_bg: "#FFFFFF",
           default_link_color: "#524F9F",
           default_address_text: "<b>European Capital of Democracy</b><br>" \
-                                "C/Concepció Arenal 165<br>08027 Barcelona <a href='https://capitalofdemocracy.barcelona'>capitalofdemocracy.barcelona</a><br>" \
+                                "C/Concepción Arenal 165<br>08027 Barcelona <a href='https://capitalofdemocracy.barcelona'>capitalofdemocracy.barcelona</a><br>" \
                                 "<a href='mailto:rgpd@pemb.cat'>rgpd@pemb.cat</a>",
           social_handlers: {
             twitter: nil,
