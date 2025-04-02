@@ -10,6 +10,10 @@
     font-size: 18px !important;
     color: #ffffff !important;
   }
+  .introduction-text a {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+  }
 
   .intro-button a {
     color: <%= background_color %> !important;
@@ -54,8 +58,6 @@
   }
 
   .footer-logos img {
-    width: auto;
-    height: 25px;
   }
 
   img {
@@ -90,7 +92,7 @@
     }
 
     .social-links {
-      padding-top: 20px !important;
+      padding-top: 20px 0 !important;
     }
   }
 </style>
@@ -174,7 +176,7 @@
 
                         <!-- Link -->
                         <% link = link_for("body_box_link_url_#{num}") %>
-                        <% if link %>
+                        <% if link.present? %>
                           <p style="text-align:left; padding-top: 10px;">
                             <%= link_to translated_text_for("body_box_link_text_#{num}"), link,
                                         style: "color: #{link_color};font-weight: bold; text-decoration: underline;",
@@ -271,7 +273,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: <%= background_color %>">
               <tr>
                 <!-- Social -->
-                <td class="mobile-responsive social-links" style="padding: 0 32px;">
+                <td class="mobile-responsive social-links" style="padding: 0 0 0 32px;">
                   <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="left" class="footer-social__wrap" style="color: #ffffff; font-size: 12px">
