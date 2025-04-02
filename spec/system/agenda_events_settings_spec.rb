@@ -162,7 +162,7 @@ describe "Agenda events settings" do
 
           expect(page).to have_css(".footer-social__icon[title='Twitter']")
           expect(page).to have_css(".footer-social__icon[title='Mastodon']")
-          expect(page).not_to have_css(".footer-social__icon[title='Facebook']")
+          expect(page).to have_no_css(".footer-social__icon[title='Facebook']")
           expect(page).to have_css(".footer-social__icon[title='Telegram']")
 
           # no links or images without host
