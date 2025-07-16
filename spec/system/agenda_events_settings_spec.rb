@@ -112,7 +112,7 @@ describe "Agenda events settings" do
 
         click_link_or_button "Footer"
         find("input[name='newsletter[settings][footer_title_en]']").fill_in with: "Footer title"
-        click_link_or_button "Mastodon"
+        find("label[for='newsletter_settings_mastodon_handler']").click
         find("input[name='newsletter[settings][mastodon_handler]']").fill_in with: "super_mastodon"
 
         (1..3).each do |i|
