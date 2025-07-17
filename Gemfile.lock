@@ -177,7 +177,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-newsletter_agenda (2.0)
+    decidim-newsletter_agenda (2.1)
       date_range_formatter
       decidim-admin (>= 0.29, < 0.30)
       decidim-core (>= 0.29, < 0.30)
