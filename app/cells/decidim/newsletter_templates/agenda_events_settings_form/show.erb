@@ -98,9 +98,7 @@
               <%= t(".social_handlers") %>
             </label>
             <% social_handlers&.each do |handler, default| %>
-              <div class="tabs-panel <% if handler == social_handlers.keys.first %> is-active <% end %>" id="<%= handler %>">
-                <%= settings_fields.text_field "#{handler}_handler", label: t(".#{handler}"), placeholder: t(".wont_show") %>
-              </div>
+              <%= settings_fields.text_field "#{handler}_handler", label: t(".#{handler}"), placeholder: t(".wont_show") %>
             <% end %>
           </div>
           <% end %>
