@@ -68,7 +68,7 @@ describe "Agenda events settings" do
         expect(page).to have_content("EVENT 4:")
         expect(page).to have_content("The body of the newsletter can contain up to 4 events")
 
-        find("#body-trigger-1").click
+        find_by_id("body-trigger-1").click
         expect(page).to have_content("Body event title")
 
         click_link_or_button "Footer"
@@ -77,7 +77,7 @@ describe "Agenda events settings" do
         expect(page).to have_content("EVENT 3:")
         expect(page).to have_content("The newsletter footer can contain up to 3 events.")
 
-        find("#footer-trigger-1").click
+        find_by_id("footer-trigger-1").click
         expect(page).to have_content("Footer event title")
 
         expect(page).to have_content("Organization address")
