@@ -8,14 +8,6 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::NewsletterAgenda
 
-      # The newsletter has some bugs when previewing and locales
-      initializer "decidim_reporting_proposals.overrides", after: "decidim.action_controller" do
-        config.to_prepare do
-          Decidim::Admin::NewslettersController.include(Decidim::NewsletterAgenda::Admin::FixNewsletterPreviewLocales)
-          Decidim::Admin::NewsletterTemplatesController.include(Decidim::NewsletterAgenda::Admin::FixNewsletterPreviewLocales)
-        end
-      end
-
       initializer "decidim-newsletter_agenda.newsletter_templates" do
         Decidim::NewsletterAgenda.themes.each do |theme, properties|
           Decidim.content_blocks.register(:newsletter_template, "#{theme}_agenda_events") do |content_block|
