@@ -3,8 +3,8 @@
 require "decidim/gem_manager"
 
 namespace :decidim_newsletter_agenda do
-  namespace :webpacker do
-    desc "Installs Decidim Newsletter Agenda webpacker files in Rails instance application"
+  namespace :shakapacker do
+    desc "Installs Decidim Newsletter Agenda shakapacker files in Rails instance application"
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 

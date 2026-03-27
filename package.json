@@ -27,9 +27,9 @@
   },
   "prettier": "@decidim/prettier-config",
   "devDependencies": {
-    "@decidim/dev": "^0.30.0",
-    "@decidim/eslint-config": "^0.30.0",
-    "@decidim/stylelint-config": "^0.30.0",
+    "@decidim/dev": "^0.31.0",
+    "@decidim/eslint-config": "^0.31.0",
+    "@decidim/stylelint-config": "^0.31.0",
     "@tarekraafat/autocomplete.js": "^10.2.9",
     "postcss-scss": "^4.0.9",
     "sass-embedded": "^1.83.1"

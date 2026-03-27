@@ -31,6 +31,7 @@ group :development do
   gem "listen", "~> 3.1"
   gem "rubocop-faker", "~> 1.1"
   gem "web-console"
+  gem "brakeman"
 end
 
 group :test do

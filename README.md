@@ -20,7 +20,7 @@ Run this rake tasks:
 
 ```
 bundle exec rake decidim_newsletter_agenda:install:migrations
-bundle exec rails decidim_newsletter_agenda:webpacker:install
+bundle exec rails decidim_newsletter_agenda:shakapacker:install
 bundle exec rake db:migrate
 ```
 
