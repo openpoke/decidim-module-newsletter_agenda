@@ -27,11 +27,11 @@ group :development, :test do
 end
 
 group :development do
+  gem "brakeman"
   gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
   gem "rubocop-faker", "~> 1.1"
   gem "web-console"
-  gem "brakeman"
 end
 
 group :test do
