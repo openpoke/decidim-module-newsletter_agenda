@@ -154,6 +154,11 @@ GIT
       decidim-core (= 0.31.3)
     decidim-generators (0.31.3)
       decidim-core (= 0.31.3)
+    decidim-initiatives (0.31.3)
+      decidim-admin (= 0.31.3)
+      decidim-comments (= 0.31.3)
+      decidim-core (= 0.31.3)
+      decidim-verifications (= 0.31.3)
     decidim-meetings (0.31.3)
       decidim-core (= 0.31.3)
       decidim-forms (= 0.31.3)
@@ -978,6 +983,7 @@ DEPENDENCIES
   codecov
   decidim!
   decidim-dev!
+  decidim-initiatives!
   decidim-newsletter_agenda!
   faker
   letter_opener_web (~> 1.3)

@@ -35,5 +35,6 @@ group :development do
 end
 
 group :test do
+  gem "decidim-initiatives", DECIDIM_VERSION
   gem "codecov", require: false
 end
