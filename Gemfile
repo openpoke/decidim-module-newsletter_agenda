@@ -24,6 +24,7 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
 end
 
 group :development do
@@ -35,6 +36,5 @@ group :development do
 end
 
 group :test do
-  gem "decidim-initiatives", DECIDIM_VERSION
   gem "codecov", require: false
 end
