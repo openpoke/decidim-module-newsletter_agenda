@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<div class="layout-main__section" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+<div class="layout-main__section" data-controller="accordion" data-multiselectable="false" data-collapsible="false">
   <ul class="tab-x-container tabs-3">
     <li><button id="trigger-introduction" class="tab-x" data-controls="panel-introduction" data-open="true"><%= t(".introduction") %></button></li>
     <li><button id="trigger-body" class="tab-x" data-controls="panel-body" data-open=""><%= t(".body") %></button></li>
@@ -36,7 +36,7 @@
         <% form.fields_for :settings, settings do |settings_fields| %>
           <%= settings_fields.translated :text_field, :body_title, label: t(".body_title") unless theme == :capitalitat %>
           <%= settings_fields.translated :text_field, :body_subtitle, label: t(".body_subtitle") unless theme == :capitalitat %>
-          <div class="c-accordion text-newsletterblue" data-component="accordion">
+          <div class="c-accordion text-newsletterblue" data-controller="accordion">
             <% (1..4).each do |num| %>
               <button role="heading" aria-level="3" class="flex flex-col gap-8 w-full bg-gray-6">
                 <a href="#" id="body-trigger-<%= num %>" class="c-accordion__trigger uppercase bg-gray-6 px-8 py-4 w-full hover:underline flex items-center justify-between" data-controls="accordion-panel-<%= num %>">
@@ -47,7 +47,7 @@
                 <div id="accordion-panel-<%= num %>" class="c-accordion__panel">
                   <%= settings_fields.translated :text_field, "body_box_title_#{num}", label: t(".body_box_title") %>
                   <%= settings_fields.translated :text_field, "body_box_date_time_#{num}", label: t(".body_box_date_time") %>
-                  <%= settings_fields.translated :text_field, "body_box_description_#{num}", label: t(".body_box_description"), maxlength: 250, class: "mb-0 !mb-0" %>
+                  <%= settings_fields.translated :text_field, "body_box_description_#{num}", label: t(".body_box_description"), maxlength: 250, class: "mb-0 !mb-0", data: { controller: "character-counter" } %>
                   <%= settings_fields.translated :text_field, "body_box_link_text_#{num}", label: t(".body_box_link_text") %>
                   <%= settings_fields.translated :text_field, "body_box_link_url_#{num}", label: t(".body_box_link_url") %>
                   <% form.fields_for :images, form.object.images do |images_fields| %>
@@ -67,7 +67,7 @@
         <% form.fields_for :settings, settings do |settings_fields| %>
           <%= settings_fields.translated :text_field, :footer_title, label: t(".footer_title") %>
 
-          <div class="text-newsletterblue" data-component="accordion">
+          <div class="text-newsletterblue" data-controller="accordion">
             <% (1..3).each do |num| %>
               <button role="heading" aria-level="3" class="flex flex-col gap-8 w-full bg-gray-6">
                 <a href="#" id="footer-trigger-<%= num %>" data-controls="panel-<%= num %>" class="uppercase bg-gray-6 px-8 py-4 w-full hover:underline flex items-center justify-between">
@@ -79,7 +79,7 @@
                 <div class="c-accordion__inner">
                   <%= settings_fields.translated :text_field, "footer_box_date_time_#{num}", label: t(".footer_box_date_time") %>
                   <%= settings_fields.translated :text_field, "footer_box_title_#{num}", label: t(".footer_box_title") %>
-                  <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), maxlength: 250 if theme == "capitalitat" %>
+                  <%= settings_fields.translated :text_field, "footer_box_description_#{num}", label: t(".footer_box_description"), data: { controller: "character-counter" },  maxlength: 250 if theme == "capitalitat" %>
                   <%= settings_fields.translated :text_field, "footer_box_link_text_#{num}", label: t(".footer_box_link_text") %>
                   <%= settings_fields.translated :text_field, "footer_box_link_url_#{num}", label: t(".footer_box_link_url") %>
                   <% form.fields_for :images, form.object.images do |images_fields| %>
@@ -93,7 +93,7 @@
           <%= settings_fields.translated :text_field, :footer_social_links_title, label: t(".footer_social_links_title") %>
           <%= settings_fields.translated :text_field, :footer_additional_text if theme == :capitalitat %>
 
-          <div class="layout-main__section" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+          <div class="layout-main__section" data-controller="accordion" data-multiselectable="false" data-collapsible="false">
             <label for="organization_social_handlers">
               <%= t(".social_handlers") %>
             </label>
