@@ -1,5 +1,16 @@
 ---
 es:
+  activemodel:
+    attributes:
+      content_block_attachment:
+        body_box_image_1: Imagen de evento
+        body_box_image_2: Imagen de evento
+        body_box_image_3: Imagen de evento
+        body_box_image_4: Imagen de evento
+        footer_box_image_1: Imagen del evento
+        footer_box_image_2: Imagen del evento
+        footer_box_image_3: Imagen del evento
+        footer_box_image_4: Imagen del evento
   date_range:
     default:
       different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
