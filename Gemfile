@@ -24,9 +24,11 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
 end
 
 group :development do
+  gem "brakeman"
   gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
   gem "rubocop-faker", "~> 1.1"

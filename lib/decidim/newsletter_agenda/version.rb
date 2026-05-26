@@ -2,8 +2,8 @@
 
 module Decidim
   module NewsletterAgenda
-    VERSION = "3.0"
-    DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.30-stable" }.freeze
-    COMPAT_DECIDIM_VERSION = [">= 0.30", "< 0.32"].freeze
+    VERSION = "4.0"
+    DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.31-stable" }.freeze
+    COMPAT_DECIDIM_VERSION = [">= 0.31", "< 0.32"].freeze
   end
 end
